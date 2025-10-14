@@ -1,8 +1,9 @@
+import Layout from "./components/Layouts/Layout";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-success">Welcome Ye Yint Lin!</h1>      
+    <div>
+      <Layout/>
     </div>
   );
 }
