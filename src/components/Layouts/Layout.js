@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import Home from '../../pages/Home/Home';
 import { AiOutlineDoubleLeft,AiOutlineDoubleRight } from "react-icons/ai";
 import './Layout.css';
+import Menus from '../Menus/Menus';
 
 const Layout = () => {
   const [toggle,setToggle] = useState(true)
@@ -14,8 +15,8 @@ const Layout = () => {
   return (
     <>
       <div className="sidebar-section">
-        <div className={toggle ? "sidebar-toggle" :"sidebar"}>
-          <div className="sidebar-toggle-icons">
+        <div className={toggle ? "sidebar-toggle" : "sidebar"}>
+          <div className="sidebar-toggle-icons">            
             <p onClick={handleToggle}>
               {
                 toggle? (
@@ -24,8 +25,9 @@ const Layout = () => {
                  <AiOutlineDoubleRight size={30}/>
                 )
               }              
-            </p>
+            </p>            
           </div>
+          <Menus toggle={toggle}/>
         </div>
         <div className="container">
           <Home/>
