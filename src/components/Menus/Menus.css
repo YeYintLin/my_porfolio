@@ -15,8 +15,9 @@
 }
 
 .nav-link{
-    margin-top: 20px;
+    margin-top: 40px;
     cursor: pointer;
+    font: 500 18px 'Poppins', sans-serif;
 }
 
 .nav-link svg{
@@ -24,5 +25,5 @@
 }
 
 .nav-link:hover{
-    color: #f29f67;
+    color: #76B7A6;
 }

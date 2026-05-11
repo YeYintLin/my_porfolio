@@ -14,17 +14,7 @@ const About = () => {
             <div className="col-md-6 about-content">
                 <h1>About me</h1>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Quisquam nemo incidunt suscipit eum totam omnis fugiat sed,
-                    excepturi inventore similique, tenetur adipisci vel harum 
-                    nostrum iusto consequuntur amet quam numquam! Consequuntur 
-                    vero aliquid maxime reprehenderit dignissimos nulla aliquam. 
-                    Ea quidem impedit ab non quasi, facere voluptas dignissimos dolorum. 
-                    Quibusdam doloremque voluptate voluptates illum et debitis repellat at, 
-                    aperiam ex obcaecati tempora quia quis veritatis, alias quasi blanditiis 
-                    nihil iusto fugit asperiores quaerat repudiandae vitae a ullam? 
-                    Deleniti sequi ut sed cupiditate expedita repudiandae adipisci reprehenderit aliquam voluptates.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.                                        
+                    Hi, I’m Ye Yint Lin — a Mechatronics Engineering student and aspiring Full Stack Developer. I enjoy building modern web applications, exploring new technologies, and solving real-world problems through software. Most of my work focuses on the MERN stack, TypeScript, and backend development, and I’m always looking for ways to improve my skills and create better projects.                                   
                 </p>
             </div>
         </div>
