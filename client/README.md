@@ -1,0 +1,26 @@
+﻿# Portfolio Website (MERN)
+
+This repo contains the **client (React)** for my portfolio website.
+
+## Tech
+- React (Create React App)
+- React Icons, Typewriter effects, Vertical timeline
+
+## Getting started
+
+Install deps:
+- npm install
+
+Run locally:
+- npm start
+
+Build for production:
+- npm run build
+
+## Project structure
+- src/components UI components
+- src/pages page-level sections
+- src/assets images/icons
+
+## Notes
+- If you have an API (Node/Express + MongoDB), it typically lives in a separate server/ folder at the repo root. This client/ folder is the frontend only.

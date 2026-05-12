@@ -1,0 +1,32 @@
+.navbar-profile-pic img{
+    border-radius:90px ;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    vertical-align: middle;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.nav-items{
+    color: white;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+.nav-link{
+    margin-top: 40px;
+    cursor: pointer;
+    font: 500 18px 'Poppins', sans-serif;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-link svg{
+    margin-right: 10px;
+}
+
+.nav-link:hover{
+    color: #76B7A6;
+}

@@ -1,0 +1,19 @@
+.work{
+    background-color: white;     
+    padding: 30px 0px;
+}
+
+.work-exp{
+    padding: 60px 0px;
+}
+
+.work-exp h2{
+    font-weight: bold;
+    color: black;
+}
+
+.work hr{
+    color: #A163F7;
+    width: 400px;
+    margin: 10px auto;
+}
