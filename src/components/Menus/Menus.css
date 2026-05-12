@@ -18,6 +18,9 @@
     margin-top: 40px;
     cursor: pointer;
     font: 500 18px 'Poppins', sans-serif;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-link svg{

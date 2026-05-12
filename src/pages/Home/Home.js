@@ -6,9 +6,9 @@ import './home.css';
 const Home = () => {
   return (
     <>
-        <div className="container-fluid home-container">
+        <div id="home" className="container-fluid home-container">
           <div className="container home-content">
-            <h2>Hi 👋 I'm a </h2>
+            <h2>Hi 👋 I'm Ye Yint Lin</h2>
             <h1>
               <Typewriter
                 options={{

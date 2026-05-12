@@ -7,6 +7,17 @@ import { SiEducative, SiContentstack } from "react-icons/si";
 import { LuProjector } from "react-icons/lu";
 import { MdOutlineEmojiPeople, MdWorkHistory } from "react-icons/md";
 const Menus = ({toggle}) => {
+  const menuItems = [
+    { id: "home", label: "Home", Icon: IoHome },
+    { id: "about", label: "About", Icon: MdOutlineEmojiPeople },
+    { id: "education", label: "Education", Icon: SiEducative },
+    { id: "techstack", label: "Tech Stack", Icon: GrTechnology },
+    { id: "projects", label: "Projects", Icon: LuProjector },
+    { id: "work", label: "Work Experience", Icon: MdWorkHistory },            
+    { id: "testimonial", label: "Testimonial", Icon: FcVoicePresentation },
+    { id: "contact", label: "Contact", Icon: SiContentstack },
+  ];
+
   return (
     <>
     {toggle ? (
@@ -20,34 +31,12 @@ const Menus = ({toggle}) => {
 
         <div className="nav-items">
             <div className="nav-item">                            
-                <div className="nav-link">
-                    <IoHome />
-                    Home
-                </div>
-                <div className="nav-link">
-                    <MdOutlineEmojiPeople />
-                    About
-                </div>
-                <div className="nav-link">
-                    <MdWorkHistory />
-                    Work Experience
-                </div>
-                <div className="nav-link">
-                    <GrTechnology />
-                    Tech Stack
-                </div>
-                <div className="nav-link">
-                    <SiEducative />
-                    Education
-                </div>
-                <div className="nav-link">
-                    <LuProjector />
-                    Project
-                </div>                
-                <div className="nav-link">
-                    <SiContentstack />
-                    Contact
-                </div>
+                {menuItems.map(({ id, label, Icon }) => (
+                  <a key={id} className="nav-link" href={`#${id}`} aria-label={label}>
+                    <Icon />
+                    {label}
+                  </a>
+                ))}
             </div>
         </div>
         </>        
@@ -55,30 +44,17 @@ const Menus = ({toggle}) => {
         <>
         <div className="nav-items">
             <div className="nav-item">                            
-                <div className="nav-link">
-                    <IoHome title='Home'/>                
-                </div>
-                <div className="nav-link">
-                    <MdOutlineEmojiPeople title='About'/>            
-                </div>
-                <div className="nav-link">
-                    <MdWorkHistory title='Work Experience'/>
-                </div>
-                <div className="nav-link">
-                    <GrTechnology title='Tech Stack'/>
-                </div>
-                <div className="nav-link">
-                    <SiEducative title='Education'/>
-                </div>
-                <div className="nav-link">
-                    <LuProjector title='Project'/>
-                </div>
-                <div className="nav-link">
-                    <FcVoicePresentation title='Testimonial'/>
-                </div>
-                <div className="nav-link">
-                    <SiContentstack title='Contact'/>
-                </div>
+                {menuItems.map(({ id, label, Icon }) => (
+                  <a
+                    key={id}
+                    className="nav-link"
+                    href={`#${id}`}
+                    aria-label={label}
+                    title={label}
+                  >
+                    <Icon />
+                  </a>
+                ))}
             </div>
         </div>
         </>
