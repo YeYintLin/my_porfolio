@@ -1,13 +1,16 @@
 import { BsFiletypeHtml, BsFiletypeCss, BsBootstrap } from "react-icons/bs";
-import { FaNodeJs } from "react-icons/fa";
+import { FaNodeJs, FaDocker, FaPhp, FaLaravel, FaPython } from "react-icons/fa";
+import { BiLogoPostgresql } from "react-icons/bi";
 import { TbBrandNextjs } from "react-icons/tb";
+import { SiCplusplus } from "react-icons/si";
+import { SiGooglecloud } from "react-icons/si";
 import {
-  SiJavascript,  
-  SiReact,  
+  SiJavascript,
+  SiReact,
   SiMongodb,
   SiMysql,
   SiTypescript,
-  SiGithub,  
+  SiGithub,
   SiExpress,
 } from "react-icons/si";
 export const TechstackList = [
@@ -45,7 +48,7 @@ export const TechstackList = [
     _id: 7,
     name: "Nextjs",
     icon: TbBrandNextjs,
-  }, 
+  },
   {
     _id: 8,
     name: "React Native ",
@@ -75,5 +78,40 @@ export const TechstackList = [
     _id: 13,
     name: "Git / Github ",
     icon: SiGithub,
-  },  
+  },
+  {
+    _id: 14,
+    name: "Docker ",
+    icon: FaDocker,
+  },
+  {
+    _id: 15,
+    name: "PHP ",
+    icon: FaPhp,
+  },
+  {
+    _id: 16,
+    name: "Laravel ",
+    icon: FaLaravel,
+  },
+  {
+    _id: 17,
+    name: "PostgreSQL ",
+    icon: BiLogoPostgresql,
+  },
+  {
+    _id: 18,
+    name: "Python ",
+    icon: FaPython,
+  },
+  {
+    _id: 19,
+    name: "C++ ",
+    icon: SiCplusplus,
+  },
+  {
+    _id: 20,
+    name: "Google Cloud ",
+    icon: SiGooglecloud,
+  },
 ];
