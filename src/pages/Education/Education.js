@@ -4,11 +4,10 @@ import "react-vertical-timeline-component/style.min.css";
 import { IoMdSchool } from "react-icons/io";
 import './Education.css';
 import { LiaUniversitySolid } from 'react-icons/lia';
-
 const Education = () => {
     return (
         <>
-            <div id="education" className="container-fluid education">
+            <div className="container education">
                 <h2 className="col-12 mt-3 mb-1 text-center text-uppercase">
                     Education Background
                 </h2>
@@ -25,9 +24,8 @@ const Education = () => {
                     >
                         <h3 className="vertical-timeline-element-title">Undergraduate Student</h3>
                         <h4 className="vertical-timeline-element-subtitle">Mechatronic Engineering</h4>
-                        <h5 className="vertical-timeline-element-subtitle" style={{ fontSize: '1rem', color: 'black', opacity: 0.8 }}>University of Technology (Hmawbi)</h5>
+                        <h4 className="vertical-timeline-element-subtitle">University of Technology(Hmawbi)</h4>
                     </VerticalTimelineElement>
-
                     <VerticalTimelineElement
                         className="vertical-timeline-element--work"
                         date="2016 - 2018"
@@ -37,7 +35,7 @@ const Education = () => {
                         icon={<IoMdSchool />}
                     >
                         <h3 className="vertical-timeline-element-title">High School Student</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Yangon, Myanmar</h4>
+                        <h4 className="vertical-timeline-element-subtitle">Yangon</h4>                        
                     </VerticalTimelineElement>
                 </VerticalTimeline>
             </div>
