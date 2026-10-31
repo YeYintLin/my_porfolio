@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Home, 
@@ -17,13 +17,13 @@ import {
 } from "lucide-react";
 
 const navLinks = [
-  { name: "Home", href: "#home", icon: Home },
-  { name: "About", href: "#about", icon: User },
-  { name: "Tech Stack", href: "#techstack", icon: Code2 },
-  { name: "Experience", href: "#experience", icon: Briefcase },
-  { name: "Projects", href: "#projects", icon: GraduationCap },
-  { name: "Services", href: "#services", icon: Layers },
-  { name: "Contact", href: "#contact", icon: Mail },
+  { id: "home", name: "Home", href: "#home", icon: Home },
+  { id: "about", name: "About", href: "#about", icon: User },
+  { id: "techstack", name: "Tech Stack", href: "#techstack", icon: Code2 },
+  { id: "experience", name: "Experience", href: "#experience", icon: Briefcase },
+  { id: "projects", name: "Projects", href: "#projects", icon: GraduationCap },
+  { id: "services", name: "Services", href: "#services", icon: Layers },
+  { id: "contact", name: "Contact", href: "#contact", icon: Mail },
 ];
 
 interface SidebarProps {
@@ -33,6 +33,64 @@ interface SidebarProps {
 
 export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Track active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const mainEl = document.querySelector("main");
+      const scrollPosition = (mainEl ? mainEl.scrollTop : window.scrollY) || 0;
+      const windowHeight = window.innerHeight;
+      const scrollBottom = scrollPosition + windowHeight;
+      const totalScrollHeight = mainEl ? mainEl.scrollHeight : document.documentElement.scrollHeight;
+
+      // When reaching near the bottom, highlight "contact"
+      if (totalScrollHeight - scrollBottom < 120) {
+        setActiveSection("contact");
+        return;
+      }
+
+      // Check sections from bottom to top
+      const thresholdOffset = windowHeight * 0.35;
+
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const id = navLinks[i].id;
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top - thresholdOffset) {
+            setActiveSection(id);
+            break;
+          }
+        }
+      }
+    };
+
+    const mainEl = document.querySelector("main");
+    if (mainEl) {
+      mainEl.addEventListener("scroll", handleScroll, { passive: true });
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Initial check
+    handleScroll();
+
+    return () => {
+      if (mainEl) mainEl.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setActiveSection(id);
+    setIsOpen(false);
+
+    const targetEl = document.getElementById(id);
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <>
@@ -86,18 +144,64 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex-1 overflow-y-auto px-4 py-2 space-y-1.5">
+        <nav className="flex-1 overflow-y-auto px-3.5 py-2 space-y-1.5 relative">
           {navLinks.map((link) => {
             const Icon = link.icon;
+            const isActive = activeSection === link.id;
+
             return (
               <a
-                key={link.name}
+                key={link.id}
                 href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={`relative group flex items-center gap-4 px-4 py-3 rounded-xl text-white/85 hover:text-white hover:bg-white/15 dark:hover:bg-white/10 transition-all font-medium ${isCollapsed ? 'md:justify-center md:px-0' : ''}`}
+                onClick={(e) => handleNavClick(e, link.id)}
+                className={`relative group flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-300 font-medium ${
+                  isCollapsed ? 'md:justify-center md:px-0' : ''
+                } ${
+                  isActive
+                    ? 'text-white font-semibold'
+                    : 'text-white/70 hover:text-white hover:bg-white/10 dark:hover:bg-white/5'
+                }`}
               >
-                <Icon size={20} className="shrink-0 text-white/90 group-hover:scale-110 group-hover:text-white transition-all duration-200" />
-                <span className={`font-medium tracking-wide transition-all duration-300 whitespace-nowrap ${isCollapsed ? 'md:opacity-0 md:w-0 md:overflow-hidden' : 'opacity-100'}`}>
+                {/* Animated active sliding pill with spring physics */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeSidebarPill"
+                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-500/25 via-teal-500/20 to-emerald-500/10 border border-emerald-400/35 shadow-[0_0_20px_rgba(16,185,129,0.22)] backdrop-blur-sm pointer-events-none"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 32,
+                    }}
+                  />
+                )}
+
+                {/* Animated left luminous neon accent indicator */}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeSidebarIndicator"
+                    className="absolute left-0 top-2.5 bottom-2.5 w-1 rounded-r-full bg-emerald-400 shadow-[0_0_12px_#34D399] pointer-events-none"
+                    transition={{
+                      type: "spring",
+                      stiffness: 380,
+                      damping: 32,
+                    }}
+                  />
+                )}
+
+                <Icon 
+                  size={20} 
+                  className={`shrink-0 relative z-10 transition-all duration-300 ${
+                    isActive 
+                      ? 'text-emerald-300 scale-110 drop-shadow-[0_0_10px_rgba(52,211,153,0.9)]' 
+                      : 'text-white/80 group-hover:scale-110 group-hover:text-white'
+                  }`} 
+                />
+                
+                <span 
+                  className={`relative z-10 font-medium tracking-wide transition-all duration-300 whitespace-nowrap ${
+                    isCollapsed ? 'md:opacity-0 md:w-0 md:overflow-hidden' : 'opacity-100'
+                  } ${isActive ? 'text-white font-semibold' : ''}`}
+                >
                   {link.name}
                 </span>
                 
@@ -112,14 +216,6 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
           })}
         </nav>
       </motion.aside>
-
-      {/* Mobile Overlay */}
-      {isOpen && (
-        <div 
-          className="md:hidden fixed inset-0 z-30 bg-black/50 backdrop-blur-sm"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
     </>
   );
 }
