@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { GitBranch, Info, ArrowUpRight } from "lucide-react";
 import { FeaturedProject } from "@/data/projects";
@@ -10,8 +11,50 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps) {
+  const cardRef = useRef<HTMLElement | null>(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    // Only tilt on fine pointer desktop devices
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const card = cardRef.current;
+    if (!card) return;
+
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -3.5;
+    const rotateY = ((x - centerX) / centerX) * 3.5;
+
+    setTilt({ x: rotateX, y: rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setTilt({ x: 0, y: 0 });
+  };
+
   return (
-    <article className="portfolio-card flex flex-col overflow-hidden h-full">
+    <article
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: isHovered
+          ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-4px)`
+          : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)",
+        transition: isHovered ? "transform 0.1s ease-out, border-color 0.2s ease" : "transform 0.35s ease, border-color 0.2s ease",
+      }}
+      className="portfolio-card group flex flex-col overflow-hidden h-full shadow-sm hover:shadow-xl hover:border-[var(--accent)] will-change-transform"
+    >
       {/* Thumbnail */}
       <div className="relative aspect-video w-full bg-[var(--bg)] border-b border-[var(--border)] overflow-hidden">
         <Image
@@ -19,10 +62,10 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
           alt={`${project.title} screenshot`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-300 hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute top-3 left-3">
-          <span className="type-meta font-sans font-medium px-2.5 py-1 rounded-md bg-[var(--surface)]/95 text-[var(--accent)] border border-[var(--border)] shadow-sm">
+          <span className="type-meta font-sans font-medium px-2.5 py-1 rounded-md bg-[var(--surface)]/95 text-[var(--accent)] border border-[var(--border)] shadow-sm backdrop-blur-sm">
             {project.teamContext}
           </span>
         </div>
@@ -31,7 +74,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
       {/* Content */}
       <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="type-h3 text-[var(--text)] mb-2">
+          <h3 className="type-h3 text-[var(--text)] mb-2 group-hover:text-[var(--accent)] transition-colors">
             {project.title}
           </h3>
 
@@ -55,7 +98,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="type-mono-meta font-mono text-sm px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--muted)] border border-[var(--border)]"
+                className="type-mono-meta font-mono text-sm px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--muted)] border border-[var(--border)] hover:border-[var(--accent)]/50 hover:text-[var(--text)] transition-colors"
               >
                 {tag}
               </span>
@@ -68,7 +111,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
           <button
             type="button"
             onClick={() => onOpenDetails(project)}
-            className="inline-flex items-center gap-1.5 text-sm font-sans font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded"
+            className="inline-flex items-center gap-1.5 text-sm font-sans font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded py-1 px-1.5 -ml-1.5"
           >
             <Info className="w-4 h-4" aria-hidden="true" />
             Architecture & Details
@@ -80,7 +123,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="p-1.5 rounded-md text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--bg)] border border-[var(--border)] transition-colors"
+                className="p-1.5 rounded-md text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
                 title="View Source on GitHub"
                 aria-label={`View ${project.title} on GitHub`}
               >
@@ -92,7 +135,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
                 href={project.liveUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="p-1.5 rounded-md text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--bg)] border border-[var(--border)] transition-colors"
+                className="p-1.5 rounded-md text-[var(--muted)] hover:text-[var(--text)] hover:bg-[var(--bg)] border border-[var(--border)] hover:border-[var(--accent)] transition-colors"
                 title="View Live Demo"
                 aria-label={`View live demo of ${project.title}`}
               >

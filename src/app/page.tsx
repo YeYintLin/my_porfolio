@@ -1,6 +1,7 @@
 "use client";
 
 import WelcomeSplash from "@/components/WelcomeSplash";
+import CustomCursor from "@/components/CustomCursor";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -15,6 +16,9 @@ import { ProfileProvider } from "@/context/ProfileContext";
 export default function Home() {
   return (
     <ProfileProvider>
+      {/* Subtle Desktop Trailing Cursor (fine pointers only, disabled on touch/reduced-motion) */}
+      <CustomCursor />
+
       {/* Animated Welcome Splash Overlay */}
       <WelcomeSplash duration={2200} />
 

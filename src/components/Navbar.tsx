@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import CommandPalette from "@/components/CommandPalette";
 import { SITE_CONFIG } from "@/config/site";
 
 interface NavItem {
@@ -110,8 +111,9 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Controls: Theme toggle & Mobile menu button */}
-        <div className="flex items-center gap-3">
+        {/* Controls: Command Palette, Theme toggle & Mobile menu button */}
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          <CommandPalette />
           <ThemeToggle />
 
           <button

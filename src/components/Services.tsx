@@ -64,10 +64,10 @@ export default function Services() {
             return (
               <div
                 key={plan.id}
-                className={`portfolio-card p-6 sm:p-7 flex flex-col justify-between relative ${
+                className={`portfolio-card p-6 sm:p-7 flex flex-col justify-between relative transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl ${
                   isPopular
-                    ? "border-[var(--accent)] ring-1 ring-[var(--accent)]/30"
-                    : ""
+                    ? "border-[var(--accent)] ring-1 ring-[var(--accent)]/30 shadow-md"
+                    : "hover:border-[var(--accent)]/70"
                 }`}
               >
                 {/* "Most popular" badge */}

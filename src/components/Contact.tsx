@@ -1,13 +1,22 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { Mail, MapPin, Send, CheckCircle2, AlertCircle } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Copy, Check, MessageSquare } from "lucide-react";
 import { useProfile } from "@/context/ProfileContext";
 import { SITE_CONFIG } from "@/config/site";
 
 export default function Contact() {
   const { profile: profileInfo } = useProfile();
   const contactEmail = SITE_CONFIG.email;
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(contactEmail);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    } catch {}
+  };
 
   const [formData, setFormData] = useState({
     name: "",
@@ -104,15 +113,36 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
           {/* Left Column: Verified Contact Info (No placeholder phone number) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            {/* Email Card */}
-            <div className="portfolio-card p-5 sm:p-6 flex items-start gap-4">
+            {/* Email Card with Copy-to-Clipboard */}
+            <div className="portfolio-card p-5 sm:p-6 flex items-start gap-4 transition-all duration-300 hover:border-[var(--accent)]">
               <div className="w-10 h-10 rounded-lg bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center text-[var(--accent)] shrink-0">
                 <Mail className="w-5 h-5" aria-hidden="true" />
               </div>
               <div className="min-w-0 flex-1">
-                <span className="type-eyebrow text-[var(--muted)] block mb-1">
-                  Email Address
-                </span>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="type-eyebrow text-[var(--muted)]">
+                    Email Address
+                  </span>
+                  <button
+                    type="button"
+                    onClick={handleCopyEmail}
+                    className="inline-flex items-center gap-1 text-xs font-mono font-medium px-2 py-0.5 rounded border border-[var(--border)] bg-[var(--bg)] text-[var(--muted)] hover:text-[var(--text)] hover:border-[var(--accent)] transition-all cursor-pointer"
+                    title="Copy email address"
+                    aria-label="Copy email address to clipboard"
+                  >
+                    {copied ? (
+                      <>
+                        <Check className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
+                        <span className="text-emerald-400">Copied!</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+                        <span>Copy</span>
+                      </>
+                    )}
+                  </button>
+                </div>
                 <a
                   href={`mailto:${contactEmail}`}
                   className="text-base font-semibold text-[var(--text)] hover:text-[var(--accent)] transition-colors break-all"
@@ -170,6 +200,14 @@ export default function Contact() {
                   LinkedIn
                 </a>
               </div>
+            </div>
+
+            {/* Engineer's Friendly Note */}
+            <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] flex items-start gap-3">
+              <MessageSquare className="w-5 h-5 text-[var(--accent)] shrink-0 mt-0.5" aria-hidden="true" />
+              <p className="type-body text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+                Whether you want to discuss full-stack web architecture, containerization and VPS deployments, or explore working together, I look forward to connecting with you.
+              </p>
             </div>
           </div>
 
