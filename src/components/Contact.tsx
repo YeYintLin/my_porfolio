@@ -15,6 +15,8 @@ export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [lastSubmitted, setLastSubmitted] = useState<{ name: string; email: string; message: string } | null>(null);
+  const [honeypot, setHoneypot] = useState("");
+  const [loadedAt, setLoadedAt] = useState<number>(0);
   const [profileInfo, setProfileInfo] = useState({
     email: "yeyint2702@gmail.com",
     phone: "+95 9 798 123456",
@@ -25,6 +27,7 @@ export default function Contact() {
   });
 
   useEffect(() => {
+    setLoadedAt(Date.now());
     fetch("/api/profile")
       .then((res) => res.json())
       .then((data) => {
@@ -75,7 +78,11 @@ export default function Contact() {
       const response = await fetch("/api/messages", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          _gotcha: honeypot,
+          loadedAt,
+        }),
       });
 
       const data = await response.json();
@@ -262,6 +269,20 @@ export default function Contact() {
                     <h3 className="text-2xl font-bold border-b border-gray-200 dark:border-gray-800 pb-4">
                       Send a Message
                     </h3>
+
+                    {/* Anti-spam honeypot (invisible to humans, traps automated bot scrapers) */}
+                    <div style={{ display: "none", position: "absolute", left: "-9999px" }} aria-hidden="true">
+                      <label htmlFor="website_hp">Leave this empty</label>
+                      <input
+                        type="text"
+                        id="website_hp"
+                        name="_gotcha"
+                        value={honeypot}
+                        onChange={(e) => setHoneypot(e.target.value)}
+                        tabIndex={-1}
+                        autoComplete="off"
+                      />
+                    </div>
 
                     {status === "error" && (
                       <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-4 rounded-xl font-light flex flex-col gap-2">
