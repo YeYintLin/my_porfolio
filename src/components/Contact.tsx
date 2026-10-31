@@ -219,7 +219,7 @@ export default function Contact() {
             {/* Engineer's Friendly Note */}
             <div className="p-4 rounded-xl bg-[var(--surface)] border border-[var(--border)] flex items-start gap-3">
               <MessageSquare className="w-5 h-5 text-[var(--accent)] shrink-0 mt-0.5" aria-hidden="true" />
-              <p className="type-body text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+              <p className="type-body text-xs sm:text-sm text-[var(--muted)] leading-relaxed prose-mobile-justify">
                 Whether you want to discuss full-stack web architecture, containerization and VPS deployments, or explore working together, I look forward to connecting with you.
               </p>
             </div>

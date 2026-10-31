@@ -104,7 +104,7 @@ export default function Services() {
                     </div>
                   </div>
 
-                  <p className="type-body text-sm text-[var(--muted)] leading-relaxed mb-6">
+                  <p className="type-body text-sm text-[var(--muted)] leading-relaxed mb-6 prose-mobile-justify">
                     {plan.description}
                   </p>
 

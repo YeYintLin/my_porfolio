@@ -81,7 +81,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
           </h3>
 
           {/* Problem -> Solution format */}
-          <div className="type-meta text-sm text-[var(--muted)] leading-relaxed mb-4 space-y-1">
+          <div className="type-meta text-sm text-[var(--muted)] leading-relaxed mb-4 space-y-1 prose-mobile-justify">
             <p>
               <strong className="text-[var(--text)] font-medium">Problem:</strong> {project.oneLiner.problem}
             </p>

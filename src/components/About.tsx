@@ -77,7 +77,7 @@ export default function About() {
           </div>
 
           {/* Bio text */}
-          <div className="lg:col-span-8 space-y-4 type-body text-base text-[var(--muted)] leading-relaxed">
+          <div className="lg:col-span-8 space-y-4 type-body text-base text-[var(--muted)] leading-relaxed prose-mobile-justify">
             <p>
               Hi, I’m <strong className="text-[var(--text)] font-semibold">{profile.name || SITE_CONFIG.name}</strong> — a {SITE_CONFIG.title}. I specialize in taking software from conceptual architecture all the way to production deployments on Linux VPS using Docker Compose and Nginx.
             </p>
@@ -113,22 +113,22 @@ export default function About() {
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
               <span className="type-eyebrow text-[var(--muted)] block mb-1">Timezone Overlap</span>
               <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">UTC+6:30 (Yangon)</span>
-              <span className="type-body text-sm text-[var(--muted)]">Overlaps comfortably with SGT, CET, and morning EST hours.</span>
+              <span className="type-body text-sm text-[var(--muted)] prose-mobile-justify block">Overlaps comfortably with SGT, CET, and morning EST hours.</span>
             </div>
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
               <span className="type-eyebrow text-[var(--muted)] block mb-1">Work Mode</span>
               <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">Remote & Contractor</span>
-              <span className="type-body text-sm text-[var(--muted)]">Available for remote contractor projects from December 2026.</span>
+              <span className="type-body text-sm text-[var(--muted)] prose-mobile-justify block">Available for remote contractor projects from December 2026.</span>
             </div>
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
               <span className="type-eyebrow text-[var(--muted)] block mb-1">Languages</span>
               <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">English & Burmese</span>
-              <span className="type-body text-sm text-[var(--muted)]">{SITE_CONFIG.languages}.</span>
+              <span className="type-body text-sm text-[var(--muted)] prose-mobile-justify block">{SITE_CONFIG.languages}.</span>
             </div>
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
               <span className="type-eyebrow text-[var(--muted)] block mb-1">Connectivity Setup</span>
               <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">Backup Power & Dual ISP</span>
-              <span className="type-body text-sm text-[var(--muted)]">{SITE_CONFIG.connectivity}.</span> {/* TODO: confirm backup setup */}
+              <span className="type-body text-sm text-[var(--muted)] prose-mobile-justify block">{SITE_CONFIG.connectivity}.</span> {/* TODO: confirm backup setup */}
             </div>
           </div>
         </motion.div>
@@ -150,7 +150,7 @@ export default function About() {
                 {feature.icon}
               </div>
               <h4 className="text-base font-semibold mb-2 text-[var(--text)]">{feature.title}</h4>
-              <p className="type-body text-sm text-[var(--muted)] leading-relaxed">{feature.description}</p>
+              <p className="type-body text-sm text-[var(--muted)] leading-relaxed prose-mobile-justify">{feature.description}</p>
             </div>
           ))}
         </motion.div>

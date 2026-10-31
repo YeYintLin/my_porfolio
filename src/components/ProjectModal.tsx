@@ -87,7 +87,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Overview & Technical Explanation */}
         <div className="space-y-3 mb-6">
           <h4 className="text-base font-semibold text-[var(--text)]">Technical Architecture & Explanation</h4>
-          <p className="type-body text-sm text-[var(--muted)] leading-relaxed">{project.description}</p>
+          <p className="type-body text-sm text-[var(--muted)] leading-relaxed prose-mobile-justify">{project.description}</p>
         </div>
 
         {/* Inline SVG Architecture Diagram */}

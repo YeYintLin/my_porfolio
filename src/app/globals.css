@@ -153,6 +153,24 @@ html:not(.dark) {
   max-width: 65ch;
 }
 
+/* Mobile-first justified paragraph styling for clean, neat column margins on small screens */
+.prose-mobile-justify {
+  text-align: justify;
+  text-align-last: left;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+
+@media (min-width: 768px) {
+  .prose-mobile-justify {
+    text-align: left;
+    text-align-last: auto;
+    hyphens: manual;
+    -webkit-hyphens: manual;
+  }
+}
+
 .type-meta {
   font-family: var(--font-sans), system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 0.875rem; /* 14px */

@@ -116,7 +116,7 @@ export default function Experience() {
                     <p className="text-sm font-sans text-[var(--muted)] mb-3 font-medium">
                       {item.subtitle}
                     </p>
-                    <p className="type-body text-sm text-[var(--muted)] leading-relaxed">
+                    <p className="type-body text-sm text-[var(--muted)] leading-relaxed prose-mobile-justify">
                       {item.description}
                     </p>
                   </div>
@@ -150,7 +150,7 @@ export default function Experience() {
                     <p className="text-sm font-sans text-[var(--muted)] mb-3 font-medium">
                       {item.subtitle}
                     </p>
-                    <p className="type-body text-sm text-[var(--muted)] leading-relaxed">
+                    <p className="type-body text-sm text-[var(--muted)] leading-relaxed prose-mobile-justify">
                       {item.description}
                     </p>
                   </div>
