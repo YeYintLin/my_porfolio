@@ -6,6 +6,7 @@ import { GrTechnology } from "react-icons/gr";
 import { SiEducative, SiContentstack } from "react-icons/si";
 import { LuProjector } from "react-icons/lu";
 import { MdOutlineEmojiPeople, MdWorkHistory } from "react-icons/md";
+
 const Menus = ({toggle}) => {
   const menuItems = [
     { id: "home", label: "Home", Icon: IoHome },

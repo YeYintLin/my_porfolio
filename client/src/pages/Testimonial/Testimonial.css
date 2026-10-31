@@ -1,15 +1,15 @@
 .testimonial {
-    background-color: #EEF7F5;
+    background-color: var(--secondary-bg);
     padding: 60px 0px;
 }
 
 .testimonial h2 {
     font-weight: bold;
-    color: #138781;
+    color: var(--primary-color);
 }
 
 .testimonial hr {
-    color: #138781;
+    color: var(--primary-color);
     width: 400px;
     margin: 10px auto 40px auto;
 }
@@ -23,7 +23,7 @@
 }
 
 .testimonial-card {
-    background: #ffffff;
+    background: var(--card-bg);
     border-radius: 12px;
     padding: 30px;
     box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
@@ -38,7 +38,7 @@
 .testimonial-card:hover {
     transform: translateY(-8px);
     box-shadow: rgba(19, 135, 129, 0.2) 0px 12px 24px;
-    border-top: 4px solid #138781;
+    border-top: 4px solid var(--primary-color);
 }
 
 .quote-icon {
@@ -49,7 +49,7 @@
 
 .testimonial-text {
     font-style: italic;
-    color: #4a5568;
+    color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 25px;
     font-size: 0.95rem;
@@ -72,7 +72,7 @@
 }
 
 .testimonial-card:hover .client-avatar {
-    border-color: #138781;
+    border-color: var(--primary-color);
 }
 
 .client-name {

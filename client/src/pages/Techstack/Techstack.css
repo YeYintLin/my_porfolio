@@ -3,14 +3,14 @@
 }
 
 .techstack hr{
-    color: #138781;
+    color: var(--primary-color);
     width: 400px;
     margin: 10px auto;
 }
 
 .techstack h2{
     font-weight: bold;
-    color: #138781;
+    color: var(--primary-color);
 }
 
 .techstack .card{
@@ -25,7 +25,7 @@
 
 .techstack .card:hover{
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    background-color: #76B7A6;
-    color: white;    
+    background-color: var(--primary-color);
+    color: var(--sidebar-text);    
     transition: 1s;    
 }

@@ -19,7 +19,7 @@
 }
 
 .about-content h1{
-    color: gray;
+    color: var(--text-muted);
     font-family: cursive;
     border-bottom: 2px solid gray;
     text-align: center;

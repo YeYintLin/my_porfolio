@@ -1,0 +1,22 @@
+[
+  {
+    "id": "1",
+    "title": "Frontend & Mobile",
+    "skills": ["React JS", "Next.js 16", "TypeScript", "JavaScript", "React Native", "Expo", "Tailwind CSS", "Redux"]
+  },
+  {
+    "id": "2",
+    "title": "Backend & Architecture",
+    "skills": ["Node.js", "Express.js", "Microservices", "REST APIs", "API Gateway", "MongoDB", "PostgreSQL", "PHP / Laravel"]
+  },
+  {
+    "id": "3",
+    "title": "DevOps & Cloud Engineering",
+    "skills": ["Docker & Compose", "Linux / VPS Setup", "Nginx & SSL", "CI/CD (GitHub Actions)", "Google Cloud", "Monitoring & PM2"]
+  },
+  {
+    "id": "4",
+    "title": "Engineering & Languages",
+    "skills": ["Python", "C++ (Embedded/IoT)", "Git / GitHub", "OpenCV", "ESP32 / Arduino"]
+  }
+]

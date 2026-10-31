@@ -1,17 +1,17 @@
 .project{
-    background-color: #EEF7F5;
+    background-color: var(--secondary-bg);
     padding: 50px 0px;
 }
 
 .project hr{
-    color: #138781;
+    color: var(--primary-color);
     width: 400px;
     margin: 10px auto;
 }
 
 .project h2{
     font-weight: bold;
-    color: #138781;
+    color: var(--primary-color);
 }
 
 .project-intro{
@@ -19,7 +19,7 @@
     margin: 0 auto;
     line-height: 1.7;
     font-size: clamp(0.95rem, 0.6vw + 0.85rem, 1.05rem);
-    color: rgba(0, 0, 0, 0.75);
+    color: var(--text-muted);
     text-wrap: pretty;
     overflow-wrap: anywhere;
     hyphens: auto;
@@ -33,9 +33,9 @@
     position: absolute;
     left: -10px;
     top: -20px;
-    background: #f29f67;
+    background: var(--accent-color);
     border-radius: 30px 30px 30px 30px;
-    color: black;
+    color: var(--text-color);
     padding: 5px 10px;
     font-size: 14px;
 }
@@ -46,10 +46,10 @@
 }
 
 .card-detail-badge{
-    background-color: #e0b50f;
+    background-color: var(--accent-color);
     text-align: center;
     border-radius: 30px 30px 30px 30px;
-    color: black;
+    color: var(--text-color);
     padding: 5px 10px;
     font-size: 14px;
 }
@@ -61,11 +61,11 @@
 .card-image-overly span{
     display: inline-block;
     margin-left: 5px;
-    color: white;
+    color: var(--sidebar-text);
 }
 
 .card:hover{
-    background-color: white;
+    background-color: var(--sidebar-text);
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: all 0.8s ease;
@@ -77,8 +77,8 @@
     height: 40px;   
     display: block;
     text-align: center;
-    background-color: #138781;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--sidebar-text);
     border-radius: 80px;
     font-size: 16px;
     line-height: 35px;
@@ -89,10 +89,10 @@
 }
 
 .ad-btn:hover{
-    background-color: white;
-    color: #138781;
+    background-color: var(--sidebar-text);
+    color: var(--primary-color);
     background:transparent;
-    border: 2px solid #138781;
+    border: 2px solid var(--primary-color);
     transition: all 0.5s ease;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

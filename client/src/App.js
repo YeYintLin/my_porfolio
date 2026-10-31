@@ -6,18 +6,21 @@ import Projects from "./pages/Projects/Projects";
 import Techstack from "./pages/Techstack/Techstack";
 import Testimonial from "./pages/Testimonial/Testimonial";
 import WorkExp from "./pages/WorkExperience/WorkExp";
+import { ThemeProvider } from "./context/ThemeContext";
  
 function App() {
   return (
-    <Layout>
-      <About/>
-      <Education/>
-      <Techstack/>
-      <Projects/>
-      <WorkExp/>
-      <Testimonial/>
-      <Contact/>
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <About/>
+        <Education/>
+        <Techstack/>
+        <Projects/>
+        <WorkExp/>
+        <Testimonial/>
+        <Contact/>
+      </Layout>
+    </ThemeProvider>
   );
 }
 

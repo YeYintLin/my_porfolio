@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "title": "Smart Campus Management System (CMS)",
+    "description": "Enterprise-grade decoupled microservices architecture featuring an API Gateway, 3 database-isolated MongoDB instances (28-entity schema), Google Gemini AI integration, and production Docker Compose orchestration.",
+    "image": "/projects/cms_architecture.png",
+    "tags": ["Microservices", "Docker Compose", "API Gateway", "Gemini AI", "Node.js", "React", "MongoDB"],
+    "liveUrl": "https://github.com/YeYintLin/campus_management_system",
+    "githubUrl": "https://github.com/YeYintLin/campus_management_system"
+  },
+  {
+    "id": "2",
+    "title": "Next.js E-Commerce Platform",
+    "description": "High-performance digital storefront with real-time cart state management, responsive product catalog, checkout workflow, and administrative inventory controls.",
+    "image": "/projects/ecommerce_mockup.png",
+    "tags": ["Next.js", "React 19", "Tailwind CSS", "Node.js", "REST API"],
+    "liveUrl": "https://github.com/YeYintLin/Shopping_Cart_Project",
+    "githubUrl": "https://github.com/YeYintLin/Shopping_Cart_Project"
+  },
+  {
+    "id": "3",
+    "title": "Cross-Platform Fitness & Workout Mobile App",
+    "description": "Modern mobile application built with React Native and Expo featuring customized workout routines, exercise tracking analytics, fluid animations, and local data persistence.",
+    "image": "/projects/job_portal_mockup.png",
+    "tags": ["React Native", "Expo", "TypeScript", "Redux", "Mobile UX"],
+    "liveUrl": "https://github.com/YeYintLin",
+    "githubUrl": "https://github.com/YeYintLin"
+  },
+  {
+    "id": "4",
+    "title": "Desktop Bot & Mechatronics Automation",
+    "description": "Automated workflow bots combining computer vision (OpenCV/Python) for desktop automation, alongside C++ firmware for microcontroller embedded hardware (ESP32/Arduino).",
+    "image": "/projects/smart_irrigation_mockup.png",
+    "tags": ["Python", "OpenCV", "C++", "IoT / Mechatronics", "Automation"],
+    "liveUrl": "https://github.com/YeYintLin",
+    "githubUrl": "https://github.com/YeYintLin"
+  }
+]

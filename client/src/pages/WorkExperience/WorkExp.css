@@ -1,5 +1,5 @@
 .work{
-    background-color: white;     
+    background-color: var(--sidebar-text);     
     padding: 30px 0px;
 }
 
@@ -9,7 +9,7 @@
 
 .work-exp h2{
     font-weight: bold;
-    color: black;
+    color: var(--text-color);
 }
 
 .work hr{

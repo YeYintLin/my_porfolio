@@ -9,7 +9,7 @@
 }
 
 .nav-items{
-    color: white;
+    color: var(--sidebar-text);
     margin-top: 30px;
     margin-left: 25px;
 }
@@ -28,5 +28,5 @@
 }
 
 .nav-link:hover{
-    color: #76B7A6;
+    color: var(--primary-color);
 }
