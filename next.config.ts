@@ -1,10 +1,9 @@
 import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV === "development";
-const isCspEnforced = process.env.CSP_ENFORCE === "true";
-
-// Safe rollout: Content-Security-Policy-Report-Only by default.
-// Set environment variable CSP_ENFORCE=true to switch to enforcing Content-Security-Policy.
+// Enforce Content-Security-Policy by default for an A+ grade on securityheaders.com.
+// Set environment variable CSP_REPORT_ONLY=true if you ever need to fall back to report-only mode.
+const isCspEnforced = process.env.CSP_REPORT_ONLY !== "true";
 const cspHeaderName = isCspEnforced
   ? "Content-Security-Policy"
   : "Content-Security-Policy-Report-Only";
