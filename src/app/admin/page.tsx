@@ -149,7 +149,10 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    fetchData();
+    const timer = setTimeout(() => {
+      fetchData();
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleLogout = async () => {
@@ -582,6 +585,7 @@ export default function AdminDashboard() {
                             <div className="mt-3 flex items-center gap-4">
                               <span className="text-xs opacity-50">Preview:</span>
                               <div className="h-20 w-32 rounded-lg overflow-hidden border border-gray-300 dark:border-gray-700 bg-black/10">
+                                {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img src={projectForm.image} alt="Preview" className="w-full h-full object-cover" />
                               </div>
                             </div>
@@ -643,6 +647,7 @@ export default function AdminDashboard() {
                         <div key={p.id} className="glass-card p-6 rounded-2xl flex flex-col justify-between">
                           <div>
                             <div className="h-40 rounded-xl overflow-hidden mb-4 bg-black/10">
+                              {/* eslint-disable-next-line @next/next/no-img-element */}
                               <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
                             </div>
                             <h3 className="text-xl font-bold mb-2">{p.title}</h3>

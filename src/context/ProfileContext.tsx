@@ -15,9 +15,9 @@ export interface ProfileData {
 
 const defaultProfile: ProfileData = {
   name: "Ye Yint Lin",
-  title: "Full-Stack Developer & DevOps Specialist",
+  title: "Full-Stack Developer with DevOps skills",
   email: "yeyint2702@gmail.com",
-  phone: "+95 9 798 123456",
+  phone: "",
   whatsapp: "",
   location: "Yangon, Myanmar",
   linkedin: "https://www.linkedin.com/in/ye-yint-lin-altair-822a10298/",
@@ -75,7 +75,9 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
   };
 
   useEffect(() => {
-    fetchProfile();
+    const timer = setTimeout(() => {
+      fetchProfile();
+    }, 0);
 
     // Listen for storage changes across tabs (e.g. when saved in /admin)
     const handleStorageChange = (e: StorageEvent) => {
@@ -87,7 +89,10 @@ export function ProfileProvider({ children }: { children: React.ReactNode }) {
     };
 
     window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   return (

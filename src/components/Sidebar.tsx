@@ -130,8 +130,9 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
         {/* Profile Section */}
         <div className={`flex flex-col items-center mt-14 mb-8 px-6 transition-all duration-300 ${isCollapsed ? 'md:px-2 md:mt-8' : ''}`}>
           <div className={`rounded-full overflow-hidden border-3 border-white/30 mb-3 bg-white/10 shadow-xl transition-all duration-300 ${isCollapsed ? 'w-12 h-12 border-2' : 'w-28 h-28'}`}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
-              src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/612763581/900" 
+              src="/profile.jpg" 
               alt="Ye Yint Lin" 
               className="w-full h-full object-cover"
             />

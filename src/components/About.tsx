@@ -1,29 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Code, Server, Cloud, ShieldCheck } from "lucide-react";
+import Image from "next/image";
+import { Code, Server, Cloud, ShieldCheck, Globe, Clock, MapPin } from "lucide-react";
 import { useProfile } from "@/context/ProfileContext";
+import { SITE_CONFIG } from "@/config/site";
 
 const features = [
   {
-    icon: <Code className="w-6 h-6 text-[var(--primary)]" />,
+    icon: <Code className="w-5 h-5 text-[var(--accent)]" />,
     title: "Full-Stack Development",
-    description: "Building responsive, modern user interfaces with React & Next.js 16 paired with high-performance Node.js backends.",
+    description: "Building responsive web user interfaces with React and Next.js paired with Node.js and Express backend services.",
   },
   {
-    icon: <Server className="w-6 h-6 text-[var(--primary)]" />,
-    title: "Microservices & APIs",
-    description: "Architecting decoupled microservices, API Gateways, and isolated databases (MongoDB & PostgreSQL).",
+    icon: <Server className="w-5 h-5 text-[var(--accent)]" />,
+    title: "APIs & Data Modeling",
+    description: "Designing RESTful APIs, decoupled microservices, and structured schemas with MongoDB and PostgreSQL.",
   },
   {
-    icon: <Cloud className="w-6 h-6 text-[var(--primary)]" />,
-    title: "DevOps & Cloud Deployments",
-    description: "Containerizing services with Docker Compose, automating CI/CD via GitHub Actions, and configuring Linux VPS + Nginx.",
+    icon: <Cloud className="w-5 h-5 text-[var(--accent)]" />,
+    title: "Containerized VPS Deployments",
+    description: "Configuring production deployments on Linux VPS using Docker Compose and Nginx reverse proxy.",
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-[var(--primary)]" />,
-    title: "Reliability & Backups",
-    description: "Setting up automated cloud backups, SSL certification, server monitoring, and zero-downtime restart policies.",
+    icon: <ShieldCheck className="w-5 h-5 text-[var(--accent)]" />,
+    title: "Operational Reliability",
+    description: "Setting up database backups, automated SSL renewal, and automatic restart policies and health checks.", // TODO: confirm automated backup target
   },
 ];
 
@@ -31,74 +32,100 @@ export default function About() {
   const { profile } = useProfile();
 
   return (
-    <section id="about" className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative">
+    <section id="about" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-12 sm:mb-20"
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
+        <div className="mb-12 text-center">
+          <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-2 block">
+            Background & Engineering Focus
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-[var(--text)]">
             About Me
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-[#D97706] to-[#0284C7] dark:from-[#0284C7] dark:to-[#38BDF8] rounded-full mb-6 sm:mb-8" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 text-base sm:text-lg opacity-80 leading-relaxed font-light">
-            <p>
-              Hi, I’m <span className="font-semibold text-[var(--primary)]">{profile.name}</span> — a {profile.title}. I specialize in taking software from conceptual design and clean architecture all the way to containerized, high-availability cloud production.
-            </p>
-            <p>
-              My expertise spans modern Next.js/React ecosystems, microservices with Node.js, database architecture (MongoDB/PostgreSQL), and cloud infrastructure (Docker Compose, Linux VPS, Nginx, CI/CD). I build software that not only looks exceptional, but performs reliably under real-world workloads.
-            </p>
-          </div>
+          <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl mx-auto">
+            Practical full-stack development, mechatronics problem solving, and Linux deployment workflows.
+          </p>
+        </div>
 
-          {/* Global Collaboration & Remote Readiness Info */}
-          <div className="mt-10 sm:mt-16 p-5 sm:p-8 glass-card border border-[var(--primary)]/15 bg-white/50 dark:bg-black/20 backdrop-blur-md">
-            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
-              <span className="text-xl sm:text-2xl">🌐</span> Global Collaboration & Remote Readiness
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-sm">
-              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
-                <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Timezone Compatibility</span>
-                <span className="font-semibold text-base text-[var(--primary)]">UTC+6:30 (Yangon)</span>
-                <span className="opacity-75 font-light leading-relaxed">Comfortably overlap with SGT, CET, and EST business hours.</span>
-              </div>
-              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
-                <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Work Mode</span>
-                <span className="font-semibold text-base text-[var(--primary)]">Remote / Relocation</span>
-                <span className="opacity-75 font-light leading-relaxed">Open to full-time remote contractor roles and global relocation.</span>
-              </div>
-              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
-                <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Languages</span>
-                <span className="font-semibold text-base text-[var(--primary)]">English & Burmese</span>
-                <span className="opacity-75 font-light leading-relaxed">Professional working proficiency in English for team syncs.</span>
-              </div>
-              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
-                <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Infrastructure Stability</span>
-                <span className="font-semibold text-base text-[var(--primary)]">Power & Net Backups</span>
-                <span className="opacity-75 font-light leading-relaxed">Equipped with reliable generator backup & dual high-speed ISP lines.</span>
-              </div>
+        {/* Profile Card & Bio Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center mb-16">
+          {/* Profile Photo (Local file using next/image with placeholder) */}
+          <div className="lg:col-span-4 flex justify-center">
+            <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-[var(--border)] bg-[var(--surface)] shadow-md">
+              <Image
+                src="/profile.jpg"
+                alt="Ye Yint Lin - Full-Stack Developer with DevOps skills"
+                fill
+                priority
+                sizes="(max-width: 640px) 176px, 208px"
+                className="object-cover"
+              />
             </div>
           </div>
-        </motion.div>
 
+          {/* Bio text */}
+          <div className="lg:col-span-8 space-y-4 text-sm sm:text-base text-[var(--muted)] leading-relaxed">
+            <p>
+              Hi, I’m <strong className="text-[var(--text)] font-semibold">{profile.name || SITE_CONFIG.name}</strong> — a {SITE_CONFIG.title}. I specialize in taking software from conceptual architecture all the way to production deployments on Linux VPS using Docker Compose and Nginx.
+            </p>
+            <p>
+              With a background in Mechatronics Engineering from the University of Technology (Hmawbi), I approach web engineering with a focus on reliability, clear system boundaries, and maintainability. My stack centers on React, Next.js, Node.js, and containerized deployment workflows.
+            </p>
+            <div className="pt-2 flex flex-wrap gap-4 text-xs sm:text-sm text-[var(--text)]">
+              <span className="inline-flex items-center gap-1.5 text-[var(--muted)]">
+                <MapPin className="w-4 h-4 text-[var(--accent)]" /> Yangon, Myanmar
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[var(--muted)]">
+                <Clock className="w-4 h-4 text-[var(--accent)]" /> {SITE_CONFIG.timezone}
+              </span>
+              <span className="inline-flex items-center gap-1.5 text-[var(--muted)]">
+                <Globe className="w-4 h-4 text-[var(--accent)]" /> {SITE_CONFIG.languages}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Remote Readiness & Practical Operational Setup */}
+        <div className="portfolio-card p-6 sm:p-8 mb-12">
+          <h3 className="text-base sm:text-lg font-bold mb-6 text-[var(--text)] flex items-center gap-2">
+            <Globe className="w-4 h-4 text-[var(--accent)]" /> Remote Collaboration & Operational Setup
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-xs sm:text-sm">
+            <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
+              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Timezone Overlap</span>
+              <span className="font-semibold text-[var(--text)] block mb-1">UTC+6:30 (Yangon)</span>
+              <span className="text-[var(--muted)]">Overlaps comfortably with SGT, CET, and morning EST hours.</span>
+            </div>
+            <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
+              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Work Mode</span>
+              <span className="font-semibold text-[var(--text)] block mb-1">Remote & Contractor</span>
+              <span className="text-[var(--muted)]">Available for remote contractor projects from December 2026.</span>
+            </div>
+            <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
+              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Languages</span>
+              <span className="font-semibold text-[var(--text)] block mb-1">English & Burmese</span>
+              <span className="text-[var(--muted)]">{SITE_CONFIG.languages}.</span>
+            </div>
+            <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
+              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Connectivity Setup</span>
+              <span className="font-semibold text-[var(--text)] block mb-1">Backup Power & Dual ISP</span>
+              <span className="text-[var(--muted)]">{SITE_CONFIG.connectivity}.</span> {/* TODO: confirm backup setup */}
+            </div>
+          </div>
+        </div>
+
+        {/* 4 Core Pillars */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {features.map((feature, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-              className="glass-card p-5 sm:p-8 group hover:-translate-y-2 transition-transform duration-300"
+              className="portfolio-card p-5 sm:p-6"
             >
-              <div className="w-12 h-12 rounded-2xl bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-9 h-9 rounded-lg bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center mb-4 text-[var(--accent)]">
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="opacity-70 text-sm leading-relaxed font-light">{feature.description}</p>
-            </motion.div>
+              <h4 className="text-sm sm:text-base font-semibold mb-2 text-[var(--text)]">{feature.title}</h4>
+              <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">{feature.description}</p>
+            </div>
           ))}
         </div>
       </div>

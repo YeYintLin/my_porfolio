@@ -161,9 +161,9 @@ export async function saveExperienceData(expData: ExperienceData): Promise<void>
 // Profile & Contact operations
 const defaultProfile: ProfileData = {
   name: "Ye Yint Lin",
-  title: "Full-Stack Developer & DevOps Specialist",
+  title: "Full-Stack Developer with DevOps skills",
   email: "yeyint2702@gmail.com",
-  phone: "+95 9 798 123456",
+  phone: "",
   whatsapp: "",
   location: "Yangon, Myanmar",
   linkedin: "https://www.linkedin.com/in/ye-yint-lin-altair-822a10298/",
