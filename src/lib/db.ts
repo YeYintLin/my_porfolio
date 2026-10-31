@@ -1,32 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
 
-const projectsPath = path.join(process.cwd(), "data", "projects.json");
-const techStackPath = path.join(process.cwd(), "data", "techstack.json");
-const messagesPath = path.join(process.cwd(), "data", "messages.json");
-const experiencePath = path.join(process.cwd(), "data", "experience.json");
-const profilePath = path.join(process.cwd(), "data", "profile.json");
-
-// Helper to ensure data directory and files exist
-async function ensureFileExists(filePath: string, initialContent: string) {
-  try {
-    await fs.access(filePath);
-  } catch {
-    const dir = path.dirname(filePath);
-    await fs.mkdir(dir, { recursive: true });
-    await fs.writeFile(filePath, initialContent, "utf-8");
-  }
-}
-
-// Ensure all files are ready
-async function initializeDb() {
-  await ensureFileExists(projectsPath, "[]");
-  await ensureFileExists(techStackPath, "[]");
-  await ensureFileExists(messagesPath, "[]");
-  await ensureFileExists(experiencePath, JSON.stringify({ experiences: [], education: [] }));
-  await ensureFileExists(profilePath, "{}");
-}
-
 export interface Project {
   id: string;
   title: string;
@@ -76,62 +50,130 @@ export interface ProfileData {
   github: string;
 }
 
+const isVercel = process.env.VERCEL === "1" || !!process.env.AWS_LAMBDA_FUNCTION_NAME;
+
+// Serverless-safe file path helper
+function getWritablePath(filename: string): string {
+  if (isVercel) {
+    return path.join("/tmp", filename);
+  }
+  return path.join(process.cwd(), "data", filename);
+}
+
+function getSeedPath(filename: string): string {
+  return path.join(process.cwd(), "data", filename);
+}
+
+// In-memory cache for serverless environments
+const memoryCache: Record<string, string> = {};
+
+// Helper to safely read json data with Vercel /tmp fallback
+async function readDataFile<T>(filename: string, defaultValue: T): Promise<T> {
+  const writablePath = getWritablePath(filename);
+  const seedPath = getSeedPath(filename);
+
+  // 1. Try reading from memory cache first if updated
+  if (memoryCache[filename]) {
+    try {
+      return JSON.parse(memoryCache[filename]);
+    } catch {}
+  }
+
+  // 2. Try reading from writable path (contains changes made in runtime)
+  try {
+    const content = await fs.readFile(writablePath, "utf-8");
+    memoryCache[filename] = content;
+    return JSON.parse(content);
+  } catch {
+    // 3. Fall back to seed data from repository /data
+    try {
+      const seedContent = await fs.readFile(seedPath, "utf-8");
+      memoryCache[filename] = seedContent;
+
+      if (isVercel) {
+        try {
+          await fs.mkdir(path.dirname(writablePath), { recursive: true });
+          await fs.writeFile(writablePath, seedContent, "utf-8");
+        } catch {}
+      }
+
+      return JSON.parse(seedContent);
+    } catch {
+      return defaultValue;
+    }
+  }
+}
+
+// Helper to safely write json data with Vercel /tmp resilience
+async function writeDataFile<T>(filename: string, data: T): Promise<void> {
+  const json = JSON.stringify(data, null, 2);
+  memoryCache[filename] = json;
+
+  const writablePath = getWritablePath(filename);
+  try {
+    const dir = path.dirname(writablePath);
+    await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(writablePath, json, "utf-8");
+  } catch (err) {
+    console.warn(`[db] File write warning for ${filename}, persisted in memory cache:`, err);
+  }
+}
+
 // Projects operations
 export async function getProjects(): Promise<Project[]> {
-  await initializeDb();
-  const data = await fs.readFile(projectsPath, "utf-8");
-  return JSON.parse(data);
+  return readDataFile<Project[]>("projects.json", []);
 }
 
 export async function saveProjects(projects: Project[]): Promise<void> {
-  await initializeDb();
-  await fs.writeFile(projectsPath, JSON.stringify(projects, null, 2), "utf-8");
+  return writeDataFile("projects.json", projects);
 }
 
 // Tech Stack operations
 export async function getTechStack(): Promise<TechCategory[]> {
-  await initializeDb();
-  const data = await fs.readFile(techStackPath, "utf-8");
-  return JSON.parse(data);
+  return readDataFile<TechCategory[]>("techstack.json", []);
 }
 
 export async function saveTechStack(techstack: TechCategory[]): Promise<void> {
-  await initializeDb();
-  await fs.writeFile(techStackPath, JSON.stringify(techstack, null, 2), "utf-8");
+  return writeDataFile("techstack.json", techstack);
 }
 
 // Messages operations
 export async function getMessages(): Promise<ContactMessage[]> {
-  await initializeDb();
-  const data = await fs.readFile(messagesPath, "utf-8");
-  return JSON.parse(data);
+  return readDataFile<ContactMessage[]>("messages.json", []);
 }
 
 export async function saveMessages(messages: ContactMessage[]): Promise<void> {
-  await initializeDb();
-  await fs.writeFile(messagesPath, JSON.stringify(messages, null, 2), "utf-8");
+  return writeDataFile("messages.json", messages);
 }
 
 // Experience operations
 export async function getExperienceData(): Promise<ExperienceData> {
-  await initializeDb();
-  const data = await fs.readFile(experiencePath, "utf-8");
-  return JSON.parse(data);
+  return readDataFile<ExperienceData>("experience.json", {
+    experiences: [],
+    education: [],
+  });
 }
 
 export async function saveExperienceData(expData: ExperienceData): Promise<void> {
-  await initializeDb();
-  await fs.writeFile(experiencePath, JSON.stringify(expData, null, 2), "utf-8");
+  return writeDataFile("experience.json", expData);
 }
 
 // Profile & Contact operations
+const defaultProfile: ProfileData = {
+  name: "Ye Yint Lin",
+  title: "Full-Stack Developer & DevOps Specialist",
+  email: "yeyint2702@gmail.com",
+  phone: "+95 9 798 123456",
+  whatsapp: "",
+  location: "Yangon, Myanmar",
+  linkedin: "https://linkedin.com",
+  github: "https://github.com/YeYintLin",
+};
+
 export async function getProfile(): Promise<ProfileData> {
-  await initializeDb();
-  const data = await fs.readFile(profilePath, "utf-8");
-  return JSON.parse(data);
+  return readDataFile<ProfileData>("profile.json", defaultProfile);
 }
 
 export async function saveProfile(profile: ProfileData): Promise<void> {
-  await initializeDb();
-  await fs.writeFile(profilePath, JSON.stringify(profile, null, 2), "utf-8");
+  return writeDataFile("profile.json", profile);
 }

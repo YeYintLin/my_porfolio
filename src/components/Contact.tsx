@@ -14,6 +14,7 @@ export default function Contact() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [lastSubmitted, setLastSubmitted] = useState<{ name: string; email: string; message: string } | null>(null);
   const [profileInfo, setProfileInfo] = useState({
     email: "yeyint2702@gmail.com",
     phone: "+95 9 798 123456",
@@ -80,6 +81,7 @@ export default function Contact() {
       const data = await response.json();
 
       if (response.ok && data.success) {
+        setLastSubmitted({ ...formData });
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
@@ -227,15 +229,26 @@ export default function Contact() {
                     <div>
                       <h3 className="text-3xl font-bold mb-3">Message Sent!</h3>
                       <p className="opacity-80 max-w-md mx-auto leading-relaxed font-light">
-                        Thank you for reaching out. Your message has been saved successfully. I will review it and get back to you shortly!
+                        Thank you for reaching out. Your message has been received! I will review it and get back to you shortly.
                       </p>
                     </div>
-                    <button
-                      onClick={() => setStatus("idle")}
-                      className="px-6 py-2.5 rounded-full border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white transition-all font-medium mt-4 hover:scale-105 active:scale-95"
-                    >
-                      Send another message
-                    </button>
+
+                    <div className="flex flex-wrap items-center justify-center gap-3 mt-2">
+                      {lastSubmitted && (
+                        <a
+                          href={`mailto:${profileInfo.email}?subject=${encodeURIComponent(`Portfolio Inquiry from ${lastSubmitted.name}`)}&body=${encodeURIComponent(lastSubmitted.message)}`}
+                          className="px-5 py-2.5 rounded-full bg-[var(--primary)] text-white hover:bg-[var(--primary-hover)] transition-all font-medium text-sm flex items-center gap-2 shadow-sm"
+                        >
+                          <Mail className="w-4 h-4" /> Open in Email App
+                        </a>
+                      )}
+                      <button
+                        onClick={() => setStatus("idle")}
+                        className="px-5 py-2.5 rounded-full border border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)]/10 transition-all font-medium text-sm"
+                      >
+                        Send another message
+                      </button>
+                    </div>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -251,8 +264,14 @@ export default function Contact() {
                     </h3>
 
                     {status === "error" && (
-                      <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-4 rounded-xl font-light">
-                        {errorMessage}
+                      <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-4 rounded-xl font-light flex flex-col gap-2">
+                        <span>{errorMessage}</span>
+                        <a
+                          href={`mailto:${profileInfo.email}?subject=${encodeURIComponent(`Inquiry from ${formData.name || 'Visitor'}`)}&body=${encodeURIComponent(formData.message || '')}`}
+                          className="underline hover:text-red-400 font-medium inline-flex items-center gap-1.5"
+                        >
+                          Send directly via your email client ({profileInfo.email}) &rarr;
+                        </a>
                       </div>
                     )}
 
@@ -314,6 +333,13 @@ export default function Contact() {
                         </>
                       )}
                     </button>
+
+                    <p className="text-center text-xs opacity-60 font-light mt-1">
+                      Prefer direct email?{" "}
+                      <a href={`mailto:${profileInfo.email}`} className="text-[var(--primary)] hover:underline font-medium">
+                        {profileInfo.email}
+                      </a>
+                    </p>
                   </motion.form>
                 )}
               </AnimatePresence>

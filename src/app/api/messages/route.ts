@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getMessages, saveMessages, ContactMessage } from "@/lib/db";
 import { getExpectedSessionToken } from "@/lib/auth";
+import { sendNotificationEmail } from "@/lib/email";
 
 const SESSION_COOKIE_NAME = "admin_session";
 
@@ -43,6 +44,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Invalid email address" }, { status: 400 });
     }
 
+    // Save inquiry to serverless-safe data store
     const messages = await getMessages();
     const newMessage: ContactMessage = {
       id: Date.now().toString(),
@@ -55,9 +57,26 @@ export async function POST(request: NextRequest) {
     messages.push(newMessage);
     await saveMessages(messages);
 
-    return NextResponse.json({ success: true, message: "Message sent successfully!" });
-  } catch {
-    return NextResponse.json({ message: "Failed to send message" }, { status: 500 });
+    // Attempt email forwarding to portfolio owner's Gmail
+    let emailDelivered = false;
+    try {
+      const emailResult = await sendNotificationEmail({ name, email, message });
+      emailDelivered = emailResult.sent;
+    } catch (emailErr) {
+      console.warn("[api/messages] Email dispatch warning:", emailErr);
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Message sent successfully!",
+      emailDelivered,
+    });
+  } catch (error: unknown) {
+    console.error("[api/messages] Error handling contact submission:", error);
+    return NextResponse.json(
+      { message: "Failed to send message. Please try emailing directly." },
+      { status: 500 }
+    );
   }
 }
 
