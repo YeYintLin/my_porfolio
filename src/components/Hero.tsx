@@ -41,8 +41,8 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="mb-6 sm:mb-8 inline-block">
           <span className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full glass-card text-xs sm:text-sm font-medium tracking-wide">
             <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-emerald-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 dark:bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-amber-500 dark:bg-cyan-500"></span>
             </span>
             Available for Freelance & Contract Roles 🚀
           </span>
@@ -53,7 +53,7 @@ export default function Hero() {
           className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight sm:tracking-tighter mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]"
         >
           Building & Deploying <br className="hidden md:block" />
-          <span className="bg-gradient-to-r from-[#526E3A] via-[#739655] to-[#8FBC8F] dark:from-[#10B981] dark:via-[#06B6D4] dark:to-[#38BDF8] bg-clip-text text-transparent">Resilient Systems</span> with Purpose.
+          <span className="bg-gradient-to-r from-[#B45309] via-[#D97706] to-[#F59E0B] dark:from-[#38BDF8] dark:via-[#06B6D4] dark:to-[#10B981] bg-clip-text text-transparent">Resilient Systems</span> with Purpose.
         </motion.h1>
         
         <motion.p 

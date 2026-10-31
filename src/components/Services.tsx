@@ -80,7 +80,7 @@ export default function Services() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             How I Can Help Your Business
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mx-auto mb-6" />
+          <div className="w-20 h-1.5 bg-gradient-to-r from-[#B45309] to-[#D97706] dark:from-[#38BDF8] dark:to-[#06B6D4] rounded-full mx-auto mb-6" />
           <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg opacity-75 font-light leading-relaxed mb-6 sm:mb-8">
             Transparent, reliable software engineering and deployment packages tailored for local businesses, growing startups, and international teams.
           </p>

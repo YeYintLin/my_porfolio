@@ -139,7 +139,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
           
           <div className={`flex flex-col items-center transition-all duration-300 ${isCollapsed ? 'md:opacity-0 md:h-0 md:overflow-hidden md:mt-0' : 'opacity-100 mt-2'}`}>
             <h2 className="text-xl font-bold text-center text-white tracking-wide whitespace-nowrap">{profile.name}</h2>
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-300 bg-white/10 dark:bg-emerald-500/15 px-3 py-0.5 rounded-full text-center whitespace-nowrap mt-1.5 border border-white/15 dark:border-emerald-500/20 max-w-[200px] truncate">
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-300 dark:text-cyan-300 bg-white/10 dark:bg-cyan-500/15 px-3 py-0.5 rounded-full text-center whitespace-nowrap mt-1.5 border border-white/15 dark:border-cyan-500/20 max-w-[200px] truncate">
               {profile.title}
             </span>
           </div>
@@ -168,7 +168,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
                 {isActive && (
                   <motion.div
                     layoutId="activeSidebarPill"
-                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-emerald-500/25 via-teal-500/20 to-emerald-500/10 border border-emerald-400/35 shadow-[0_0_20px_rgba(16,185,129,0.22)] backdrop-blur-sm pointer-events-none"
+                    className="absolute inset-0 rounded-xl bg-gradient-to-r from-amber-500/25 via-orange-500/20 to-amber-500/10 dark:from-cyan-500/25 dark:via-sky-500/20 dark:to-cyan-500/10 border border-amber-400/35 dark:border-cyan-400/35 shadow-[0_0_20px_rgba(245,158,11,0.25)] dark:shadow-[0_0_20px_rgba(56,189,248,0.25)] backdrop-blur-sm pointer-events-none"
                     transition={{
                       type: "spring",
                       stiffness: 380,
@@ -181,7 +181,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
                 {isActive && (
                   <motion.div
                     layoutId="activeSidebarIndicator"
-                    className="absolute left-0 top-2.5 bottom-2.5 w-1 rounded-r-full bg-emerald-400 shadow-[0_0_12px_#34D399] pointer-events-none"
+                    className="absolute left-0 top-2.5 bottom-2.5 w-1 rounded-r-full bg-amber-400 dark:bg-cyan-400 shadow-[0_0_12px_#F59E0B] dark:shadow-[0_0_12px_#38BDF8] pointer-events-none"
                     transition={{
                       type: "spring",
                       stiffness: 380,
@@ -194,7 +194,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
                   size={20} 
                   className={`shrink-0 relative z-10 transition-all duration-300 ${
                     isActive 
-                      ? 'text-emerald-300 scale-110 drop-shadow-[0_0_10px_rgba(52,211,153,0.9)]' 
+                      ? 'text-amber-300 dark:text-cyan-300 scale-110 drop-shadow-[0_0_10px_rgba(245,158,11,0.9)] dark:drop-shadow-[0_0_10px_rgba(56,189,248,0.9)]' 
                       : 'text-white/80 group-hover:scale-110 group-hover:text-white'
                   }`} 
                 />

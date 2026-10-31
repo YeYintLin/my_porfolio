@@ -230,7 +230,7 @@ export default function Contact() {
                         muted
                         playsInline
                         loop
-                        className="w-28 h-28 sm:w-32 sm:h-32 object-contain drop-shadow-[0_0_22px_rgba(16,185,129,0.5)] transition-all duration-300 cursor-pointer"
+                        className="w-28 h-28 sm:w-32 sm:h-32 object-contain drop-shadow-[0_0_22px_rgba(245,158,11,0.4)] dark:drop-shadow-[0_0_22px_rgba(56,189,248,0.5)] transition-all duration-300 cursor-pointer"
                         title="Click to toggle between animations"
                         onClick={() => {
                           setSuccessVideoSrc((prev) =>

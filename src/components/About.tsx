@@ -43,7 +43,7 @@ export default function About() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             About Me
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mb-6 sm:mb-8" />
+          <div className="w-20 h-1.5 bg-gradient-to-r from-[#B45309] to-[#D97706] dark:from-[#38BDF8] dark:to-[#06B6D4] rounded-full mb-6 sm:mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 text-base sm:text-lg opacity-80 leading-relaxed font-light">
             <p>
               Hi, I’m <span className="font-semibold text-[var(--primary)]">{profile.name}</span> — a {profile.title}. I specialize in taking software from conceptual design and clean architecture all the way to containerized, high-availability cloud production.

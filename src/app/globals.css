@@ -4,41 +4,41 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Artistic Light Mode: Matcha Forest & Warm Alabaster */
-  --color-light-bg: #F9F9F6;
+  /* Artistic Light Mode: Warm Alabaster & Honey Amber (Nice Warm Minimalism) */
+  --color-light-bg: #FAF7F2;
   --color-light-surface: #FFFFFF;
-  --color-light-text: #192019;
-  --color-sage-primary: #526E3A;
-  --color-sage-hover: #739655;
-  --color-sage-glow: rgba(82, 110, 58, 0.15);
+  --color-light-text: #1C1917;
+  --color-warm-primary: #B45309;
+  --color-warm-hover: #D97706;
+  --color-warm-glow: rgba(180, 83, 9, 0.16);
 
-  /* Artistic Dark Mode: Obsidian & Cyber Emerald / Electric Cyan */
-  --color-dark-bg: #070B14;
+  /* Artistic Dark Mode: Obsidian Midnight & Pleasant Cold Ice Cyan */
+  --color-dark-bg: #070B16;
   --color-dark-surface: #0E1626;
   --color-dark-text: #F1F5F9;
-  --color-emerald-primary: #10B981;
-  --color-emerald-glow: rgba(16, 185, 129, 0.2);
-  --color-cyber-cyan: #38BDF8;
+  --color-cold-primary: #38BDF8;
+  --color-cold-hover: #06B6D4;
+  --color-cold-glow: rgba(56, 189, 248, 0.22);
 }
 
 :root {
   --background: var(--color-light-bg);
   --foreground: var(--color-light-text);
-  --primary: var(--color-sage-primary);
-  --primary-hover: var(--color-sage-hover);
-  --primary-glow: var(--color-sage-glow);
-  --sidebar-bg: #324323;
-  --sidebar-border: rgba(0, 0, 0, 0.15);
-  --grid-color: rgba(82, 110, 58, 0.15);
+  --primary: #B45309;
+  --primary-hover: #D97706;
+  --primary-glow: rgba(180, 83, 9, 0.16);
+  --sidebar-bg: #1C1917;
+  --sidebar-border: rgba(0, 0, 0, 0.12);
+  --grid-color: rgba(180, 83, 9, 0.08);
 }
 
 .dark {
   --background: var(--color-dark-bg);
   --foreground: var(--color-dark-text);
-  --primary: var(--color-emerald-primary);
-  --primary-hover: var(--color-cyber-cyan);
-  --primary-glow: var(--color-emerald-glow);
-  --sidebar-bg: #0B111F;
+  --primary: #38BDF8;
+  --primary-hover: #06B6D4;
+  --primary-glow: rgba(56, 189, 248, 0.22);
+  --sidebar-bg: #090E1A;
   --sidebar-border: rgba(255, 255, 255, 0.08);
   --grid-color: rgba(56, 189, 248, 0.12);
 }
@@ -75,45 +75,45 @@
 @layer components {
   /* True Frosted Glassmorphism with Specular Rim Lighting */
   .glass-card {
-    background: rgba(255, 255, 255, 0.78) !important;
+    background: rgba(255, 255, 255, 0.82) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(82, 110, 58, 0.16) !important;
-    box-shadow: 0 12px 32px -8px rgba(82, 110, 58, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(180, 83, 9, 0.12) !important;
+    box-shadow: 0 12px 32px -8px rgba(180, 83, 9, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.95) !important;
     border-radius: 1.25rem;
-    color: #192019 !important;
+    color: #1C1917 !important;
     transition: background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .glass-card:hover {
-    border-color: rgba(82, 110, 58, 0.35) !important;
-    box-shadow: 0 20px 40px -12px rgba(82, 110, 58, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 1) !important;
+    border-color: rgba(180, 83, 9, 0.28) !important;
+    box-shadow: 0 20px 40px -12px rgba(180, 83, 9, 0.12), inset 0 1px 0 0 rgba(255, 255, 255, 1) !important;
   }
   
   .dark .glass-card {
     background: rgba(14, 22, 38, 0.65) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(56, 189, 248, 0.14) !important;
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
     color: #F1F5F9 !important;
   }
 
   .dark .glass-card:hover {
-    border-color: rgba(16, 185, 129, 0.38) !important;
-    box-shadow: 0 20px 44px -10px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(16, 185, 129, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(56, 189, 248, 0.38) !important;
+    box-shadow: 0 20px 44px -10px rgba(0, 0, 0, 0.65), 0 0 24px -6px rgba(56, 189, 248, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.15) !important;
   }
 
   /* Vibrant Cyber Gradient Primary Buttons */
   .btn-primary {
     @apply px-7 py-3.5 rounded-full font-semibold text-white tracking-wide transition-all duration-300;
-    background: linear-gradient(135deg, #526E3A 0%, #739655 100%);
-    box-shadow: 0 8px 20px -4px rgba(82, 110, 58, 0.35);
+    background: linear-gradient(135deg, #B45309 0%, #D97706 100%);
+    box-shadow: 0 8px 20px -4px rgba(180, 83, 9, 0.35);
   }
 
   .btn-primary:hover {
     transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 12px 28px -4px rgba(82, 110, 58, 0.45);
+    box-shadow: 0 12px 28px -4px rgba(180, 83, 9, 0.45);
   }
 
   .btn-primary:active {
@@ -121,25 +121,25 @@
   }
 
   .dark .btn-primary {
-    background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
-    box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.35);
+    background: linear-gradient(135deg, #0284C7 0%, #06B6D4 50%, #38BDF8 100%);
+    box-shadow: 0 8px 24px -4px rgba(6, 182, 212, 0.4);
   }
 
   .dark .btn-primary:hover {
-    box-shadow: 0 12px 32px -4px rgba(16, 185, 129, 0.5), 0 0 20px -2px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 12px 32px -4px rgba(56, 189, 248, 0.5), 0 0 20px -2px rgba(6, 182, 212, 0.45);
   }
 }
 
 .contact-input {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  color: #192019 !important;
-  border: 1px solid rgba(82, 110, 58, 0.2) !important;
+  background-color: rgba(255, 255, 255, 0.75) !important;
+  color: #1C1917 !important;
+  border: 1px solid rgba(180, 83, 9, 0.18) !important;
   backdrop-filter: blur(8px);
 }
 
 .contact-input:focus {
-  border-color: #526E3A !important;
-  box-shadow: 0 0 0 3px rgba(82, 110, 58, 0.15) !important;
+  border-color: #B45309 !important;
+  box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15) !important;
 }
 
 .dark .contact-input {
@@ -149,8 +149,8 @@
 }
 
 .dark .contact-input:focus {
-  border-color: #10B981 !important;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
+  border-color: #38BDF8 !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.22) !important;
 }
 
 /* High-Contrast Signature Sidebar with Continuous Color Interpolation */

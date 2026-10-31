@@ -41,7 +41,7 @@ export default function TechStack() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             Technologies Stack
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mx-auto mb-6" />
+          <div className="w-20 h-1.5 bg-gradient-to-r from-[#B45309] to-[#D97706] dark:from-[#38BDF8] dark:to-[#06B6D4] rounded-full mx-auto mb-6" />
           <p className="text-base sm:text-lg opacity-70 max-w-2xl mx-auto font-light">
             Including programming languages, frameworks, databases, front-end and back-end tools, and APIs.
           </p>
@@ -78,7 +78,7 @@ export default function TechStack() {
                   {category.skills.map((skill) => (
                     <span 
                       key={skill} 
-                      className="text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 bg-white/40 dark:bg-black/25 text-[var(--foreground)] border border-gray-200 dark:border-gray-800 rounded-full hover:bg-gradient-to-r hover:from-[#606C38] hover:to-[#8FBC8F] dark:hover:from-[#38BDF8] dark:hover:to-[#6366F1] hover:text-white hover:border-transparent hover:shadow-[0_0_12px_rgba(116,161,46,0.3)] dark:hover:shadow-[0_0_12px_rgba(56,189,248,0.3)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 cursor-default"
+                      className="text-xs sm:text-sm font-medium px-3 sm:px-4 py-1.5 sm:py-2 bg-white/40 dark:bg-black/25 text-[var(--foreground)] border border-gray-200 dark:border-gray-800 rounded-full hover:bg-gradient-to-r hover:from-[#B45309] hover:to-[#D97706] dark:hover:from-[#06B6D4] dark:hover:to-[#38BDF8] hover:text-white hover:border-transparent hover:shadow-[0_0_12px_rgba(217,119,6,0.35)] dark:hover:shadow-[0_0_12px_rgba(56,189,248,0.4)] hover:-translate-y-0.5 active:scale-95 transition-all duration-300 cursor-default"
                     >
                       {skill}
                     </span>
