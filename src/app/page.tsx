@@ -13,6 +13,7 @@ import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Contact from "@/components/Contact";
+import WelcomeSplash from "@/components/WelcomeSplash";
 
 export default function Home() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -26,6 +27,9 @@ export default function Home() {
 
   return (
     <div className="flex h-screen overflow-hidden">
+      {/* Welcome Splash Screen (2 seconds smooth transition) */}
+      <WelcomeSplash duration={2000} />
+
       {/* Scroll Progress Bar */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-hover)] origin-left z-50"
