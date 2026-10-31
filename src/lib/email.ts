@@ -47,8 +47,20 @@ export async function sendNotificationEmail({
   }
 
   // 2. Check for SMTP / Gmail credentials
-  const emailUser = process.env.EMAIL_USER || process.env.GMAIL_USER;
-  const emailPass = process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD;
+  const emailUser = (
+    process.env.EMAIL_USER ||
+    process.env.GMAIL_USER ||
+    process.env.NOTIFICATION_EMAIL ||
+    "yeyint2702@gmail.com"
+  ).trim();
+
+  const rawPass =
+    process.env.EMAIL_PASS ||
+    process.env.GMAIL_APP_PASSWORD ||
+    process.env.CLIENT_KEY_ ||
+    process.env.CLIENT_KEY;
+
+  const emailPass = rawPass ? rawPass.replace(/\s+/g, "") : "";
 
   if (emailUser && emailPass) {
     try {
