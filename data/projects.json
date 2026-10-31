@@ -25,5 +25,14 @@
     "tags": ["Next.js", "PWA", "React Native", "TypeScript", "PostgreSQL"],
     "liveUrl": "https://github.com/YeYintLin",
     "githubUrl": "https://github.com/YeYintLin"
+  },
+  {
+    "id": "4",
+    "title": "Odoo 19.2 ERP Docker & VPS Deployment",
+    "description": "Enterprise ERP container orchestration on Linux VPS using Docker Compose, isolated PostgreSQL 15, persistent volume mounts, automated asset maintenance scripts, and Kubernetes deployment manifests.",
+    "image": "/projects/odoo_docker_vps.jpg",
+    "tags": ["Docker Compose", "Odoo 19.2", "Linux VPS", "PostgreSQL", "Kubernetes", "DevOps"],
+    "liveUrl": "#",
+    "githubUrl": "#"
   }
 ]

@@ -184,52 +184,51 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     verifiedInRepo: true,
   },
   {
-    id: "tkmlms",
-    slug: "tkmlms",
-    title: "TKMLMS (Myanmar-Language LMS)",
+    id: "odoo",
+    slug: "odoo-19-docker-vps-deployment",
+    title: "Odoo 19.2 ERP Docker & VPS Deployment",
     oneLiner: {
-      problem: "Standard educational software lacked Burmese script rendering, local timezones, and low-bandwidth optimizations.",
-      solution: "Localized learning management system with custom API integration, Nginx reverse proxy, and containerized deployment.",
+      problem: "Deploying modular enterprise ERP systems on bare-metal VPS frequently introduces dependency conflicts, asset caching corruptions, and unmanaged upgrade paths.",
+      solution: "Architected containerized Odoo 19.2 orchestration on Linux VPS using Docker Compose, isolated PostgreSQL 15, persistent volume mounts, and automated maintenance scripts.",
     },
-    role: "Full-Stack Developer & DevOps Engineer",
-    teamContext: "Team Project (Specific Individual Contributions)",
-    image: "/projects/ecommerce_mockup.png",
-    tags: ["React", "Node.js", "PHP", "MySQL", "Docker", "Nginx", "Linux VPS"],
-    githubUrl: undefined, // Proprietary client project (TODO_GITHUB_URL if open source)
+    role: "DevOps & Systems Engineer",
+    teamContext: "Solo Engineering",
+    image: "/projects/odoo_docker_vps.jpg",
+    tags: ["Docker Compose", "Odoo 19.2", "Linux VPS", "PostgreSQL", "Kubernetes", "DevOps", "Bash"],
+    githubUrl: undefined, // Infrastructure testing & deployment configuration
     liveUrl: undefined,
     description:
-      "A localized learning management system customized for an education client in Myanmar. Built customized portal components supporting native Burmese font rendering, student assignment submissions, and instructor course management. Handled Dockerization, Nginx reverse proxy configuration with SSL termination, and automated daily database backups.",
+      "A robust production-grade containerized deployment of Odoo 19.2 ERP on Linux VPS. Orchestrates the Odoo application server with PostgreSQL 15 via Docker Compose, configuring isolated bridge networks, persistent volumes for filestore assets, and modular custom addon injection. Developed automated maintenance Bash routines for database operations and asset cache clearing, alongside Kubernetes manifests for clustered scaling.",
     architectureDetails: [
-      "Custom React frontend interfaces for Burmese student and instructor dashboard",
-      "Nginx reverse proxy enforcing SSL encryption and static asset caching",
-      "LMS backend application containerized with Docker on Linux VPS",
-      "Automated MySQL dump backup routines running on scheduled intervals",
+      "Multi-container Docker Compose setup interconnecting Odoo 19.2 and PostgreSQL 15",
+      "Persistent volume configurations for PostgreSQL data, Odoo filestore, and custom addons",
+      "Automated Bash maintenance routines for asset cache invalidation and database operations",
+      "Kubernetes (k8s) manifests with PersistentVolumeClaims for cluster scaling and high availability",
     ],
     architectureSvg: `<svg viewBox="0 0 680 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
       <rect x="20" y="55" width="130" height="70" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="85" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Web & Mobile</text>
-      <text x="85" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Burmese Localization</text>
+      <text x="85" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Linux VPS Host</text>
+      <text x="85" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Port 8069 / Ingress</text>
 
       <path d="M150 90 H210" stroke="#38BDF8" stroke-width="1.5"/>
       <polygon points="210,86 218,90 210,94" fill="#38BDF8"/>
 
-      <rect x="220" y="55" width="140" height="70" rx="8" fill="#121A2B" stroke="#F59E0B" stroke-width="1.5"/>
-      <text x="290" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Nginx Reverse Proxy</text>
-      <text x="290" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">SSL & Static Cache</text>
+      <rect x="220" y="45" width="160" height="90" rx="8" fill="#121A2B" stroke="#A855F7" stroke-width="1.5"/>
+      <text x="300" y="78" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Odoo 19.2 Container</text>
+      <text x="300" y="94" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Docker Compose / k8s</text>
+      <text x="300" y="110" fill="#94A3B8" font-size="8" font-family="var(--font-mono), monospace" text-anchor="middle">+ /mnt/extra-addons</text>
 
-      <path d="M360 90 H420" stroke="#38BDF8" stroke-width="1.5"/>
-      <polygon points="420,86 428,90 420,94" fill="#38BDF8"/>
+      <path d="M380 90 H440" stroke="#38BDF8" stroke-width="1.5"/>
+      <polygon points="440,86 448,90 440,94" fill="#38BDF8"/>
 
-      <rect x="430" y="55" width="130" height="70" rx="8" fill="#121A2B" stroke="#1F2A44" stroke-width="1.5"/>
-      <text x="495" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">LMS Application</text>
-      <text x="495" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Docker Container</text>
+      <rect x="450" y="45" width="140" height="90" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="520" y="78" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">PostgreSQL 15</text>
+      <text x="520" y="94" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Isolated DB Node</text>
+      <text x="520" y="110" fill="#94A3B8" font-size="8" font-family="var(--font-mono), monospace" text-anchor="middle">Persistent pgdata</text>
 
-      <path d="M560 90 H600" stroke="#38BDF8" stroke-width="1.5"/>
-      <polygon points="600,86 608,90 600,94" fill="#38BDF8"/>
-
-      <rect x="610" y="55" width="60" height="70" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="640" y="88" fill="#E6EAF2" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">MySQL</text>
-      <text x="640" y="104" fill="#94A3B8" font-size="8" font-family="var(--font-mono), monospace" text-anchor="middle">+Backup</text>
+      <rect x="600" y="55" width="70" height="70" rx="6" fill="#121A2B" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="635" y="88" fill="#E6EAF2" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Bash</text>
+      <text x="635" y="104" fill="#94A3B8" font-size="8" font-family="var(--font-mono), monospace" text-anchor="middle">Fix Assets</text>
     </svg>`,
     verifiedInRepo: true,
   },
