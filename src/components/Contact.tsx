@@ -15,6 +15,7 @@ export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [lastSubmitted, setLastSubmitted] = useState<{ name: string; email: string; message: string } | null>(null);
+  const [successVideoSrc, setSuccessVideoSrc] = useState<"/animations/success.webm" | "/animations/success-1.webm">("/animations/success.webm");
   const [honeypot, setHoneypot] = useState("");
   const [loadedAt, setLoadedAt] = useState<number>(0);
   const [profileInfo, setProfileInfo] = useState({
@@ -89,6 +90,7 @@ export default function Contact() {
 
       if (response.ok && data.success) {
         setLastSubmitted({ ...formData });
+        setSuccessVideoSrc("/animations/success.webm");
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
@@ -232,7 +234,33 @@ export default function Contact() {
                     exit={{ opacity: 0 }}
                     className="text-center py-10 flex flex-col items-center gap-6"
                   >
-                    <CheckCircle2 className="w-20 h-20 text-[var(--primary)] stroke-[1.5]" />
+                    {/* Animated WebM Success Sequence */}
+                    <div className="relative w-32 h-32 flex items-center justify-center">
+                      <video
+                        key={successVideoSrc}
+                        autoPlay
+                        muted
+                        playsInline
+                        loop={successVideoSrc === "/animations/success-1.webm"}
+                        onEnded={() => {
+                          if (successVideoSrc === "/animations/success.webm") {
+                            setSuccessVideoSrc("/animations/success-1.webm");
+                          }
+                        }}
+                        className="w-28 h-28 sm:w-32 sm:h-32 object-contain drop-shadow-[0_0_22px_rgba(16,185,129,0.5)] transition-all duration-300 cursor-pointer"
+                        title="Click to switch success animation"
+                        onClick={() => {
+                          setSuccessVideoSrc((prev) =>
+                            prev === "/animations/success.webm"
+                              ? "/animations/success-1.webm"
+                              : "/animations/success.webm"
+                          );
+                        }}
+                      >
+                        <source src={successVideoSrc} type="video/webm" />
+                        <CheckCircle2 className="w-20 h-20 text-[var(--primary)] stroke-[1.5]" />
+                      </video>
+                    </div>
                     <div>
                       <h3 className="text-3xl font-bold mb-3">Message Sent!</h3>
                       <p className="opacity-80 max-w-md mx-auto leading-relaxed font-light">
