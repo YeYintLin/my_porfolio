@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { Lock } from "lucide-react";
 import { motion, useScroll, useSpring } from "framer-motion";
 import Sidebar from "@/components/Sidebar";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -51,8 +53,11 @@ export default function Home() {
         <Services />
         <Contact />
         
-        <footer className="py-8 text-center opacity-50 text-sm font-light border-t border-gray-200 dark:border-gray-800 mt-10">
-          &copy; {new Date().getFullYear()} Ye Yint Lin. Crafted with precision.
+        <footer className="py-8 px-6 text-sm font-light border-t border-gray-200 dark:border-gray-800 mt-10 max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 opacity-60">
+          <span>&copy; {new Date().getFullYear()} Ye Yint Lin. Crafted with precision.</span>
+          <Link href="/admin" className="text-xs hover:text-[var(--primary)] transition-colors flex items-center gap-1.5 opacity-60 hover:opacity-100">
+            <Lock className="w-3.5 h-3.5" /> Admin Portal
+          </Link>
         </footer>
       </main>
     </div>

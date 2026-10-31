@@ -1,0 +1,38 @@
+{
+  "experiences": [
+    {
+      "id": "1",
+      "type": "work",
+      "title": "Junior Full Stack Developer",
+      "subtitle": "Full-Time",
+      "date": "Jan 19, 2026 - Present",
+      "description": "Developing scalable full-stack web applications, engineering RESTful APIs, optimizing database queries, and collaborating on production deployment pipelines."
+    },
+    {
+      "id": "2",
+      "type": "work",
+      "title": "Freelance Full-Stack & DevOps Engineer",
+      "subtitle": "Independent / Contract",
+      "date": "Nov 2026 - Present",
+      "description": "Designing modern web applications, Dockerizing multi-service backends, provisioning Linux VPS environments, and automating CI/CD deployment workflows."
+    }
+  ],
+  "education": [
+    {
+      "id": "1",
+      "type": "edu",
+      "title": "Undergraduate Student",
+      "subtitle": "University of Technology (Hmawbi)",
+      "date": "2018 - Present",
+      "description": "Major: Mechatronic Engineering"
+    },
+    {
+      "id": "2",
+      "type": "edu",
+      "title": "High School Student",
+      "subtitle": "Yangon, Myanmar",
+      "date": "2016 - 2018",
+      "description": "Completed basic education high school."
+    }
+  ]
+}

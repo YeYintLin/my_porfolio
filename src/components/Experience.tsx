@@ -1,10 +1,21 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Briefcase, GraduationCap } from "lucide-react";
 
-const experience = [
+interface TimelineItem {
+  id: string;
+  type: "work" | "edu";
+  title: string;
+  subtitle: string;
+  date: string;
+  description: string;
+}
+
+const defaultExperiences: TimelineItem[] = [
   {
+    id: "1",
     type: "work",
     title: "Junior Full Stack Developer",
     subtitle: "Full-Time",
@@ -12,6 +23,7 @@ const experience = [
     description: "Developing scalable full-stack web applications, engineering RESTful APIs, optimizing database queries, and collaborating on production deployment pipelines.",
   },
   {
+    id: "2",
     type: "work",
     title: "Freelance Full-Stack & DevOps Engineer",
     subtitle: "Independent / Contract",
@@ -20,8 +32,9 @@ const experience = [
   },
 ];
 
-const education = [
+const defaultEducation: TimelineItem[] = [
   {
+    id: "1",
     type: "edu",
     title: "Undergraduate Student",
     subtitle: "University of Technology (Hmawbi)",
@@ -29,6 +42,7 @@ const education = [
     description: "Major: Mechatronic Engineering",
   },
   {
+    id: "2",
     type: "edu",
     title: "High School Student",
     subtitle: "Yangon, Myanmar",
@@ -38,6 +52,23 @@ const education = [
 ];
 
 export default function Experience() {
+  const [experiences, setExperiences] = useState<TimelineItem[]>(defaultExperiences);
+  const [education, setEducation] = useState<TimelineItem[]>(defaultEducation);
+
+  useEffect(() => {
+    fetch("/api/experience")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.experiences && Array.isArray(data.experiences) && data.experiences.length > 0) {
+          setExperiences(data.experiences);
+        }
+        if (data.education && Array.isArray(data.education) && data.education.length > 0) {
+          setEducation(data.education);
+        }
+      })
+      .catch((err) => console.error("Failed to load experience data:", err));
+  }, []);
+
   return (
     <section id="experience" className="py-32 px-6 relative">
       <div className="max-w-6xl mx-auto">
@@ -65,9 +96,9 @@ export default function Experience() {
             </div>
             
             <div className="relative border-l border-[var(--primary)]/30 ml-6 pl-8 space-y-12">
-              {experience.map((item, idx) => (
+              {experiences.map((item, idx) => (
                 <motion.div
-                  key={idx}
+                  key={item.id || idx}
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
@@ -98,8 +129,8 @@ export default function Experience() {
             <div className="relative border-l border-[var(--primary)]/30 ml-6 pl-8 space-y-12">
               {education.map((item, idx) => (
                 <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, x: 30 }}
+                  key={item.id || idx}
+                  initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
