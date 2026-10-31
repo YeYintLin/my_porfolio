@@ -16,39 +16,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 130px;
+  height: 95px;
   width: auto;
-  margin: 2rem;
+  margin: 1.5rem;
 
   font-family: var(--font-poppins, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
-  font-size: 2.2rem;
-  font-weight: 700;
+  font-size: 1.75rem;
+  font-weight: 600;
   letter-spacing: 0.04em;
   user-select: none;
   color: #ffffff;
   white-space: nowrap;
 
-  scale: 2.2;
+  scale: 1.7;
 }
 
 @media (max-width: 1280px) {
   .loader-wrapper {
-    scale: 1.85;
-    font-size: 2rem;
+    scale: 1.55;
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 768px) {
   .loader-wrapper {
-    scale: 1.35;
-    font-size: 1.7rem;
+    scale: 1.25;
+    font-size: 1.45rem;
   }
 }
 
 @media (max-width: 480px) {
   .loader-wrapper {
-    scale: 1.05;
-    font-size: 1.35rem;
+    scale: 1.0;
+    font-size: 1.25rem;
   }
 }
 
