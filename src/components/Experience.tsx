@@ -70,32 +70,32 @@ export default function Experience() {
   }, []);
 
   return (
-    <section id="experience" className="py-32 px-6 relative">
+    <section id="experience" className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-20 text-center"
+          className="mb-12 sm:mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             Journey & Experience
           </h2>
           <div className="w-20 h-1.5 bg-gradient-to-r from-[#526E3A] to-[#739655] dark:from-[#10B981] dark:to-[#38BDF8] rounded-full mx-auto" />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16">
           {/* Work Experience */}
           <div>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-[var(--primary)]/10 flex items-center justify-center">
-                <Briefcase className="w-6 h-6 text-[var(--primary)]" />
+            <div className="flex items-center gap-3.5 mb-6 sm:mb-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--primary)]/10 flex items-center justify-center shrink-0">
+                <Briefcase className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" />
               </div>
-              <h3 className="text-3xl font-bold">Experience</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold">Experience</h3>
             </div>
             
-            <div className="relative border-l border-[var(--primary)]/30 ml-6 pl-8 space-y-12">
+            <div className="relative border-l border-[var(--primary)]/30 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-10 sm:space-y-12">
               {experiences.map((item, idx) => (
                 <motion.div
                   key={item.id || idx}
@@ -105,11 +105,11 @@ export default function Experience() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="relative"
                 >
-                  <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[var(--background)] border-4 border-[var(--primary)]" />
-                  <span className="text-[var(--primary)] font-medium text-sm block mb-1">{item.date}</span>
-                  <h4 className="text-xl font-bold mb-1">{item.title}</h4>
-                  <h5 className="text-lg opacity-80 mb-3">{item.subtitle}</h5>
-                  <p className="opacity-70 font-light leading-relaxed text-sm">
+                  <div className="absolute -left-[33px] sm:-left-[41px] top-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--background)] border-3 sm:border-4 border-[var(--primary)]" />
+                  <span className="text-[var(--primary)] font-medium text-xs sm:text-sm block mb-1">{item.date}</span>
+                  <h4 className="text-lg sm:text-xl font-bold mb-1">{item.title}</h4>
+                  <h5 className="text-base sm:text-lg opacity-80 mb-2 sm:mb-3">{item.subtitle}</h5>
+                  <p className="opacity-70 font-light leading-relaxed text-xs sm:text-sm">
                     {item.description}
                   </p>
                 </motion.div>
@@ -119,14 +119,14 @@ export default function Experience() {
 
           {/* Education */}
           <div>
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-full bg-[var(--primary)]/10 flex items-center justify-center">
-                <GraduationCap className="w-6 h-6 text-[var(--primary)]" />
+            <div className="flex items-center gap-3.5 mb-6 sm:mb-8">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[var(--primary)]/10 flex items-center justify-center shrink-0">
+                <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" />
               </div>
-              <h3 className="text-3xl font-bold">Education</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold">Education</h3>
             </div>
             
-            <div className="relative border-l border-[var(--primary)]/30 ml-6 pl-8 space-y-12">
+            <div className="relative border-l border-[var(--primary)]/30 ml-4 sm:ml-6 pl-6 sm:pl-8 space-y-10 sm:space-y-12">
               {education.map((item, idx) => (
                 <motion.div
                   key={item.id || idx}
@@ -136,11 +136,11 @@ export default function Experience() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="relative"
                 >
-                  <div className="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-[var(--background)] border-4 border-[var(--primary)]" />
-                  <span className="text-[var(--primary)] font-medium text-sm block mb-1">{item.date}</span>
-                  <h4 className="text-xl font-bold mb-1">{item.title}</h4>
-                  <h5 className="text-lg opacity-80 mb-3">{item.subtitle}</h5>
-                  <p className="opacity-70 font-light leading-relaxed text-sm">
+                  <div className="absolute -left-[33px] sm:-left-[41px] top-1 w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-[var(--background)] border-3 sm:border-4 border-[var(--primary)]" />
+                  <span className="text-[var(--primary)] font-medium text-xs sm:text-sm block mb-1">{item.date}</span>
+                  <h4 className="text-lg sm:text-xl font-bold mb-1">{item.title}</h4>
+                  <h5 className="text-base sm:text-lg opacity-80 mb-2 sm:mb-3">{item.subtitle}</h5>
+                  <p className="opacity-70 font-light leading-relaxed text-xs sm:text-sm">
                     {item.description}
                   </p>
                 </motion.div>

@@ -102,53 +102,53 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 relative">
+    <section id="contact" className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-16 text-center"
+          className="mb-12 sm:mb-16 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             Get In Touch
           </h2>
-          <div className="w-20 h-1.5 bg-[var(--primary)] rounded-full mx-auto mb-8" />
-          <p className="text-lg opacity-70 max-w-2xl mx-auto font-light">
+          <div className="w-20 h-1.5 bg-[var(--primary)] rounded-full mx-auto mb-6 sm:mb-8" />
+          <p className="text-base sm:text-lg opacity-70 max-w-2xl mx-auto font-light">
             Have a project in mind, a job opportunity, or just want to chat about engineering? Drop me a line!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
           {/* Left Column: Contact Cards & Social Links */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="lg:col-span-5 flex flex-col gap-6"
+            className="lg:col-span-5 flex flex-col gap-4 sm:gap-6"
           >
-            <div className="flex items-center gap-6 p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors">
-              <div className="w-14 h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <Mail className="w-6 h-6 text-[var(--primary)]" />
+            <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-xs opacity-50 uppercase tracking-wider mb-1">Email</p>
-                <a href={`mailto:${profileInfo.email}`} className="text-lg font-medium hover:text-[var(--primary)] transition-colors">
+                <a href={`mailto:${profileInfo.email}`} className="text-base sm:text-lg font-medium hover:text-[var(--primary)] transition-colors break-all">
                   {profileInfo.email}
                 </a>
               </div>
             </div>
             
             {profileInfo.phone && (
-              <div className="flex items-center gap-6 p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors">
-                <div className="w-14 h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-6 h-6 text-[var(--primary)]" />
+              <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs opacity-50 uppercase tracking-wider mb-1">Phone</p>
-                  <a href={`tel:${profileInfo.phone}`} className="text-lg font-medium hover:text-[var(--primary)] transition-colors">
+                  <a href={`tel:${profileInfo.phone}`} className="text-base sm:text-lg font-medium hover:text-[var(--primary)] transition-colors">
                     {profileInfo.phone}
                   </a>
                 </div>
@@ -156,17 +156,17 @@ export default function Contact() {
             )}
 
             {profileInfo.whatsapp && (
-              <div className="flex items-center gap-6 p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors border-emerald-500/20">
-                <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <MessageSquare className="w-6 h-6 text-emerald-500" />
+              <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors border-emerald-500/20">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <MessageSquare className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-500" />
                 </div>
-                <div>
+                <div className="min-w-0 flex-1">
                   <p className="text-xs opacity-50 uppercase tracking-wider mb-1">WhatsApp</p>
                   <a 
                     href={profileInfo.whatsapp.startsWith("http") ? profileInfo.whatsapp : `https://wa.me/${profileInfo.whatsapp.replace(/[^0-9]/g, "")}`} 
                     target="_blank" 
                     rel="noreferrer" 
-                    className="text-lg font-medium text-emerald-600 dark:text-emerald-400 hover:underline transition-colors"
+                    className="text-base sm:text-lg font-medium text-emerald-600 dark:text-emerald-400 hover:underline transition-colors"
                   >
                     Chat on WhatsApp 💬
                   </a>
@@ -174,13 +174,13 @@ export default function Contact() {
               </div>
             )}
 
-            <div className="flex items-center gap-6 p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors">
-              <div className="w-14 h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <MapPin className="w-6 h-6 text-[var(--primary)]" />
+            <div className="flex items-center gap-4 sm:gap-6 p-4 sm:p-6 glass-card group hover:bg-[var(--primary)]/5 transition-colors">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[var(--primary)]/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6 text-[var(--primary)]" />
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <p className="text-xs opacity-50 uppercase tracking-wider mb-1">Location</p>
-                <h4 className="text-lg font-medium">{profileInfo.location}</h4>
+                <h4 className="text-base sm:text-lg font-medium">{profileInfo.location}</h4>
               </div>
             </div>
 
@@ -222,7 +222,7 @@ export default function Contact() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="lg:col-span-7 w-full"
           >
-            <div className="glass-card p-8 md:p-10 relative overflow-hidden min-h-[480px] flex flex-col justify-center">
+            <div className="glass-card p-5 sm:p-8 md:p-10 relative overflow-hidden min-h-[440px] flex flex-col justify-center">
               <AnimatePresence mode="wait">
                 {status === "success" ? (
                   <motion.div
@@ -304,7 +304,7 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="John Doe"
-                        className={`w-full contact-input rounded-xl px-5 py-4 focus:outline-none ${errors.name ? 'border-red-500 ring-1 ring-red-500/20' : ''} transition-all font-light`}
+                        className={`w-full contact-input rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:outline-none ${errors.name ? 'border-red-500 ring-1 ring-red-500/20' : ''} transition-all font-light text-sm sm:text-base`}
                       />
                       {errors.name && <span className="text-xs text-red-500 mt-1 pl-1">{errors.name}</span>}
                     </div>
@@ -317,7 +317,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="john@example.com"
-                        className={`w-full contact-input rounded-xl px-5 py-4 focus:outline-none ${errors.email ? 'border-red-500 ring-1 ring-red-500/20' : ''} transition-all font-light`}
+                        className={`w-full contact-input rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:outline-none ${errors.email ? 'border-red-500 ring-1 ring-red-500/20' : ''} transition-all font-light text-sm sm:text-base`}
                       />
                       {errors.email && <span className="text-xs text-red-500 mt-1 pl-1">{errors.email}</span>}
                     </div>
@@ -330,7 +330,7 @@ export default function Contact() {
                         onChange={handleChange}
                         rows={4}
                         placeholder="Tell me about your project..."
-                        className={`w-full contact-input rounded-xl px-5 py-4 focus:outline-none ${errors.message ? 'border-red-500 ring-1 ring-red-500/20' : ''} transition-all font-light resize-none`}
+                        className={`w-full contact-input rounded-xl px-4 py-3 sm:px-5 sm:py-4 focus:outline-none ${errors.message ? 'border-red-500 ring-1 ring-red-500/20' : ''} transition-all font-light resize-none text-sm sm:text-base`}
                       />
                       {errors.message && <span className="text-xs text-red-500 mt-1 pl-1">{errors.message}</span>}
                     </div>

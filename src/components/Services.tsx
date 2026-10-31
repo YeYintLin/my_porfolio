@@ -65,31 +65,31 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-32 px-6 relative">
+    <section id="services" className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-xs font-semibold tracking-wider uppercase text-[var(--primary)] mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full glass-card text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-[var(--primary)] mb-4">
             <Sparkles className="w-3.5 h-3.5" /> Client Services & Solutions
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             How I Can Help Your Business
           </h2>
           <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto text-base md:text-lg opacity-75 font-light leading-relaxed mb-8">
+          <p className="max-w-2xl mx-auto text-sm sm:text-base md:text-lg opacity-75 font-light leading-relaxed mb-6 sm:mb-8">
             Transparent, reliable software engineering and deployment packages tailored for local businesses, growing startups, and international teams.
           </p>
 
           {/* Currency Switcher */}
-          <div className="inline-flex items-center p-1.5 rounded-full glass-card border border-gray-200 dark:border-gray-800">
+          <div className="inline-flex items-center p-1 sm:p-1.5 rounded-full glass-card border border-gray-200 dark:border-gray-800">
             <button
               onClick={() => setPricingMode("mmk")}
-              className={`px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${
+              className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs md:text-sm font-medium transition-all ${
                 pricingMode === "mmk"
                   ? "bg-[var(--primary)] text-white shadow-md"
                   : "opacity-70 hover:opacity-100"
@@ -99,7 +99,7 @@ export default function Services() {
             </button>
             <button
               onClick={() => setPricingMode("usd")}
-              className={`px-5 py-2 rounded-full text-xs md:text-sm font-medium transition-all ${
+              className={`px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full text-[11px] sm:text-xs md:text-sm font-medium transition-all ${
                 pricingMode === "usd"
                   ? "bg-[var(--primary)] text-white shadow-md"
                   : "opacity-70 hover:opacity-100"
@@ -111,7 +111,7 @@ export default function Services() {
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {services.map((service, idx) => (
             <motion.div
               key={service.title}
@@ -119,7 +119,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-              className="glass-card p-8 rounded-3xl flex flex-col justify-between hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(143,188,143,0.25)] dark:hover:shadow-[0_20px_40px_-15px_rgba(56,189,248,0.25)] transition-all duration-300"
+              className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col justify-between hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(143,188,143,0.25)] dark:hover:shadow-[0_20px_40px_-15px_rgba(56,189,248,0.25)] transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
@@ -172,7 +172,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="glass-card p-8 rounded-3xl border border-[var(--primary)]/20 bg-gradient-to-r from-[var(--primary)]/5 via-transparent to-[var(--primary)]/5 text-center flex flex-col md:flex-row items-center justify-between gap-6"
+          className="glass-card p-5 sm:p-8 rounded-2xl sm:rounded-3xl border border-[var(--primary)]/20 bg-gradient-to-r from-[var(--primary)]/5 via-transparent to-[var(--primary)]/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
         >
           <div className="text-left max-w-xl">
             <h4 className="text-xl font-bold mb-2 flex items-center gap-2">

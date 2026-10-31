@@ -38,11 +38,21 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
     <>
       {/* Mobile Toggle Button */}
       <button 
-        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md sidebar-toggle-btn text-white shadow-lg"
+        className="md:hidden fixed top-4 left-4 z-50 p-2.5 rounded-xl sidebar-toggle-btn text-white shadow-xl backdrop-blur-md active:scale-95 transition-all"
         onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle Navigation Menu"
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <X size={22} /> : <Menu size={22} />}
       </button>
+
+      {/* Mobile Backdrop Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-30 md:hidden transition-opacity"
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
       {/* Sidebar */}
       <motion.aside

@@ -28,20 +28,20 @@ const features = [
 
 export default function About() {
   return (
-    <section id="about" className="py-32 px-6 relative">
+    <section id="about" className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mb-20"
+          className="mb-12 sm:mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             About Me
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mb-8" />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg opacity-80 leading-relaxed font-light">
+          <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mb-6 sm:mb-8" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 text-base sm:text-lg opacity-80 leading-relaxed font-light">
             <p>
               Hi, I’m Ye Yint Lin — a Mechatronics Engineer, Full-Stack Developer, and DevOps Specialist. I specialize in taking software from conceptual design and clean architecture all the way to containerized, high-availability cloud production.
             </p>
@@ -51,27 +51,27 @@ export default function About() {
           </div>
 
           {/* Global Collaboration & Remote Readiness Info */}
-          <div className="mt-16 p-8 glass-card border border-[var(--primary)]/15 bg-white/50 dark:bg-black/20 backdrop-blur-md">
-            <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-              <span className="text-2xl">🌐</span> Global Collaboration & Remote Readiness
+          <div className="mt-10 sm:mt-16 p-5 sm:p-8 glass-card border border-[var(--primary)]/15 bg-white/50 dark:bg-black/20 backdrop-blur-md">
+            <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-3">
+              <span className="text-xl sm:text-2xl">🌐</span> Global Collaboration & Remote Readiness
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
-              <div className="flex flex-col gap-1.5 p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-sm">
+              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
                 <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Timezone Compatibility</span>
                 <span className="font-semibold text-base text-[var(--primary)]">UTC+6:30 (Yangon)</span>
                 <span className="opacity-75 font-light leading-relaxed">Comfortably overlap with SGT, CET, and EST business hours.</span>
               </div>
-              <div className="flex flex-col gap-1.5 p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
+              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
                 <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Work Mode</span>
                 <span className="font-semibold text-base text-[var(--primary)]">Remote / Relocation</span>
                 <span className="opacity-75 font-light leading-relaxed">Open to full-time remote contractor roles and global relocation.</span>
               </div>
-              <div className="flex flex-col gap-1.5 p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
+              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
                 <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Languages</span>
                 <span className="font-semibold text-base text-[var(--primary)]">English & Burmese</span>
                 <span className="opacity-75 font-light leading-relaxed">Professional working proficiency in English for team syncs.</span>
               </div>
-              <div className="flex flex-col gap-1.5 p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
+              <div className="flex flex-col gap-1.5 p-4 sm:p-5 rounded-2xl bg-white/5 dark:bg-black/5 border border-gray-100 dark:border-gray-800/80">
                 <span className="text-xs opacity-50 uppercase tracking-wider font-semibold">Infrastructure Stability</span>
                 <span className="font-semibold text-base text-[var(--primary)]">Power & Net Backups</span>
                 <span className="opacity-75 font-light leading-relaxed">Equipped with reliable generator backup & dual high-speed ISP lines.</span>
@@ -80,7 +80,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {features.map((feature, idx) => (
             <motion.div
               key={idx}
@@ -88,7 +88,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
-              className="glass-card p-8 group hover:-translate-y-2 transition-transform duration-300"
+              className="glass-card p-5 sm:p-8 group hover:-translate-y-2 transition-transform duration-300"
             >
               <div className="w-12 h-12 rounded-2xl bg-[var(--primary)]/10 dark:bg-[var(--primary)]/20 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
