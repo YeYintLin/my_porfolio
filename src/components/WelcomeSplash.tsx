@@ -6,9 +6,13 @@ import "./WelcomeSplash.css";
 
 interface WelcomeSplashProps {
   duration?: number;
+  text?: string;
 }
 
-export default function WelcomeSplash({ duration = 2000 }: WelcomeSplashProps) {
+export default function WelcomeSplash({
+  duration = 2200,
+  text = "Hello! Welcome...",
+}: WelcomeSplashProps) {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
@@ -18,6 +22,8 @@ export default function WelcomeSplash({ duration = 2000 }: WelcomeSplashProps) {
 
     return () => clearTimeout(timer);
   }, [duration]);
+
+  const characters = text.split("");
 
   return (
     <AnimatePresence>
@@ -31,20 +37,21 @@ export default function WelcomeSplash({ duration = 2000 }: WelcomeSplashProps) {
             transition: { duration: 0.8, ease: [0.4, 0, 0.2, 1] },
           }}
           className="welcome-splash-overlay"
-          aria-label="Loading portfolio"
+          aria-label="Welcome to Ye Yint Lin's Portfolio"
           role="status"
         >
           <div className="loader-wrapper">
-            <span className="loader-letter">G</span>
-            <span className="loader-letter">e</span>
-            <span className="loader-letter">n</span>
-            <span className="loader-letter">e</span>
-            <span className="loader-letter">r</span>
-            <span className="loader-letter">a</span>
-            <span className="loader-letter">t</span>
-            <span className="loader-letter">i</span>
-            <span className="loader-letter">n</span>
-            <span className="loader-letter">g</span>
+            {characters.map((char, index) => (
+              <span
+                key={index}
+                className="loader-letter"
+                style={{
+                  animationDelay: `${(0.06 + index * 0.07).toFixed(3)}s`,
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
 
             <div className="loader"></div>
           </div>

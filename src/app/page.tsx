@@ -27,8 +27,8 @@ export default function Home() {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Welcome Splash Screen (2 seconds smooth transition) */}
-      <WelcomeSplash duration={2000} />
+      {/* Welcome Splash Screen */}
+      <WelcomeSplash duration={2200} />
 
       {/* Scroll Progress Bar */}
       <motion.div 
