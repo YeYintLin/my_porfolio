@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Server, Cloud, Zap, ShieldCheck } from "lucide-react";
+import { Code, Server, Cloud, ShieldCheck } from "lucide-react";
 
 const features = [
   {

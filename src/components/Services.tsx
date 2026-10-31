@@ -9,7 +9,6 @@ import {
   Check, 
   ArrowRight, 
   Sparkles,
-  Server,
   Zap,
   Clock
 } from "lucide-react";
