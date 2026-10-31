@@ -16,7 +16,7 @@ export interface ProfileData {
 const defaultProfile: ProfileData = {
   name: "Ye Yint Lin",
   title: "Full-Stack Developer with DevOps skills",
-  email: "yeyint2702@gmail.com",
+  email: "altairsetsuna146@gmail.com",
   phone: "",
   whatsapp: "",
   location: "Yangon, Myanmar",

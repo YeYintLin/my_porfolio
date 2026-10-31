@@ -68,7 +68,7 @@ export default function AdminDashboard() {
   const [profile, setProfile] = useState<ProfileData>({
     name: "Ye Yint Lin",
     title: "Full-Stack Developer & DevOps Specialist",
-    email: "yeyint2702@gmail.com",
+    email: "altairsetsuna146@gmail.com",
     phone: "",
     whatsapp: "",
     location: "Yangon, Myanmar",

@@ -17,7 +17,7 @@ export async function sendNotificationEmail({
   email,
   message,
 }: EmailParams): Promise<SendEmailResult> {
-  const recipientEmail = process.env.NOTIFICATION_EMAIL || "yeyint2702@gmail.com";
+  const recipientEmail = process.env.NOTIFICATION_EMAIL || "altairsetsuna146@gmail.com";
 
   // 1. Check for Resend API Key
   const resendApiKey = process.env.RESEND_API_KEY;
@@ -51,7 +51,7 @@ export async function sendNotificationEmail({
     process.env.EMAIL_USER ||
     process.env.GMAIL_USER ||
     process.env.NOTIFICATION_EMAIL ||
-    "yeyint2702@gmail.com"
+    "altairsetsuna146@gmail.com"
   ).trim();
 
   const rawPass =

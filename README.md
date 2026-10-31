@@ -51,6 +51,6 @@ docker compose up -d --build
 ---
 
 ## 📬 Contact & Inquiries
-- **Email:** [yeyint2702@gmail.com](mailto:yeyint2702@gmail.com)
+- **Email:** [altairsetsuna146@gmail.com](mailto:altairsetsuna146@gmail.com)
 - **GitHub:** [@YeYintLin](https://github.com/YeYintLin)
 - **Location:** Yangon, Myanmar (UTC+6:30)

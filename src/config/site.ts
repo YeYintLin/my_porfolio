@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   name: "Ye Yint Lin",
   title: "Full-Stack Developer with DevOps skills",
   shortTitle: "Full-Stack Developer",
-  email: "yeyint2702@gmail.com", // Configured in one place for future custom-domain migration
+  email: "altairsetsuna146@gmail.com", // Configured in one place for future custom-domain migration
   github: "https://github.com/YeYintLin",
   linkedin: "https://www.linkedin.com/in/ye-yint-lin-altair-822a10298/",
   location: "Yangon, Myanmar",
