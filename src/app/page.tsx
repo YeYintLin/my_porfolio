@@ -33,10 +33,10 @@ export default function Home() {
       <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
       
       <main className={`flex-1 overflow-y-auto relative bg-grid-pattern transition-all duration-300 ${isCollapsed ? 'md:ml-[80px]' : 'md:ml-[280px]'}`}>
-        {/* Background ambient floating glowing orbs */}
-        <div className="absolute top-[8%] left-[-5%] w-[35rem] h-[35rem] rounded-full bg-gradient-to-tr from-[#526E3A]/20 via-[#739655]/15 to-transparent dark:from-emerald-500/20 dark:via-teal-500/15 dark:to-cyan-500/10 blur-[130px] pointer-events-none -z-20 animate-float-slow" />
-        <div className="absolute bottom-[25%] right-[-5%] w-[40rem] h-[40rem] rounded-full bg-gradient-to-br from-[#739655]/15 via-[#526E3A]/20 to-transparent dark:from-cyan-500/15 dark:via-indigo-500/15 dark:to-emerald-500/10 blur-[150px] pointer-events-none -z-20 animate-float-slower" />
-        <div className="absolute top-[50%] left-[30%] w-[30rem] h-[30rem] rounded-full bg-gradient-to-r from-emerald-500/5 to-cyan-500/5 blur-[140px] pointer-events-none -z-20" />
+        {/* Background ambient floating glowing orbs with smooth transition */}
+        <div className="absolute top-[8%] left-[-5%] w-[35rem] h-[35rem] rounded-full bg-gradient-to-tr from-[#526E3A]/20 via-[#739655]/15 to-transparent dark:from-emerald-500/20 dark:via-teal-500/15 dark:to-cyan-500/10 blur-[130px] pointer-events-none -z-20 animate-float-slow transition-all duration-700 ease-in-out" />
+        <div className="absolute bottom-[25%] right-[-5%] w-[40rem] h-[40rem] rounded-full bg-gradient-to-br from-[#739655]/15 via-[#526E3A]/20 to-transparent dark:from-cyan-500/15 dark:via-indigo-500/15 dark:to-emerald-500/10 blur-[150px] pointer-events-none -z-20 animate-float-slower transition-all duration-700 ease-in-out" />
+        <div className="absolute top-[50%] left-[30%] w-[30rem] h-[30rem] rounded-full bg-gradient-to-r from-emerald-500/5 to-cyan-500/5 blur-[140px] pointer-events-none -z-20 transition-all duration-700 ease-in-out" />
 
         {/* Floating Theme Toggle */}
         <div className="absolute top-6 right-6 z-50">

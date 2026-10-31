@@ -21,39 +21,52 @@
   --color-cyber-cyan: #38BDF8;
 }
 
+:root {
+  --background: var(--color-light-bg);
+  --foreground: var(--color-light-text);
+  --primary: var(--color-sage-primary);
+  --primary-hover: var(--color-sage-hover);
+  --primary-glow: var(--color-sage-glow);
+  --sidebar-bg: #324323;
+  --sidebar-border: rgba(0, 0, 0, 0.15);
+  --grid-color: rgba(82, 110, 58, 0.15);
+}
+
+.dark {
+  --background: var(--color-dark-bg);
+  --foreground: var(--color-dark-text);
+  --primary: var(--color-emerald-primary);
+  --primary-hover: var(--color-cyber-cyan);
+  --primary-glow: var(--color-emerald-glow);
+  --sidebar-bg: #0B111F;
+  --sidebar-border: rgba(255, 255, 255, 0.08);
+  --grid-color: rgba(56, 189, 248, 0.12);
+}
+
 @layer base {
-  :root {
-    --background: var(--color-light-bg);
-    --foreground: var(--color-light-text);
-    --primary: var(--color-sage-primary);
-    --primary-hover: var(--color-sage-hover);
-    --primary-glow: var(--color-sage-glow);
-  }
-
-  .dark {
-    --background: var(--color-dark-bg);
-    --foreground: var(--color-dark-text);
-    --primary: var(--color-emerald-primary);
-    --primary-hover: var(--color-cyber-cyan);
-    --primary-glow: var(--color-emerald-glow);
-  }
-
   body {
     background-color: var(--background);
     color: var(--foreground);
-    @apply transition-colors duration-300;
   }
+}
+
+/* 
+ * Silky-smooth theme transitions across all themeable CSS properties
+ * (Restricted to color/bg/border/shadow so transforms & layout run smoothly)
+ */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 400ms;
 }
 
 /* Engineering Blueprint Dot Matrix Grid */
 .bg-grid-pattern {
-  background-image: radial-gradient(rgba(82, 110, 58, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
   background-size: 32px 32px;
-}
-
-.dark .bg-grid-pattern {
-  background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
-  background-size: 32px 32px;
+  transition: background-image 400ms ease;
 }
 
 @layer components {
@@ -66,7 +79,7 @@
     box-shadow: 0 12px 32px -8px rgba(82, 110, 58, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.9) !important;
     border-radius: 1.25rem;
     color: #192019 !important;
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 400ms ease, border-color 400ms ease, box-shadow 400ms ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .glass-card:hover {
@@ -119,7 +132,6 @@
   color: #192019 !important;
   border: 1px solid rgba(82, 110, 58, 0.2) !important;
   backdrop-filter: blur(8px);
-  transition: all 0.2s ease-in-out;
 }
 
 .contact-input:focus {
@@ -138,30 +150,21 @@
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
 }
 
-/* High-Contrast Signature Sidebar */
+/* High-Contrast Signature Sidebar with Continuous Color Interpolation */
 .sidebar-custom {
-  background: linear-gradient(180deg, #384A28 0%, #2B3A1E 100%) !important;
-  border-right: 1px solid rgba(0, 0, 0, 0.15) !important;
+  background-color: var(--sidebar-bg) !important;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(0, 0, 0, 0.14) 100%) !important;
+  border-right: 1px solid var(--sidebar-border) !important;
   box-shadow: 4px 0 25px rgba(0, 0, 0, 0.12) !important;
   color: #FFFFFF !important;
-}
-
-.dark .sidebar-custom {
-  background: linear-gradient(180deg, #0D1424 0%, #080D18 100%) !important;
-  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.45) !important;
-  color: #FFFFFF !important;
+  transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1), border-color 400ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .sidebar-toggle-btn {
-  background: #384A28 !important;
+  background-color: var(--sidebar-bg) !important;
   color: #FFFFFF !important;
-}
-
-.dark .sidebar-toggle-btn {
-  background: #0D1424 !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border: 1px solid var(--sidebar-border) !important;
+  transition: background-color 400ms ease, border-color 400ms ease !important;
 }
 
 /* Ambient Floating Glow Animations */
