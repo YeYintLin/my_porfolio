@@ -14,7 +14,7 @@ export default function TechStack() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/techstack")
+    fetch(`/api/techstack?t=${Date.now()}`, { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {

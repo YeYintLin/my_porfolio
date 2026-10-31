@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { getProjects, saveProjects, Project } from "@/lib/db";
 import { getExpectedSessionToken } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const SESSION_COOKIE_NAME = "admin_session";
 
 // Helper check authentication
@@ -15,7 +18,11 @@ async function isAuthenticated(request: NextRequest): Promise<boolean> {
 export async function GET() {
   try {
     const projects = await getProjects();
-    return NextResponse.json(projects);
+    return NextResponse.json(projects, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      },
+    });
   } catch {
     return NextResponse.json({ message: "Failed to fetch projects" }, { status: 500 });
   }

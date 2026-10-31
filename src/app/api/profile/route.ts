@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { getProfile, saveProfile, ProfileData } from "@/lib/db";
 import { getExpectedSessionToken } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const SESSION_COOKIE_NAME = "admin_session";
 
 async function isAuthenticated(request: NextRequest): Promise<boolean> {
@@ -14,7 +17,11 @@ async function isAuthenticated(request: NextRequest): Promise<boolean> {
 export async function GET() {
   try {
     const profile = await getProfile();
-    return NextResponse.json(profile);
+    return NextResponse.json(profile, {
+      headers: {
+        "Cache-Control": "no-store, no-cache, must-revalidate, proxy-revalidate",
+      },
+    });
   } catch {
     return NextResponse.json({ message: "Failed to fetch profile" }, { status: 500 });
   }

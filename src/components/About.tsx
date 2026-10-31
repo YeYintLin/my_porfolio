@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Code, Server, Cloud, ShieldCheck } from "lucide-react";
+import { useProfile } from "@/context/ProfileContext";
 
 const features = [
   {
@@ -27,6 +28,8 @@ const features = [
 ];
 
 export default function About() {
+  const { profile } = useProfile();
+
   return (
     <section id="about" className="py-20 sm:py-28 md:py-32 px-4 sm:px-6 relative">
       <div className="max-w-6xl mx-auto">
@@ -43,7 +46,7 @@ export default function About() {
           <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mb-6 sm:mb-8" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12 text-base sm:text-lg opacity-80 leading-relaxed font-light">
             <p>
-              Hi, I’m Ye Yint Lin — a Mechatronics Engineer, Full-Stack Developer, and DevOps Specialist. I specialize in taking software from conceptual design and clean architecture all the way to containerized, high-availability cloud production.
+              Hi, I’m <span className="font-semibold text-[var(--primary)]">{profile.name}</span> — a {profile.title}. I specialize in taking software from conceptual design and clean architecture all the way to containerized, high-availability cloud production.
             </p>
             <p>
               My expertise spans modern Next.js/React ecosystems, microservices with Node.js, database architecture (MongoDB/PostgreSQL), and cloud infrastructure (Docker Compose, Linux VPS, Nginx, CI/CD). I build software that not only looks exceptional, but performs reliably under real-world workloads.

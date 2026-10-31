@@ -120,12 +120,13 @@ export default function AdminDashboard() {
   const fetchData = async () => {
     setLoading(true);
     try {
+      const ts = Date.now();
       const [resProj, resTech, resMsg, resExp, resProf] = await Promise.all([
-        fetch("/api/projects"),
-        fetch("/api/techstack"),
-        fetch("/api/messages"),
-        fetch("/api/experience"),
-        fetch("/api/profile"),
+        fetch(`/api/projects?t=${ts}`, { cache: "no-store" }),
+        fetch(`/api/techstack?t=${ts}`, { cache: "no-store" }),
+        fetch(`/api/messages?t=${ts}`, { cache: "no-store" }),
+        fetch(`/api/experience?t=${ts}`, { cache: "no-store" }),
+        fetch(`/api/profile?t=${ts}`, { cache: "no-store" }),
       ]);
 
       if (resProj.ok) setProjects(await resProj.json());
@@ -306,6 +307,10 @@ export default function AdminDashboard() {
       });
 
       if (res.ok) {
+        if (typeof window !== "undefined") {
+          localStorage.setItem("portfolio_profile_cache", JSON.stringify(profile));
+          window.dispatchEvent(new Event("storage"));
+        }
         setSaveSuccess(true);
         setTimeout(() => setSaveSuccess(false), 3000);
       } else {

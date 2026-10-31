@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Download } from "lucide-react";
+import { useProfile } from "@/context/ProfileContext";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -24,6 +25,8 @@ const itemVariants = {
 };
 
 export default function Hero() {
+  const { profile } = useProfile();
+
   return (
     <section id="home" className="relative min-h-[92vh] flex items-center justify-center pt-24 sm:pt-28 md:pt-32 pb-16 px-4 sm:px-6 overflow-hidden">
       {/* Background ambient glow */}
@@ -57,7 +60,7 @@ export default function Hero() {
           variants={itemVariants}
           className="text-base sm:text-lg md:text-xl opacity-75 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed font-light"
         >
-          Hi, I&apos;m <span className="font-semibold opacity-100 text-[var(--primary)]">Ye Yint Lin</span>. A Full-Stack Developer & DevOps Specialist crafting scalable web applications, robust microservices, and automated cloud deployments.
+          Hi, I&apos;m <span className="font-semibold opacity-100 text-[var(--primary)]">{profile.name}</span>. A {profile.title} crafting scalable web applications, robust microservices, and automated cloud deployments.
         </motion.p>
         
         <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-5 w-full">

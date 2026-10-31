@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, MapPin, Phone, Send, CheckCircle2, MessageSquare } from "lucide-react";
+import { useProfile } from "@/context/ProfileContext";
 
 export default function Contact() {
+  const { profile: profileInfo } = useProfile();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,25 +20,9 @@ export default function Contact() {
   const [successVideoSrc, setSuccessVideoSrc] = useState<"/animations/success.webm" | "/animations/success-1.webm">("/animations/success.webm");
   const [honeypot, setHoneypot] = useState("");
   const [loadedAt, setLoadedAt] = useState<number>(0);
-  const [profileInfo, setProfileInfo] = useState({
-    email: "yeyint2702@gmail.com",
-    phone: "+95 9 798 123456",
-    whatsapp: "",
-    location: "Yangon, Myanmar",
-    linkedin: "https://www.linkedin.com/in/ye-yint-lin-altair-822a10298/",
-    github: "https://github.com/YeYintLin",
-  });
 
   useEffect(() => {
     setLoadedAt(Date.now());
-    fetch("/api/profile")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.email) {
-          setProfileInfo((prev) => ({ ...prev, ...data }));
-        }
-      })
-      .catch(() => {});
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

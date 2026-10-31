@@ -4,6 +4,9 @@ import { getExpectedSessionToken } from "@/lib/auth";
 import { sendNotificationEmail } from "@/lib/email";
 import { checkRateLimit } from "@/lib/rateLimit";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const SESSION_COOKIE_NAME = "admin_session";
 
 // Helper check authentication

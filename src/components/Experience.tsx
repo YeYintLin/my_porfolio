@@ -56,7 +56,7 @@ export default function Experience() {
   const [education, setEducation] = useState<TimelineItem[]>(defaultEducation);
 
   useEffect(() => {
-    fetch("/api/experience")
+    fetch(`/api/experience?t=${Date.now()}`, { cache: "no-store" })
       .then((res) => res.json())
       .then((data) => {
         if (data.experiences && Array.isArray(data.experiences) && data.experiences.length > 0) {
