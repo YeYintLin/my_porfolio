@@ -15,15 +15,8 @@ const experience = [
     type: "work",
     title: "Freelance Full-Stack & DevOps Engineer",
     subtitle: "Independent / Contract",
-    date: "2024 - Present",
+    date: "Nov 2026 - Present",
     description: "Designing modern web applications, Dockerizing multi-service backends, provisioning Linux VPS environments, and automating CI/CD deployment workflows.",
-  },
-  {
-    type: "work",
-    title: "Mechatronics Project Engineer",
-    subtitle: "Robotics & Automation Lab",
-    date: "2022 - 2024",
-    description: "Designed automation circuits, developed C++ firmware for microcontroller systems, and integrated IoT sensor telemetry with real-time web monitoring dashboards.",
   },
 ];
 
