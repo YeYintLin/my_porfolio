@@ -34,7 +34,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     },
     role: "Solo Architect & Full-Stack Developer",
     teamContext: "Solo Engineering",
-    image: "/projects/cms_architecture.png",
+    image: "/projects/smart_campus_cover.jpg",
     tags: ["Microservices", "Docker Compose", "API Gateway", "Node.js", "Express", "MongoDB", "React", "Gemini AI"],
     githubUrl: "https://github.com/YeYintLin/campus_management_system",
     liveUrl: undefined, // Rendered only if provided

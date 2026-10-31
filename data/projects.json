@@ -3,7 +3,7 @@
     "id": "1",
     "title": "Smart Campus Management System (CMS)",
     "description": "Enterprise-grade decoupled microservices architecture featuring an API Gateway, 3 database-isolated MongoDB instances (28-entity schema), Google Gemini AI integration, and production Docker Compose orchestration.",
-    "image": "/projects/cms_architecture.png",
+    "image": "/projects/smart_campus_cover.jpg",
     "tags": ["Microservices", "Docker Compose", "API Gateway", "Gemini AI", "Node.js", "React", "MongoDB"],
     "liveUrl": "https://github.com/YeYintLin/campus_management_system",
     "githubUrl": "https://github.com/YeYintLin/campus_management_system"
