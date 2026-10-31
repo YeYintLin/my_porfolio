@@ -1,5 +1,6 @@
 "use client";
 
+import WelcomeSplash from "@/components/WelcomeSplash";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
@@ -14,6 +15,9 @@ import { ProfileProvider } from "@/context/ProfileContext";
 export default function Home() {
   return (
     <ProfileProvider>
+      {/* Animated Welcome Splash Overlay */}
+      <WelcomeSplash duration={2200} />
+
       <div className="min-h-screen flex flex-col bg-[var(--bg)] text-[var(--text)] transition-colors duration-150">
         {/* Sticky Navbar with backdrop blur & IntersectionObserver active highlight */}
         <Navbar />

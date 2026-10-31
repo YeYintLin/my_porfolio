@@ -16,6 +16,11 @@ export default function WelcomeSplash({
   const [show, setShow] = useState(true);
 
   useEffect(() => {
+    if (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const immediate = setTimeout(() => setShow(false), 0);
+      return () => clearTimeout(immediate);
+    }
+
     const timer = setTimeout(() => {
       setShow(false);
     }, duration);
