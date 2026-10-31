@@ -36,7 +36,11 @@ export default function Hero() {
         className="max-w-4xl mx-auto text-center z-10"
       >
         <motion.div variants={itemVariants} className="mb-8 inline-block">
-          <span className="px-5 py-2.5 rounded-full glass-card text-sm font-medium tracking-wide border border-[var(--primary)]/20 shadow-sm">
+          <span className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-card text-sm font-medium tracking-wide">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
             Available for Freelance & Contract Roles 🚀
           </span>
         </motion.div>
@@ -46,7 +50,7 @@ export default function Hero() {
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 leading-[1.1]"
         >
           Building & Deploying <br className="hidden md:block" />
-          <span className="bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] bg-clip-text text-transparent">Resilient Systems</span> with Purpose.
+          <span className="bg-gradient-to-r from-[#526E3A] via-[#739655] to-[#8FBC8F] dark:from-[#10B981] dark:via-[#06B6D4] dark:to-[#38BDF8] bg-clip-text text-transparent">Resilient Systems</span> with Purpose.
         </motion.h1>
         
         <motion.p 

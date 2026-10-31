@@ -2,38 +2,40 @@
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --color-light-bg: #FAFAF8;
-  --color-light-text: #1A1A1A;
-  --color-sage-green: #8FBC8F;
-  --color-sage-dark: #7aa97a;
-  
-  --color-dark-bg: #0B1120;
-  --color-dark-text: #F8FAFC;
-  --color-soft-cyan: #38BDF8;
-  --color-cyan-dark: #0284c7;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  --color-sidebar-light: #606C38; /* Matcha */
-  --color-sidebar-dark: #1E293B; /* Deep Blue */
+  /* Artistic Light Mode: Matcha Forest & Warm Alabaster */
+  --color-light-bg: #F9F9F6;
+  --color-light-surface: #FFFFFF;
+  --color-light-text: #192019;
+  --color-sage-primary: #526E3A;
+  --color-sage-hover: #739655;
+  --color-sage-glow: rgba(82, 110, 58, 0.15);
 
-  --color-glass-light: rgba(255, 255, 255, 0.5);
-  --color-glass-dark: rgba(11, 17, 32, 0.5);
+  /* Artistic Dark Mode: Obsidian & Cyber Emerald / Electric Cyan */
+  --color-dark-bg: #070B14;
+  --color-dark-surface: #0E1626;
+  --color-dark-text: #F1F5F9;
+  --color-emerald-primary: #10B981;
+  --color-emerald-glow: rgba(16, 185, 129, 0.2);
+  --color-cyber-cyan: #38BDF8;
 }
 
 @layer base {
   :root {
     --background: var(--color-light-bg);
     --foreground: var(--color-light-text);
-    --primary: #606C38;
-    --primary-hover: #8FBC8F;
-    --glass: var(--color-glass-light);
+    --primary: var(--color-sage-primary);
+    --primary-hover: var(--color-sage-hover);
+    --primary-glow: var(--color-sage-glow);
   }
 
   .dark {
     --background: var(--color-dark-bg);
     --foreground: var(--color-dark-text);
-    --primary: var(--color-soft-cyan);
-    --primary-hover: var(--color-cyan-dark);
-    --glass: var(--color-glass-dark);
+    --primary: var(--color-emerald-primary);
+    --primary-hover: var(--color-cyber-cyan);
+    --primary-glow: var(--color-emerald-glow);
   }
 
   body {
@@ -43,73 +45,132 @@
   }
 }
 
+/* Engineering Blueprint Dot Matrix Grid */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(82, 110, 58, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.dark .bg-grid-pattern {
+  background-image: radial-gradient(rgba(56, 189, 248, 0.12) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
 @layer components {
+  /* True Frosted Glassmorphism with Specular Rim Lighting */
   .glass-card {
-    background-color: #ffffff !important;
-    border: 1px solid rgba(96, 108, 56, 0.15) !important;
-    box-shadow: 0 10px 30px -10px rgba(96, 108, 56, 0.08) !important;
+    background: rgba(255, 255, 255, 0.78) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid rgba(82, 110, 58, 0.16) !important;
+    box-shadow: 0 12px 32px -8px rgba(82, 110, 58, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.9) !important;
     border-radius: 1.25rem;
-    color: #1A1A1A !important;
-    transition: all 0.3s ease-in-out;
+    color: #192019 !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card:hover {
+    border-color: rgba(82, 110, 58, 0.35) !important;
+    box-shadow: 0 20px 40px -12px rgba(82, 110, 58, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 1) !important;
   }
   
   .dark .glass-card {
-    background-color: #1E293B !important;
+    background: rgba(14, 22, 38, 0.65) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3) !important;
-    color: #F8FAFC !important;
+    box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255, 255, 255, 0.08) !important;
+    color: #F1F5F9 !important;
   }
 
+  .dark .glass-card:hover {
+    border-color: rgba(16, 185, 129, 0.38) !important;
+    box-shadow: 0 20px 44px -10px rgba(0, 0, 0, 0.6), 0 0 24px -6px rgba(16, 185, 129, 0.25), inset 0 1px 0 0 rgba(255, 255, 255, 0.15) !important;
+  }
+
+  /* Vibrant Cyber Gradient Primary Buttons */
   .btn-primary {
-    @apply px-6 py-3 rounded-full bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] text-white font-semibold shadow-lg shadow-[#74A12E]/10 dark:shadow-[#38BDF8]/10 hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300;
+    @apply px-7 py-3.5 rounded-full font-semibold text-white tracking-wide transition-all duration-300;
+    background: linear-gradient(135deg, #526E3A 0%, #739655 100%);
+    box-shadow: 0 8px 20px -4px rgba(82, 110, 58, 0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 28px -4px rgba(82, 110, 58, 0.45);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .dark .btn-primary {
+    background: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
+    box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.35);
+  }
+
+  .dark .btn-primary:hover {
+    box-shadow: 0 12px 32px -4px rgba(16, 185, 129, 0.5), 0 0 20px -2px rgba(6, 182, 212, 0.4);
   }
 }
 
 .contact-input {
-  background-color: #F8FAFC !important;
-  color: #1A1A1A !important;
-  border: 1px solid #E2E8F0 !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: #192019 !important;
+  border: 1px solid rgba(82, 110, 58, 0.2) !important;
+  backdrop-filter: blur(8px);
   transition: all 0.2s ease-in-out;
 }
 
 .contact-input:focus {
-  border-color: #606C38 !important;
-  box-shadow: 0 0 0 3px rgba(96, 108, 56, 0.1) !important;
+  border-color: #526E3A !important;
+  box-shadow: 0 0 0 3px rgba(82, 110, 58, 0.15) !important;
 }
 
 .dark .contact-input {
-  background-color: #0B1120 !important;
-  color: #F8FAFC !important;
-  border: 1px solid #1E293B !important;
+  background-color: rgba(14, 22, 38, 0.6) !important;
+  color: #F1F5F9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .dark .contact-input:focus {
-  border-color: #38BDF8 !important;
-  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
+  border-color: #10B981 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
 }
 
+/* Refined Frosted Glass Sidebar */
 .sidebar-custom {
-  background-color: #606C38 !important;
+  background: rgba(244, 244, 240, 0.9) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-right: 1px solid rgba(82, 110, 58, 0.15) !important;
+  color: #192019 !important;
 }
 
 .dark .sidebar-custom {
-  background-color: #1E293B !important;
+  background: rgba(10, 15, 26, 0.88) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #F1F5F9 !important;
 }
 
 .sidebar-toggle-btn {
-  background-color: #606C38 !important;
+  background-color: #526E3A !important;
 }
 
 .dark .sidebar-toggle-btn {
-  background-color: #1E293B !important;
+  background-color: #0E1626 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
+/* Ambient Floating Glow Animations */
 @keyframes float-slow {
   0%, 100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(40px, -30px) scale(1.08);
+    transform: translate(50px, -40px) scale(1.12);
   }
 }
 
@@ -118,14 +179,14 @@
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(-40px, 30px) scale(0.92);
+    transform: translate(-50px, 40px) scale(0.9);
   }
 }
 
 .animate-float-slow {
-  animation: float-slow 22s ease-in-out infinite;
+  animation: float-slow 20s ease-in-out infinite;
 }
 
 .animate-float-slower {
-  animation: float-reverse 28s ease-in-out infinite;
+  animation: float-reverse 26s ease-in-out infinite;
 }
