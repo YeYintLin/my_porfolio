@@ -134,7 +134,7 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
             <img 
               src="/profile.jpg" 
               alt="Ye Yint Lin" 
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
           

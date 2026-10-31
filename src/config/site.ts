@@ -16,13 +16,13 @@ export const SITE_CONFIG = {
   availabilityBadge: "Open to remote roles and freelance projects from December 2026",
   
   // Placeholders requiring user confirmation
-  graduationDate: "TODO_GRADUATION_DATE",
+  graduationDate: "Jan 2027",
   canonicalUrl: "TODO_CANONICAL_URL", // e.g., https://yeyintlin.dev
   
   education: {
     degree: "B.E. Mechatronics Engineering",
     institution: "University of Technology (Hmawbi)",
-    period: "2018 - Expected TODO_GRADUATION_DATE",
+    period: "2018 - Expected Jan 2027",
     description: "Focusing on embedded systems, robotics control, and software engineering.",
   },
 
