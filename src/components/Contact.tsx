@@ -76,7 +76,9 @@ export default function Contact() {
 
       if (response.ok && data.success) {
         setLastSubmitted({ ...formData });
-        setSuccessVideoSrc("/animations/success.webm");
+        // Pick randomly between Success.webm and Success(1).webm
+        const chosen = Math.random() < 0.5 ? "/animations/success.webm" : "/animations/success-1.webm";
+        setSuccessVideoSrc(chosen);
         setStatus("success");
         setFormData({ name: "", email: "", message: "" });
       } else {
@@ -227,14 +229,9 @@ export default function Contact() {
                         autoPlay
                         muted
                         playsInline
-                        loop={successVideoSrc === "/animations/success-1.webm"}
-                        onEnded={() => {
-                          if (successVideoSrc === "/animations/success.webm") {
-                            setSuccessVideoSrc("/animations/success-1.webm");
-                          }
-                        }}
+                        loop
                         className="w-28 h-28 sm:w-32 sm:h-32 object-contain drop-shadow-[0_0_22px_rgba(16,185,129,0.5)] transition-all duration-300 cursor-pointer"
-                        title="Click to switch success animation"
+                        title="Click to toggle between animations"
                         onClick={() => {
                           setSuccessVideoSrc((prev) =>
                             prev === "/animations/success.webm"
