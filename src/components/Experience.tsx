@@ -6,24 +6,24 @@ import { Briefcase, GraduationCap } from "lucide-react";
 const experience = [
   {
     type: "work",
-    title: "Full Stack Developer Intern",
-    subtitle: "Apex Tech Solutions (Remote)",
-    date: "2024 - Present",
-    description: "Developing and maintaining responsive web applications using the MERN stack. Integrating RESTful APIs, designing MongoDB schemas, and optimizing state management.",
+    title: "Junior Full Stack Developer",
+    subtitle: "Full-Time",
+    date: "Jan 19, 2026 - Present",
+    description: "Developing scalable full-stack web applications, engineering RESTful APIs, optimizing database queries, and collaborating on production deployment pipelines.",
   },
   {
     type: "work",
-    title: "Freelance Web Developer",
-    subtitle: "Self-Employed",
-    date: "2022 - 2024",
-    description: "Crafted high-performance, responsive websites for local businesses and startups. Focused on bespoke UI/UX designs, API integrations, and SEO optimization.",
+    title: "Freelance Full-Stack & DevOps Engineer",
+    subtitle: "Independent / Contract",
+    date: "2024 - Present",
+    description: "Designing modern web applications, Dockerizing multi-service backends, provisioning Linux VPS environments, and automating CI/CD deployment workflows.",
   },
   {
     type: "work",
     title: "Mechatronics Project Engineer",
-    subtitle: "TechHmawbi Robotics Lab",
-    date: "2021 - 2022",
-    description: "Designed and simulated automation circuits. Programmed microcontrollers (C++) and integrated sensor modules with IoT dashboards for real-time monitoring.",
+    subtitle: "Robotics & Automation Lab",
+    date: "2022 - 2024",
+    description: "Designed automation circuits, developed C++ firmware for microcontroller systems, and integrated IoT sensor telemetry with real-time web monitoring dashboards.",
   },
 ];
 
@@ -58,7 +58,7 @@ export default function Experience() {
           <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
             Journey & Experience
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-[#606C38] to-[#8FBC8F] dark:from-[#38BDF8] dark:to-[#6366F1] rounded-full mx-auto" />
+          <div className="w-20 h-1.5 bg-gradient-to-r from-[#526E3A] to-[#739655] dark:from-[#10B981] dark:to-[#38BDF8] rounded-full mx-auto" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
