@@ -53,7 +53,7 @@ export default function Hero() {
           className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight sm:tracking-tighter mb-6 sm:mb-8 leading-[1.15] sm:leading-[1.1]"
         >
           Building & Deploying <br className="hidden md:block" />
-          <span className="bg-gradient-to-r from-[#B45309] via-[#D97706] to-[#F59E0B] dark:from-[#38BDF8] dark:via-[#06B6D4] dark:to-[#10B981] bg-clip-text text-transparent">Resilient Systems</span> with Purpose.
+          <span className="bg-gradient-to-r from-[#D97706] via-[#EA580C] to-[#0284C7] dark:from-[#0284C7] dark:via-[#0EA5E9] dark:to-[#38BDF8] bg-clip-text text-transparent">Resilient Systems</span> with Purpose.
         </motion.h1>
         
         <motion.p 
@@ -67,7 +67,7 @@ export default function Hero() {
           <a href="#projects" className="btn-primary flex items-center gap-2 w-full sm:w-auto justify-center px-6 sm:px-8 py-3.5 sm:py-4 text-base sm:text-lg">
             Featured Projects <ArrowRight className="w-5 h-5" />
           </a>
-          <a href="#services" className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-gray-300 dark:border-gray-700 font-medium hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all flex items-center gap-2 w-full sm:w-auto justify-center text-base sm:text-lg bg-white/5 dark:bg-black/5 backdrop-blur-sm">
+          <a href="#services" className="px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-sky-600/30 text-sky-700 dark:border-sky-500/30 dark:text-sky-300 font-medium hover:border-[var(--primary)] hover:text-[var(--primary)] transition-all flex items-center gap-2 w-full sm:w-auto justify-center text-base sm:text-lg bg-sky-500/5 dark:bg-sky-500/10 backdrop-blur-sm">
             Freelance Services
           </a>
           <a href="/Ye_Yint_Lin_Resume.pdf" download="Ye_Yint_Lin_Resume.pdf" className="px-5 py-3 rounded-full text-xs sm:text-sm font-medium opacity-70 hover:opacity-100 hover:text-[var(--primary)] transition-all flex items-center gap-2">

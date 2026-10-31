@@ -46,7 +46,7 @@ export default function Projects() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 sm:mb-6">
             Featured Projects
           </h2>
-          <div className="w-20 h-1.5 bg-gradient-to-r from-[#B45309] to-[#D97706] dark:from-[#38BDF8] dark:to-[#06B6D4] rounded-full mx-auto" />
+          <div className="w-20 h-1.5 bg-gradient-to-r from-[#D97706] to-[#0284C7] dark:from-[#0284C7] dark:to-[#38BDF8] rounded-full mx-auto" />
         </motion.div>
 
         {loading ? (
