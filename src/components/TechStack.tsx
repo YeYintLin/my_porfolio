@@ -22,13 +22,13 @@ export default function TechStack() {
     <section id="tech-stack" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-2 block">
+          <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Technical Proficiency
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-[var(--text)]">
+          <h2 className="type-h2 text-[var(--text)] mb-3">
             Technologies & Tools
           </h2>
-          <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl mx-auto">
+          <p className="type-body text-[var(--muted)] max-w-[65ch] mx-auto text-pretty">
             Languages, frameworks, databases, and DevOps tooling applied in real production and academic projects.
           </p>
         </div>
@@ -40,14 +40,14 @@ export default function TechStack() {
               className="portfolio-card p-6 flex flex-col justify-between"
             >
               <div>
-                <h3 className="text-base font-semibold mb-4 text-[var(--text)] pb-2 border-b border-[var(--border)]">
+                <h3 className="text-base sm:text-lg font-semibold mb-4 text-[var(--text)] pb-2 border-b border-[var(--border)]">
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs font-medium px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--muted)] border border-[var(--border)]"
+                      className="type-mono-meta font-mono text-sm px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--muted)] border border-[var(--border)]"
                     >
                       {skill}
                     </span>

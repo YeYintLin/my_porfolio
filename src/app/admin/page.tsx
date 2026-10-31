@@ -441,7 +441,7 @@ export default function AdminDashboard() {
         {loading ? (
           <div className="min-h-[400px] flex flex-col items-center justify-center gap-4 opacity-50">
             <Loader2 className="w-10 h-10 animate-spin text-[var(--primary)]" />
-            <span className="text-sm font-light">Loading admin controller...</span>
+            <span className="text-sm font-normal">Loading admin controller...</span>
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -807,7 +807,7 @@ export default function AdminDashboard() {
                             </span>
                             <h4 className="text-lg font-bold">{exp.title}</h4>
                             <p className="text-sm opacity-75 font-medium mb-2">{exp.subtitle}</p>
-                            <p className="text-xs opacity-70 leading-relaxed font-light">{exp.description}</p>
+                            <p className="text-xs opacity-70 leading-relaxed font-normal">{exp.description}</p>
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
                             <button onClick={() => handleOpenEditTimeline(exp)} className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg cursor-pointer">
@@ -848,7 +848,7 @@ export default function AdminDashboard() {
                             </span>
                             <h4 className="text-lg font-bold">{edu.title}</h4>
                             <p className="text-sm opacity-75 font-medium mb-2">{edu.subtitle}</p>
-                            <p className="text-xs opacity-70 leading-relaxed font-light">{edu.description}</p>
+                            <p className="text-xs opacity-70 leading-relaxed font-normal">{edu.description}</p>
                           </div>
                           <div className="flex items-center gap-2 shrink-0">
                             <button onClick={() => handleOpenEditTimeline(edu)} className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg cursor-pointer">
@@ -1083,9 +1083,9 @@ export default function AdminDashboard() {
                                 {m.email}
                               </a>
                             </div>
-                            <span className="text-[11px] opacity-50 font-light">{m.date}</span>
+                            <span className="text-[11px] opacity-50 font-normal">{m.date}</span>
                           </div>
-                          <p className="text-sm opacity-85 leading-relaxed bg-black/5 dark:bg-black/20 p-4 rounded-xl mb-4 font-light whitespace-pre-wrap">
+                          <p className="text-sm opacity-85 leading-relaxed bg-black/5 dark:bg-black/20 p-4 rounded-xl mb-4 font-normal whitespace-pre-wrap">
                             {m.message}
                           </p>
                           <div className="flex justify-end">

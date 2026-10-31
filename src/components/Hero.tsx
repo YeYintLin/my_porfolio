@@ -18,19 +18,19 @@ export default function Hero() {
           transition={{ duration: 0.4 }}
           className="mb-6 inline-block"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] text-xs sm:text-sm font-medium text-[var(--text)]">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] text-sm font-sans font-medium text-[var(--text)]">
             <span className="w-2 h-2 rounded-full bg-[var(--cta)] animate-pulse" aria-hidden="true" />
             <Sparkles className="w-3.5 h-3.5 text-[var(--cta)]" aria-hidden="true" />
             <span>{SITE_CONFIG.availabilityBadge}</span>
           </span>
         </motion.div>
 
-        {/* Headline */}
+        {/* Headline: single semantic H1 */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight"
+          className="type-h1 text-[var(--text)] mb-6 text-balance"
         >
           Full-Stack Developer building and deploying reliable web applications.
         </motion.h1>
@@ -40,7 +40,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-xl text-[var(--muted)] mb-10 max-w-2xl mx-auto leading-relaxed"
+          className="type-body text-base sm:text-lg text-[var(--muted)] mb-10 max-w-[65ch] mx-auto text-pretty"
         >
           Hi, I&apos;m <span className="font-semibold text-[var(--text)]">{profile.name || SITE_CONFIG.name}</span>. A {SITE_CONFIG.title} specialized in building modern React/Next.js interfaces, robust Node.js backend services, and Linux VPS deployments with Docker Compose.
         </motion.p>

@@ -48,48 +48,48 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     ],
     architectureSvg: `<svg viewBox="0 0 700 240" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
       <rect x="10" y="80" width="120" height="70" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="70" y="112" fill="#E6EAF2" font-size="12" font-family="monospace" text-anchor="middle" font-weight="bold">React Client</text>
-      <text x="70" y="130" fill="#94A3B8" font-size="10" font-family="monospace" text-anchor="middle">SPA Portal</text>
+      <text x="70" y="112" fill="#E6EAF2" font-size="12" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">React Client</text>
+      <text x="70" y="130" fill="#94A3B8" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle">SPA Portal</text>
 
       <path d="M130 115 H180" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 4"/>
       <polygon points="180,111 188,115 180,119" fill="#38BDF8"/>
 
       <rect x="190" y="60" width="130" height="110" rx="8" fill="#121A2B" stroke="#F59E0B" stroke-width="1.5"/>
-      <text x="255" y="95" fill="#E6EAF2" font-size="12" font-family="monospace" text-anchor="middle" font-weight="bold">API Gateway</text>
-      <text x="255" y="115" fill="#94A3B8" font-size="10" font-family="monospace" text-anchor="middle">JWT & Rate Limit</text>
-      <text x="255" y="133" fill="#94A3B8" font-size="10" font-family="monospace" text-anchor="middle">Proxy Routing</text>
+      <text x="255" y="95" fill="#E6EAF2" font-size="12" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">API Gateway</text>
+      <text x="255" y="115" fill="#94A3B8" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle">JWT & Rate Limit</text>
+      <text x="255" y="133" fill="#94A3B8" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle">Proxy Routing</text>
 
       <path d="M320 85 H370" stroke="#38BDF8" stroke-width="1.5"/>
       <path d="M320 115 H370" stroke="#38BDF8" stroke-width="1.5"/>
       <path d="M320 145 H370" stroke="#38BDF8" stroke-width="1.5"/>
 
       <rect x="370" y="30" width="130" height="50" rx="6" fill="#121A2B" stroke="#1F2A44" stroke-width="1.5"/>
-      <text x="435" y="55" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle">Auth & User Service</text>
-      <text x="435" y="69" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">Node / Express</text>
+      <text x="435" y="55" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle">Auth & User Service</text>
+      <text x="435" y="69" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Node / Express</text>
 
       <rect x="370" y="90" width="130" height="50" rx="6" fill="#121A2B" stroke="#1F2A44" stroke-width="1.5"/>
-      <text x="435" y="115" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle">Academic Service</text>
-      <text x="435" y="129" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">+ Gemini AI Inquiries</text>
+      <text x="435" y="115" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle">Academic Service</text>
+      <text x="435" y="129" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">+ Gemini AI Inquiries</text>
 
       <rect x="370" y="150" width="130" height="50" rx="6" fill="#121A2B" stroke="#1F2A44" stroke-width="1.5"/>
-      <text x="435" y="175" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle">Finance Service</text>
-      <text x="435" y="189" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">Tuition & Invoicing</text>
+      <text x="435" y="175" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle">Finance Service</text>
+      <text x="435" y="189" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Tuition & Invoicing</text>
 
       <path d="M500 55 H550" stroke="#94A3B8" stroke-width="1.5"/>
       <path d="M500 115 H550" stroke="#94A3B8" stroke-width="1.5"/>
       <path d="M500 175 H550" stroke="#94A3B8" stroke-width="1.5"/>
 
       <rect x="550" y="30" width="130" height="50" rx="6" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="615" y="55" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle">MongoDB (Auth)</text>
-      <text x="615" y="69" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">Users, Roles, Logs</text>
+      <text x="615" y="55" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle">MongoDB (Auth)</text>
+      <text x="615" y="69" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Users, Roles, Logs</text>
 
       <rect x="550" y="90" width="130" height="50" rx="6" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="615" y="115" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle">MongoDB (Acad)</text>
-      <text x="615" y="129" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">18 Entities Schema</text>
+      <text x="615" y="115" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle">MongoDB (Acad)</text>
+      <text x="615" y="129" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">18 Entities Schema</text>
 
       <rect x="550" y="150" width="130" height="50" rx="6" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="615" y="175" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle">MongoDB (Fin)</text>
-      <text x="615" y="189" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">Ledger & Payments</text>
+      <text x="615" y="175" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle">MongoDB (Fin)</text>
+      <text x="615" y="189" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Ledger & Payments</text>
     </svg>`,
     verifiedInRepo: true,
   },
@@ -117,26 +117,26 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     ],
     architectureSvg: `<svg viewBox="0 0 680 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
       <rect x="10" y="30" width="140" height="60" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="80" y="58" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">Admin Web App</text>
-      <text x="80" y="74" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">Next.js / TypeScript</text>
+      <text x="80" y="58" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Admin Web App</text>
+      <text x="80" y="74" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Next.js / TypeScript</text>
 
       <rect x="10" y="110" width="140" height="60" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="80" y="138" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">Member Mobile App</text>
-      <text x="80" y="154" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">React Native / Expo</text>
+      <text x="80" y="138" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Member Mobile App</text>
+      <text x="80" y="154" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">React Native / Expo</text>
 
       <path d="M150 60 H230" stroke="#38BDF8" stroke-width="1.5"/>
       <path d="M150 140 H230" stroke="#38BDF8" stroke-width="1.5"/>
 
       <rect x="230" y="60" width="180" height="80" rx="8" fill="#121A2B" stroke="#F59E0B" stroke-width="1.5"/>
-      <text x="320" y="95" fill="#E6EAF2" font-size="12" font-family="monospace" text-anchor="middle" font-weight="bold">Backend API Services</text>
-      <text x="320" y="115" fill="#94A3B8" font-size="10" font-family="monospace" text-anchor="middle">Node.js / Express & Auth</text>
+      <text x="320" y="95" fill="#E6EAF2" font-size="12" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Backend API Services</text>
+      <text x="320" y="115" fill="#94A3B8" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle">Node.js / Express & Auth</text>
 
       <path d="M410 100 H480" stroke="#38BDF8" stroke-width="1.5"/>
       <polygon points="480,96 488,100 480,104" fill="#38BDF8"/>
 
       <rect x="490" y="60" width="170" height="80" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="575" y="95" fill="#E6EAF2" font-size="12" font-family="monospace" text-anchor="middle" font-weight="bold">PostgreSQL Database</text>
-      <text x="575" y="115" fill="#94A3B8" font-size="10" font-family="monospace" text-anchor="middle">Memberships & Logs</text>
+      <text x="575" y="95" fill="#E6EAF2" font-size="12" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">PostgreSQL Database</text>
+      <text x="575" y="115" fill="#94A3B8" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle">Memberships & Logs</text>
     </svg>`,
     verifiedInRepo: true,
   },
@@ -164,29 +164,29 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     ],
     architectureSvg: `<svg viewBox="0 0 680 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
       <rect x="20" y="55" width="130" height="70" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="85" y="88" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">Web & Mobile</text>
-      <text x="85" y="104" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">Burmese Localization</text>
+      <text x="85" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Web & Mobile</text>
+      <text x="85" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Burmese Localization</text>
 
       <path d="M150 90 H210" stroke="#38BDF8" stroke-width="1.5"/>
       <polygon points="210,86 218,90 210,94" fill="#38BDF8"/>
 
       <rect x="220" y="55" width="140" height="70" rx="8" fill="#121A2B" stroke="#F59E0B" stroke-width="1.5"/>
-      <text x="290" y="88" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">Nginx Reverse Proxy</text>
-      <text x="290" y="104" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">SSL & Static Cache</text>
+      <text x="290" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Nginx Reverse Proxy</text>
+      <text x="290" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">SSL & Static Cache</text>
 
       <path d="M360 90 H420" stroke="#38BDF8" stroke-width="1.5"/>
       <polygon points="420,86 428,90 420,94" fill="#38BDF8"/>
 
       <rect x="430" y="55" width="130" height="70" rx="8" fill="#121A2B" stroke="#1F2A44" stroke-width="1.5"/>
-      <text x="495" y="88" fill="#E6EAF2" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">LMS Application</text>
-      <text x="495" y="104" fill="#94A3B8" font-size="9" font-family="monospace" text-anchor="middle">Docker Container</text>
+      <text x="495" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">LMS Application</text>
+      <text x="495" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Docker Container</text>
 
       <path d="M560 90 H600" stroke="#38BDF8" stroke-width="1.5"/>
       <polygon points="600,86 608,90 600,94" fill="#38BDF8"/>
 
       <rect x="610" y="55" width="60" height="70" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
-      <text x="640" y="88" fill="#E6EAF2" font-size="10" font-family="monospace" text-anchor="middle" font-weight="bold">MySQL</text>
-      <text x="640" y="104" fill="#94A3B8" font-size="8" font-family="monospace" text-anchor="middle">+Backup</text>
+      <text x="640" y="88" fill="#E6EAF2" font-size="10" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">MySQL</text>
+      <text x="640" y="104" fill="#94A3B8" font-size="8" font-family="var(--font-mono), monospace" text-anchor="middle">+Backup</text>
     </svg>`,
     verifiedInRepo: true,
   },

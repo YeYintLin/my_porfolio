@@ -52,7 +52,7 @@ export default function AdminLogin() {
       <div className="w-full max-w-md">
         <Link 
           href="/" 
-          className="inline-flex items-center gap-2 text-sm opacity-60 hover:opacity-100 hover:text-[var(--primary)] transition-all mb-8 font-light"
+          className="inline-flex items-center gap-2 text-sm opacity-60 hover:opacity-100 hover:text-[var(--primary)] transition-all mb-8 font-normal"
         >
           <ArrowLeft className="w-4 h-4" /> Back to portfolio
         </Link>
@@ -63,14 +63,14 @@ export default function AdminLogin() {
               <Lock className="w-8 h-8 stroke-[1.5]" />
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-center">Admin Access</h1>
-            <p className="text-sm opacity-60 text-center mt-2 font-light">
+            <p className="text-sm opacity-60 text-center mt-2 font-normal">
               Enter password to access dashboard controller
             </p>
           </div>
 
           <form onSubmit={handleLogin} className="flex flex-col gap-6">
             {error && (
-              <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-4 rounded-xl font-light">
+              <div className="bg-red-500/10 border border-red-500/20 text-red-500 text-sm p-4 rounded-xl font-normal">
                 {error}
               </div>
             )}
@@ -82,7 +82,7 @@ export default function AdminLogin() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-white/5 dark:bg-black/5 border border-gray-200 dark:border-gray-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#74A12E]/30 focus:border-[#74A12E] transition-all font-light"
+                className="w-full bg-white/5 dark:bg-black/5 border border-gray-200 dark:border-gray-800 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-[#74A12E]/30 focus:border-[#74A12E] transition-all font-normal"
               />
             </div>
 

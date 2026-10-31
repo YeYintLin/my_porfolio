@@ -66,13 +66,13 @@ export default function Experience() {
     <section id="experience" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-2 block">
+          <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Career Timeline & Education
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-[var(--text)]">
+          <h2 className="type-h2 text-[var(--text)] mb-3">
             Experience & Education
           </h2>
-          <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl mx-auto">
+          <p className="type-body text-[var(--muted)] max-w-[65ch] mx-auto text-pretty">
             Practical development background and academic mechatronics engineering foundation.
           </p>
         </div>
@@ -84,7 +84,7 @@ export default function Experience() {
               <div className="w-10 h-10 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center text-[var(--accent)] shrink-0">
                 <Briefcase className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[var(--text)]">Experience</h3>
+              <h3 className="type-h3 text-xl sm:text-2xl font-bold text-[var(--text)]">Experience</h3>
             </div>
 
             <div className="relative border-l border-[var(--border)] ml-5 pl-6 space-y-8">
@@ -93,17 +93,17 @@ export default function Experience() {
                   {/* Timeline bullet dot */}
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--bg)] border-2 border-[var(--accent)]" />
 
-                  <div className="portfolio-card p-5">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-1 block">
+                  <div className="portfolio-card p-5 sm:p-6">
+                    <span className="type-mono-meta font-mono text-sm text-[var(--accent)] mb-1 block">
                       {item.date}
                     </span>
-                    <h4 className="text-base sm:text-lg font-bold text-[var(--text)] mb-0.5">
+                    <h4 className="text-base sm:text-lg font-semibold text-[var(--text)] mb-0.5">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-[var(--muted)] mb-3 font-medium">
+                    <p className="text-sm font-sans text-[var(--muted)] mb-3 font-medium">
                       {item.subtitle}
                     </p>
-                    <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+                    <p className="type-body text-sm text-[var(--muted)] leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -118,7 +118,7 @@ export default function Experience() {
               <div className="w-10 h-10 rounded-lg bg-[var(--surface)] border border-[var(--border)] flex items-center justify-center text-[var(--accent)] shrink-0">
                 <GraduationCap className="w-5 h-5" aria-hidden="true" />
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-[var(--text)]">Education</h3>
+              <h3 className="type-h3 text-xl sm:text-2xl font-bold text-[var(--text)]">Education</h3>
             </div>
 
             <div className="relative border-l border-[var(--border)] ml-5 pl-6 space-y-8">
@@ -127,17 +127,17 @@ export default function Experience() {
                   {/* Timeline bullet dot */}
                   <div className="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-[var(--bg)] border-2 border-[var(--accent)]" />
 
-                  <div className="portfolio-card p-5">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-1 block">
+                  <div className="portfolio-card p-5 sm:p-6">
+                    <span className="type-mono-meta font-mono text-sm text-[var(--accent)] mb-1 block">
                       {item.date}
                     </span>
-                    <h4 className="text-base sm:text-lg font-bold text-[var(--text)] mb-0.5">
+                    <h4 className="text-base sm:text-lg font-semibold text-[var(--text)] mb-0.5">
                       {item.title}
                     </h4>
-                    <p className="text-xs text-[var(--muted)] mb-3 font-medium">
+                    <p className="text-sm font-sans text-[var(--muted)] mb-3 font-medium">
                       {item.subtitle}
                     </p>
-                    <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">
+                    <p className="type-body text-sm text-[var(--muted)] leading-relaxed">
                       {item.description}
                     </p>
                   </div>

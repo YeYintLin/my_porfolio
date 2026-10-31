@@ -22,7 +22,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
           className="object-cover transition-transform duration-300 hover:scale-105"
         />
         <div className="absolute top-3 left-3">
-          <span className="text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-md bg-[var(--surface)]/95 text-[var(--accent)] border border-[var(--border)] shadow-sm">
+          <span className="type-meta font-sans font-medium px-2.5 py-1 rounded-md bg-[var(--surface)]/95 text-[var(--accent)] border border-[var(--border)] shadow-sm">
             {project.teamContext}
           </span>
         </div>
@@ -31,12 +31,12 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
       {/* Content */}
       <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
         <div>
-          <h3 className="text-lg sm:text-xl font-bold tracking-tight mb-2 text-[var(--text)]">
+          <h3 className="type-h3 text-[var(--text)] mb-2">
             {project.title}
           </h3>
 
           {/* Problem -> Solution format */}
-          <div className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed mb-4 space-y-1">
+          <div className="type-meta text-sm text-[var(--muted)] leading-relaxed mb-4 space-y-1">
             <p>
               <strong className="text-[var(--text)] font-medium">Problem:</strong> {project.oneLiner.problem}
             </p>
@@ -46,16 +46,16 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
           </div>
 
           {/* My Role */}
-          <div className="mb-4 text-xs text-[var(--muted)] border-t border-[var(--border)] pt-3">
+          <div className="mb-4 text-sm font-sans text-[var(--muted)] border-t border-[var(--border)] pt-3">
             <span className="font-semibold text-[var(--text)]">My Role:</span> {project.role}
           </div>
 
-          {/* Stack Chips */}
+          {/* Stack Chips: Geist Mono */}
           <div className="flex flex-wrap gap-1.5 mb-5">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--muted)] border border-[var(--border)]"
+                className="type-mono-meta font-mono text-sm px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--muted)] border border-[var(--border)]"
               >
                 {tag}
               </span>
@@ -68,9 +68,9 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
           <button
             type="button"
             onClick={() => onOpenDetails(project)}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+            className="inline-flex items-center gap-1.5 text-sm font-sans font-medium text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded"
           >
-            <Info className="w-3.5 h-3.5" aria-hidden="true" />
+            <Info className="w-4 h-4" aria-hidden="true" />
             Architecture & Details
           </button>
 

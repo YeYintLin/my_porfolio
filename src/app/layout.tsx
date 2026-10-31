@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { SITE_CONFIG } from "@/config/site";
+
+const geistSans = Geist({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["ui-monospace", "SF Mono", "Menlo", "Consolas", "monospace"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://yeyintlin.dev"), // Fallback base URL for relative paths
@@ -80,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark h-full" suppressHydrationWarning>
+    <html lang="en" className={`dark h-full ${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning>
       <head>
         {/* Flash-free theme script runs synchronously before paint */}
         <script
@@ -104,15 +119,8 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
       </head>
-      <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--text)] antialiased transition-colors duration-150">
+      <body className="min-h-full flex flex-col bg-[var(--bg)] text-[var(--text)] font-sans antialiased transition-colors duration-150">
         {children}
       </body>
     </html>

@@ -13,13 +13,13 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-12 text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-2 block">
+          <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Featured Engineering Work
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-[var(--text)]">
+          <h2 className="type-h2 text-[var(--text)] mb-3">
             Featured Projects
           </h2>
-          <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl mx-auto">
+          <p className="type-body text-[var(--muted)] max-w-[65ch] mx-auto text-pretty">
             Practical full-stack web applications, microservices architecture, and containerized deployments.
           </p>
         </div>

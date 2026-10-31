@@ -78,7 +78,7 @@ export default function Navbar() {
         >
           <span className="w-2 h-2 rounded-full bg-[var(--accent)]" aria-hidden="true" />
           <span>{SITE_CONFIG.name}</span>
-          <span className="hidden sm:inline-block text-xs font-normal text-[var(--muted)] border-l border-[var(--border)] pl-2 ml-1">
+          <span className="hidden sm:inline-block text-sm font-sans font-normal text-[var(--muted)] border-l border-[var(--border)] pl-2 ml-1">
             {SITE_CONFIG.shortTitle}
           </span>
         </Link>

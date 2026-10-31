@@ -46,12 +46,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Header with Title and Close Button */}
         <div className="flex items-start justify-between gap-4 pb-4 border-b border-[var(--border)] mb-6">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-1 block">
+            <span className="type-eyebrow text-[var(--accent)] mb-1 block">
               {project.teamContext} • {project.role}
             </span>
-            <h2 id="modal-project-title" className="text-xl sm:text-2xl font-bold text-[var(--text)]">
+            <h3 id="modal-project-title" className="type-h3 text-[var(--text)]">
               {project.title}
-            </h2>
+            </h3>
           </div>
           <button
             type="button"
@@ -74,16 +74,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* Overview & Technical Explanation */}
-        <div className="space-y-4 mb-6 text-sm text-[var(--muted)] leading-relaxed">
-          <h3 className="text-base font-semibold text-[var(--text)]">Technical Architecture & Explanation</h3>
-          <p>{project.description}</p>
+        <div className="space-y-3 mb-6">
+          <h4 className="text-base font-semibold text-[var(--text)]">Technical Architecture & Explanation</h4>
+          <p className="type-body text-sm text-[var(--muted)] leading-relaxed">{project.description}</p>
         </div>
 
         {/* Inline SVG Architecture Diagram */}
         <div className="mb-6 p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
-          <div className="flex items-center gap-2 mb-3 text-xs font-semibold uppercase tracking-wider text-[var(--accent)]">
-            <Cpu className="w-4 h-4" aria-hidden="true" />
-            <span>Architecture Diagram</span>
+          <div className="flex items-center gap-2 mb-3">
+            <Cpu className="w-4 h-4 text-[var(--accent)]" aria-hidden="true" />
+            <span className="type-eyebrow text-[var(--accent)]">Architecture Diagram</span>
           </div>
           <div
             className="w-full overflow-x-auto py-2"
@@ -93,22 +93,22 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         {/* Key Architectural Decisions */}
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-[var(--text)] mb-2.5">Key Implementation Details</h4>
-          <ul className="space-y-2 text-xs sm:text-sm text-[var(--muted)] list-disc pl-5">
+          <h4 className="text-sm sm:text-base font-semibold text-[var(--text)] mb-2.5">Key Implementation Details</h4>
+          <ul className="space-y-2 text-sm text-[var(--muted)] list-disc pl-5">
             {project.architectureDetails.map((detail, idx) => (
-              <li key={idx}>{detail}</li>
+              <li key={idx} className="type-body text-sm">{detail}</li>
             ))}
           </ul>
         </div>
 
-        {/* Technology Stack */}
+        {/* Technology Stack: Geist Mono chips */}
         <div className="mb-6">
-          <h4 className="text-sm font-semibold text-[var(--text)] mb-2.5">Technologies Used</h4>
+          <h4 className="text-sm sm:text-base font-semibold text-[var(--text)] mb-2.5">Technologies Used</h4>
           <div className="flex flex-wrap gap-1.5">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs font-medium px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--text)] border border-[var(--border)]"
+                className="type-mono-meta font-mono text-sm px-2.5 py-1 rounded-md bg-[var(--bg)] text-[var(--muted)] border border-[var(--border)]"
               >
                 {tag}
               </span>
@@ -121,7 +121,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="btn-secondary text-xs px-4 py-2"
+            className="btn-secondary text-sm px-4 py-2"
           >
             Close Details
           </button>

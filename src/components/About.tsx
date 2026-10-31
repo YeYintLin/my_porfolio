@@ -35,13 +35,13 @@ export default function About() {
     <section id="about" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 text-center">
-          <span className="text-xs font-semibold uppercase tracking-wider text-[var(--accent)] mb-2 block">
+          <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Background & Engineering Focus
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-[var(--text)]">
+          <h2 className="type-h2 text-[var(--text)] mb-3">
             About Me
           </h2>
-          <p className="text-sm sm:text-base text-[var(--muted)] max-w-2xl mx-auto">
+          <p className="type-body text-[var(--muted)] max-w-[65ch] mx-auto text-pretty">
             Practical full-stack development, mechatronics problem solving, and Linux deployment workflows.
           </p>
         </div>
@@ -63,14 +63,14 @@ export default function About() {
           </div>
 
           {/* Bio text */}
-          <div className="lg:col-span-8 space-y-4 text-sm sm:text-base text-[var(--muted)] leading-relaxed">
+          <div className="lg:col-span-8 space-y-4 type-body text-base text-[var(--muted)] leading-relaxed">
             <p>
               Hi, I’m <strong className="text-[var(--text)] font-semibold">{profile.name || SITE_CONFIG.name}</strong> — a {SITE_CONFIG.title}. I specialize in taking software from conceptual architecture all the way to production deployments on Linux VPS using Docker Compose and Nginx.
             </p>
             <p>
               With a background in Mechatronics Engineering from the University of Technology (Hmawbi), I approach web engineering with a focus on reliability, clear system boundaries, and maintainability. My stack centers on React, Next.js, Node.js, and containerized deployment workflows.
             </p>
-            <div className="pt-2 flex flex-wrap gap-4 text-xs sm:text-sm text-[var(--text)]">
+            <div className="pt-2 flex flex-wrap gap-4 text-sm text-[var(--text)] font-sans">
               <span className="inline-flex items-center gap-1.5 text-[var(--muted)]">
                 <MapPin className="w-4 h-4 text-[var(--accent)]" /> Yangon, Myanmar
               </span>
@@ -86,29 +86,29 @@ export default function About() {
 
         {/* Remote Readiness & Practical Operational Setup */}
         <div className="portfolio-card p-6 sm:p-8 mb-12">
-          <h3 className="text-base sm:text-lg font-bold mb-6 text-[var(--text)] flex items-center gap-2">
+          <h3 className="type-h3 text-base sm:text-lg font-bold mb-6 text-[var(--text)] flex items-center gap-2">
             <Globe className="w-4 h-4 text-[var(--accent)]" /> Remote Collaboration & Operational Setup
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-xs sm:text-sm">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-sm">
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
-              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Timezone Overlap</span>
-              <span className="font-semibold text-[var(--text)] block mb-1">UTC+6:30 (Yangon)</span>
-              <span className="text-[var(--muted)]">Overlaps comfortably with SGT, CET, and morning EST hours.</span>
+              <span className="type-eyebrow text-[var(--muted)] block mb-1">Timezone Overlap</span>
+              <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">UTC+6:30 (Yangon)</span>
+              <span className="type-body text-sm text-[var(--muted)]">Overlaps comfortably with SGT, CET, and morning EST hours.</span>
             </div>
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
-              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Work Mode</span>
-              <span className="font-semibold text-[var(--text)] block mb-1">Remote & Contractor</span>
-              <span className="text-[var(--muted)]">Available for remote contractor projects from December 2026.</span>
+              <span className="type-eyebrow text-[var(--muted)] block mb-1">Work Mode</span>
+              <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">Remote & Contractor</span>
+              <span className="type-body text-sm text-[var(--muted)]">Available for remote contractor projects from December 2026.</span>
             </div>
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
-              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Languages</span>
-              <span className="font-semibold text-[var(--text)] block mb-1">English & Burmese</span>
-              <span className="text-[var(--muted)]">{SITE_CONFIG.languages}.</span>
+              <span className="type-eyebrow text-[var(--muted)] block mb-1">Languages</span>
+              <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">English & Burmese</span>
+              <span className="type-body text-sm text-[var(--muted)]">{SITE_CONFIG.languages}.</span>
             </div>
             <div className="p-4 rounded-lg bg-[var(--bg)] border border-[var(--border)]">
-              <span className="text-[11px] uppercase tracking-wider text-[var(--muted)] font-semibold block mb-1">Connectivity Setup</span>
-              <span className="font-semibold text-[var(--text)] block mb-1">Backup Power & Dual ISP</span>
-              <span className="text-[var(--muted)]">{SITE_CONFIG.connectivity}.</span> {/* TODO: confirm backup setup */}
+              <span className="type-eyebrow text-[var(--muted)] block mb-1">Connectivity Setup</span>
+              <span className="font-semibold text-sm sm:text-base text-[var(--text)] block mb-1">Backup Power & Dual ISP</span>
+              <span className="type-body text-sm text-[var(--muted)]">{SITE_CONFIG.connectivity}.</span> {/* TODO: confirm backup setup */}
             </div>
           </div>
         </div>
@@ -123,8 +123,8 @@ export default function About() {
               <div className="w-9 h-9 rounded-lg bg-[var(--bg)] border border-[var(--border)] flex items-center justify-center mb-4 text-[var(--accent)]">
                 {feature.icon}
               </div>
-              <h4 className="text-sm sm:text-base font-semibold mb-2 text-[var(--text)]">{feature.title}</h4>
-              <p className="text-xs sm:text-sm text-[var(--muted)] leading-relaxed">{feature.description}</p>
+              <h4 className="text-base font-semibold mb-2 text-[var(--text)]">{feature.title}</h4>
+              <p className="type-body text-sm text-[var(--muted)] leading-relaxed">{feature.description}</p>
             </div>
           ))}
         </div>
