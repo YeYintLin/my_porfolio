@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
   const [isDark, setIsDark] = useState<boolean>(true);
@@ -14,7 +13,20 @@ export default function ThemeToggle() {
       setIsDark(darkActive);
       setMounted(true);
     }, 0);
-    return () => clearTimeout(timer);
+
+    // Keep synchronized if theme is toggled by other triggers (e.g. Command Palette)
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -30,29 +42,38 @@ export default function ThemeToggle() {
     }
   };
 
-  // Render a clean accessible placeholder before mounting to avoid layout shifts
+  // Render a clean placeholder before mounting to avoid layout shifts
   if (!mounted) {
     return (
-      <div 
-        className="w-9 h-9 rounded-full border border-[var(--border)] bg-[var(--surface)] opacity-50" 
-        aria-hidden="true" 
-      />
+      <div className="checkbox-wrapper-35 opacity-0 pointer-events-none flex items-center h-6" aria-hidden="true">
+        <span className="text-xs font-sans">This is Dark</span>
+      </div>
     );
   }
 
   return (
-    <button
-      onClick={toggleTheme}
-      type="button"
-      className="w-9 h-9 rounded-full flex items-center justify-center border border-[var(--border)] bg-[var(--surface)] text-[var(--muted)] hover:text-[var(--text)] hover:border-[var(--accent)] transition-colors"
-      aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
-      title={isDark ? "Switch to light theme" : "Switch to dark theme"}
-    >
-      {isDark ? (
-        <Sun className="w-4 h-4 text-[var(--accent)]" aria-hidden="true" />
-      ) : (
-        <Moon className="w-4 h-4 text-[var(--accent)]" aria-hidden="true" />
-      )}
-    </button>
+    <div className="checkbox-wrapper-35 flex items-center">
+      <input
+        value="theme"
+        name="theme-switch"
+        id="theme-switch"
+        type="checkbox"
+        className="switch"
+        checked={isDark}
+        onChange={toggleTheme}
+        aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
+      />
+      <label htmlFor="theme-switch">
+        <span className="switch-x-text">This is </span>
+        <span className="switch-x-toggletext">
+          <span className="switch-x-unchecked">
+            <span className="switch-x-hiddenlabel">Theme: </span>Light
+          </span>
+          <span className="switch-x-checked">
+            <span className="switch-x-hiddenlabel">Theme: </span>Dark
+          </span>
+        </span>
+      </label>
+    </div>
   );
 }
