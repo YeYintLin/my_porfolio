@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Check, ArrowRight, Sparkles, Code2, Cloud, ShieldCheck } from "lucide-react";
 import { SERVICES_DATA, ServicePlan } from "@/config/site";
 
@@ -18,7 +19,13 @@ export default function Services() {
     <section id="services" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 text-center"
+        >
           <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Engineering & Deployment Packages
           </span>
@@ -54,10 +61,16 @@ export default function Services() {
               MMK (Kyat)
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Services Grid with "Most popular" highlight */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch"
+        >
           {SERVICES_DATA.map((plan: ServicePlan) => {
             const isPopular = plan.isPopular;
 
@@ -127,7 +140,7 @@ export default function Services() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

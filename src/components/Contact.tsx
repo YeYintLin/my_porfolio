@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Copy, Check, MessageSquare } from "lucide-react";
 import { useProfile } from "@/context/ProfileContext";
 import { SITE_CONFIG } from "@/config/site";
@@ -98,7 +99,14 @@ export default function Contact() {
   return (
     <section id="contact" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 text-center"
+        >
           <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Direct Communication
           </span>
@@ -108,9 +116,15 @@ export default function Contact() {
           <p className="type-body text-[var(--muted)] max-w-[65ch] mx-auto text-pretty">
             Available for full-time remote developer roles and freelance projects starting December 2026.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start"
+        >
           {/* Left Column: Verified Contact Info (No placeholder phone number) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
             {/* Email Card with Copy-to-Clipboard */}
@@ -360,7 +374,7 @@ export default function Contact() {
               )}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

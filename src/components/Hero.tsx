@@ -40,9 +40,9 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Availability Badge with subtle radar ping */}
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="mb-6 inline-block"
         >
           <span className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[var(--border)] bg-[var(--surface)] text-sm font-sans font-medium text-[var(--text)] shadow-sm backdrop-blur-sm">
@@ -57,9 +57,9 @@ export default function Hero() {
 
         {/* Headline: single semantic H1 */}
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="type-h1 text-[var(--text)] mb-6 text-balance"
         >
           Full-Stack Developer building and deploying reliable web applications.
@@ -67,9 +67,9 @@ export default function Hero() {
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.45, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="type-body text-base sm:text-lg text-[var(--muted)] mb-10 max-w-[65ch] mx-auto text-pretty"
         >
           Hi, I&apos;m <span className="font-semibold text-[var(--text)]">{profile.name || SITE_CONFIG.name}</span>. A {SITE_CONFIG.title} specialized in building modern React/Next.js interfaces, robust Node.js backend services, and Linux VPS deployments with Docker Compose.
@@ -77,9 +77,9 @@ export default function Hero() {
 
         {/* Exactly 3 Buttons: 1 Primary CTA + 2 Secondary/Outline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.45, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4 w-full"
         >
           {/* Primary CTA (Amber background with dark text) */}

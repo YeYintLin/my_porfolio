@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { TECH_STACK_DATA, TechCategory } from "@/data/techstack";
 
 // Connected ecosystem mapping
@@ -55,7 +56,13 @@ export default function TechStack() {
   return (
     <section id="tech-stack" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 text-center"
+        >
           <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Technical Ecosystem & Architecture
           </span>
@@ -66,9 +73,15 @@ export default function TechStack() {
             Languages, frameworks, databases, and DevOps tooling applied in real production and academic projects.
             Hover over any technology to trace connected system relationships.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
           {categories.map((category, catIndex) => (
             <div
               key={category.id || category.title}
@@ -116,7 +129,7 @@ export default function TechStack() {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

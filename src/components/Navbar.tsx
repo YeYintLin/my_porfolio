@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import CommandPalette from "@/components/CommandPalette";
@@ -64,7 +65,8 @@ export default function Navbar() {
     const targetId = href.replace("#", "");
     const targetEl = document.getElementById(targetId);
     if (targetEl) {
-      targetEl.scrollIntoView({ behavior: "smooth" });
+      const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      targetEl.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
     }
   };
 
@@ -93,7 +95,7 @@ export default function Navbar() {
                 key={item.id}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className={`relative px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                className={`relative px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors duration-[180ms] ${
                   isActive
                     ? "text-[var(--accent)] font-semibold"
                     : "text-[var(--muted)] hover:text-[var(--text)]"
@@ -101,8 +103,10 @@ export default function Navbar() {
               >
                 {item.name}
                 {isActive && (
-                  <span
+                  <motion.span
+                    layoutId="activeNavIndicator"
                     className="absolute bottom-0 left-3 right-3 h-0.5 bg-[var(--accent)] rounded-full"
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                     aria-hidden="true"
                   />
                 )}

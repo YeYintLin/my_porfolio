@@ -26,6 +26,14 @@
 
   /* Typography metrics: default dark line-height +0.05 */
   --body-line-height: 1.65;
+
+  /* Global Transition & Motion Tokens (Section 10) */
+  --ease-default: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 180ms;     /* Buttons & links */
+  --duration-normal: 250ms;   /* Cards & interactive components */
+  --duration-panel: 300ms;    /* Modals & detail panels */
+  --duration-section: 450ms;  /* Section entrance animations */
+  --duration-theme: 220ms;    /* Theme color transitions */
 }
 
 html.dark {
@@ -172,12 +180,28 @@ html:not(.dark) {
   font-variant-numeric: tabular-nums;
 }
 
+/* Specific theme transitions: avoids global '*' layout lag */
+body,
+header,
+footer,
+.portfolio-card,
+.btn-secondary,
+.btn-cta,
+.contact-input,
+nav a {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: var(--duration-theme);
+  transition-timing-function: var(--ease-default);
+}
+
 /* Card styles matching identical radii and border styles */
 .portfolio-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
   border-radius: 0.75rem;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition: border-color var(--duration-normal) var(--ease-default),
+              box-shadow var(--duration-normal) var(--ease-default),
+              transform var(--duration-normal) var(--ease-default);
 }
 
 .portfolio-card:hover {
@@ -196,12 +220,15 @@ html:not(.dark) {
   font-size: 0.9375rem;
   background-color: var(--cta);
   color: var(--cta-fg) !important;
-  transition: background-color 150ms ease, transform 150ms ease;
+  transition: background-color var(--duration-fast) var(--ease-default),
+              transform var(--duration-fast) var(--ease-default),
+              box-shadow var(--duration-fast) var(--ease-default);
 }
 
 .btn-cta:hover {
   background-color: var(--cta-hover);
-  transform: translateY(-1px);
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25);
 }
 
 /* Secondary / Outline Button */
@@ -217,12 +244,15 @@ html:not(.dark) {
   background-color: transparent;
   color: var(--text);
   border: 1px solid var(--border);
-  transition: border-color 150ms ease, background-color 150ms ease;
+  transition: border-color var(--duration-fast) var(--ease-default),
+              background-color var(--duration-fast) var(--ease-default),
+              transform var(--duration-fast) var(--ease-default);
 }
 
 .btn-secondary:hover {
   border-color: var(--accent);
   background-color: var(--surface);
+  transform: translateY(-1px);
 }
 
 /* Form input styles */
@@ -233,7 +263,8 @@ html:not(.dark) {
   border-radius: 0.5rem;
   padding: 0.75rem 1rem;
   font-size: 0.9375rem;
-  transition: border-color 150ms ease, box-shadow 150ms ease;
+  transition: border-color var(--duration-fast) var(--ease-default),
+              box-shadow var(--duration-fast) var(--ease-default);
 }
 
 .contact-input:focus {

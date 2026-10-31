@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import { X, GitBranch, ArrowUpRight, Cpu } from "lucide-react";
 import { FeaturedProject } from "@/data/projects";
 
@@ -29,20 +30,30 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     };
   }, [project, onClose]);
 
-  if (!project) return null;
-
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm overflow-y-auto"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-project-title"
-      onClick={onClose}
-    >
-      <div
-        className="portfolio-card w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[var(--surface)] p-6 sm:p-8 my-auto relative shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <AnimatePresence>
+      {project && (
+        <motion.div
+          key="modal-backdrop"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/60 backdrop-blur-sm overflow-y-auto"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-project-title"
+          onClick={onClose}
+        >
+          <motion.div
+            key="modal-content"
+            initial={{ opacity: 0, scale: 0.95, y: 16 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 12 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="portfolio-card w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[var(--surface)] p-6 sm:p-8 my-auto relative shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
         {/* Header with Title and Close Button */}
         <div className="flex items-start justify-between gap-4 pb-4 border-b border-[var(--border)] mb-6">
           <div>
@@ -149,7 +160,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             )}
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
   );
 }

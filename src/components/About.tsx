@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Code, Server, Cloud, ShieldCheck, Globe, Clock, MapPin } from "lucide-react";
 import { useProfile } from "@/context/ProfileContext";
 import { SITE_CONFIG } from "@/config/site";
@@ -34,7 +35,14 @@ export default function About() {
   return (
     <section id="about" className="py-20 sm:py-24 px-4 sm:px-6 border-t border-[var(--border)]">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12 text-center">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 text-center"
+        >
           <span className="type-eyebrow text-[var(--accent)] mb-2 block">
             Background & Engineering Focus
           </span>
@@ -44,10 +52,16 @@ export default function About() {
           <p className="type-body text-[var(--muted)] max-w-[65ch] mx-auto text-pretty">
             Practical full-stack development, mechatronics problem solving, and Linux deployment workflows.
           </p>
-        </div>
+        </motion.div>
 
         {/* Profile Card & Bio Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-center mb-16"
+        >
           {/* Profile Photo (Local file using next/image with placeholder) */}
           <div className="lg:col-span-4 flex justify-center">
             <div className="relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl overflow-hidden border-2 border-[var(--border)] bg-[var(--surface)] shadow-md">
@@ -82,10 +96,16 @@ export default function About() {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Remote Readiness & Practical Operational Setup */}
-        <div className="portfolio-card p-6 sm:p-8 mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="portfolio-card p-6 sm:p-8 mb-12"
+        >
           <h3 className="type-h3 text-base sm:text-lg font-bold mb-6 text-[var(--text)] flex items-center gap-2">
             <Globe className="w-4 h-4 text-[var(--accent)]" /> Remote Collaboration & Operational Setup
           </h3>
@@ -111,10 +131,16 @@ export default function About() {
               <span className="type-body text-sm text-[var(--muted)]">{SITE_CONFIG.connectivity}.</span> {/* TODO: confirm backup setup */}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* 4 Core Pillars */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.45, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+        >
           {features.map((feature, idx) => (
             <div
               key={idx}
@@ -127,7 +153,7 @@ export default function About() {
               <p className="type-body text-sm text-[var(--muted)] leading-relaxed">{feature.description}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

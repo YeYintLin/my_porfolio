@@ -51,7 +51,9 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
         transform: isHovered
           ? `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateY(-4px)`
           : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)",
-        transition: isHovered ? "transform 0.1s ease-out, border-color 0.2s ease" : "transform 0.35s ease, border-color 0.2s ease",
+        transition: isHovered
+          ? "transform 0.1s ease-out, border-color var(--duration-fast) var(--ease-default)"
+          : "transform var(--duration-panel) var(--ease-default), border-color var(--duration-fast) var(--ease-default)",
       }}
       className="portfolio-card group flex flex-col overflow-hidden h-full shadow-sm hover:shadow-xl hover:border-[var(--accent)] will-change-transform"
     >
@@ -62,7 +64,7 @@ export default function ProjectCard({ project, onOpenDetails }: ProjectCardProps
           alt={`${project.title} screenshot`}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
         />
         <div className="absolute top-3 left-3">
           <span className="type-meta font-sans font-medium px-2.5 py-1 rounded-md bg-[var(--surface)]/95 text-[var(--accent)] border border-[var(--border)] shadow-sm backdrop-blur-sm">
