@@ -25,14 +25,5 @@
     "tags": ["React Native", "Expo", "TypeScript", "Redux", "Mobile UX"],
     "liveUrl": "https://github.com/YeYintLin",
     "githubUrl": "https://github.com/YeYintLin"
-  },
-  {
-    "id": "4",
-    "title": "Desktop Bot & Mechatronics Automation",
-    "description": "Automated workflow bots combining computer vision (OpenCV/Python) for desktop automation, alongside C++ firmware for microcontroller embedded hardware (ESP32/Arduino).",
-    "image": "/projects/smart_irrigation_mockup.png",
-    "tags": ["Python", "OpenCV", "C++", "IoT / Mechatronics", "Automation"],
-    "liveUrl": "https://github.com/YeYintLin",
-    "githubUrl": "https://github.com/YeYintLin"
   }
 ]
