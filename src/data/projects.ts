@@ -146,8 +146,8 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     },
     role: "Full-Stack & Mobile Developer (Client Project)",
     teamContext: "Team Project (Specific Individual Contributions)",
-    image: "/projects/job_portal_mockup.png",
-    tags: ["Next.js", "React Native", "Expo", "TypeScript", "Node.js", "PostgreSQL", "Docker Compose"],
+    image: "/projects/infinity_fitness_cover.png",
+    tags: ["Next.js", "PWA", "React Native", "TypeScript", "Node.js", "PostgreSQL", "Docker Compose"],
     githubUrl: undefined, // Private client codebase (TODO_GITHUB_URL if open-sourced)
     liveUrl: undefined,
     description:
