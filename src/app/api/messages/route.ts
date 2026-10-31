@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
 
     // 2. Honeypot check: Bots auto-fill hidden input fields
     if (_gotcha) {
-      console.warn(`[anti-spam] Honeypot triggered by bot from IP: ${ip}`);
+      console.warn("[anti-spam] Honeypot triggered by bot");
       // Return fake success so bot does not retry
       return NextResponse.json({
         success: true,
@@ -67,7 +67,7 @@ export async function POST(request: NextRequest) {
 
     // 3. Human submission timing: Forms filled in < 1.5s are automated scripts
     if (loadedAt && Date.now() - Number(loadedAt) < 1500) {
-      console.warn(`[anti-spam] Fast script submission detected (${Date.now() - Number(loadedAt)}ms) from IP: ${ip}`);
+      console.warn(`[anti-spam] Fast script submission detected (${Date.now() - Number(loadedAt)}ms)`);
       return NextResponse.json({
         success: true,
         message: "Message sent successfully!",

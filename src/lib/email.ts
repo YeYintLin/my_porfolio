@@ -19,6 +19,10 @@ export async function sendNotificationEmail({
 }: EmailParams): Promise<SendEmailResult> {
   const recipientEmail = process.env.NOTIFICATION_EMAIL || "altairsetsuna146@gmail.com";
 
+  // Prevent email header injection by stripping carriage returns and newlines
+  const safeName = name.replace(/[\r\n]/g, " ").trim();
+  const safeEmail = email.replace(/[\r\n]/g, "").trim();
+
   // 1. Check for Resend API Key
   const resendApiKey = process.env.RESEND_API_KEY;
   if (resendApiKey) {
@@ -32,17 +36,17 @@ export async function sendNotificationEmail({
         body: JSON.stringify({
           from: process.env.RESEND_FROM || "Portfolio Contact <onboarding@resend.dev>",
           to: recipientEmail,
-          reply_to: email,
-          subject: `💼 New Portfolio Message from ${name}`,
-          html: generateEmailHtml(name, email, message),
+          reply_to: safeEmail,
+          subject: `💼 New Portfolio Message from ${safeName}`,
+          html: generateEmailHtml(safeName, safeEmail, message),
         }),
       });
 
       if (response.ok) {
         return { sent: true, message: "Email sent via Resend" };
       }
-    } catch (err) {
-      console.error("[email] Resend delivery error:", err);
+    } catch {
+      // Internal delivery error masked
     }
   }
 
@@ -51,7 +55,7 @@ export async function sendNotificationEmail({
     process.env.EMAIL_USER ||
     process.env.GMAIL_USER ||
     process.env.NOTIFICATION_EMAIL ||
-    "altairsetsuna146@gmail.com"
+    ""
   ).trim();
 
   const rawPass =
@@ -77,27 +81,20 @@ export async function sendNotificationEmail({
       await transporter.sendMail({
         from: `"Portfolio Contact Form" <${emailUser}>`,
         to: recipientEmail,
-        replyTo: email,
-        subject: `💼 New Portfolio Message from ${name}`,
-        html: generateEmailHtml(name, email, message),
+        replyTo: safeEmail,
+        subject: `💼 New Portfolio Message from ${safeName}`,
+        html: generateEmailHtml(safeName, safeEmail, message),
       });
 
       return { sent: true, message: "Email sent via SMTP" };
-    } catch (err: unknown) {
-      console.error("[email] SMTP delivery error:", err);
-      const errorMessage = err instanceof Error ? err.message : "SMTP delivery failed";
-      return { sent: false, error: errorMessage };
+    } catch {
+      return { sent: false, error: "SMTP delivery failed" };
     }
   }
 
-  // 3. Fallback when credentials are not configured yet
-  console.log(
-    `[email] Inbound inquiry saved to database. To receive direct Gmail notifications, configure EMAIL_USER and EMAIL_PASS (Gmail App Password) in your Vercel Project Environment Variables.`
-  );
-
   return {
     sent: false,
-    message: "Inquiry saved to admin database (SMTP credentials not yet configured).",
+    message: "Inquiry saved to admin database.",
   };
 }
 

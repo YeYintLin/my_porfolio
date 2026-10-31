@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getExpectedSessionToken } from "@/lib/auth";
+import { checkRateLimit } from "@/lib/rateLimit";
 
 const SESSION_COOKIE_NAME = "admin_session";
 const DEFAULT_PASSWORD = "admin123";
@@ -12,6 +13,22 @@ function getAdminPassword(): string {
 // POST login
 export async function POST(request: NextRequest) {
   try {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      "127.0.0.1";
+
+    const { allowed, retryAfterSeconds } = checkRateLimit(`login_${ip}`, 5, 15 * 60 * 1000);
+    if (!allowed) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: `Too many login attempts. Please wait ${retryAfterSeconds} seconds before trying again.`,
+        },
+        { status: 429 }
+      );
+    }
+
     const { password } = await request.json();
     const correctPassword = getAdminPassword();
 
@@ -25,7 +42,7 @@ export async function POST(request: NextRequest) {
         value: expectedToken,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "lax",
+        sameSite: "strict",
         path: "/",
         maxAge: 60 * 60 * 24, // 24 hours
       });
