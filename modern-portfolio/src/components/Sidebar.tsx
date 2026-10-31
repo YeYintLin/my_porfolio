@@ -46,20 +46,20 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
 
       {/* Sidebar */}
       <motion.aside
-        className={`fixed inset-y-0 left-0 z-40 sidebar-custom flex flex-col transition-all duration-300 ease-in-out md:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} ${isCollapsed ? 'w-[280px] md:w-[80px]' : 'w-[280px]'}`}
+        className={`fixed inset-y-0 left-0 z-40 sidebar-custom text-white flex flex-col transition-all duration-300 ease-in-out md:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'} ${isCollapsed ? 'w-[280px] md:w-[80px]' : 'w-[280px]'}`}
       >
         {/* Toggle Button for Desktop */}
         <button 
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="hidden md:flex absolute top-6 -right-3.5 z-50 w-7 h-7 items-center justify-center rounded-full bg-white text-gray-800 shadow-[0_2px_8px_rgba(0,0,0,0.15)] border border-gray-200 hover:scale-110 active:scale-95 transition-all cursor-pointer dark:bg-[#0E1626] dark:text-white dark:border-gray-700"
+          className="hidden md:flex absolute top-6 -right-3.5 z-50 w-7 h-7 items-center justify-center rounded-full bg-white text-gray-900 shadow-[0_2px_10px_rgba(0,0,0,0.25)] border border-gray-200 hover:scale-110 active:scale-95 transition-all cursor-pointer dark:bg-[#1E293B] dark:text-white dark:border-gray-700"
           title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
         >
           {isCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
         </button>
 
         {/* Profile Section */}
-        <div className={`flex flex-col items-center mt-16 mb-8 px-6 transition-all duration-300 ${isCollapsed ? 'md:px-2 md:mt-8' : ''}`}>
-          <div className={`rounded-full overflow-hidden border-4 border-[var(--primary)]/30 mb-4 bg-white/10 shadow-lg transition-all duration-300 ${isCollapsed ? 'w-12 h-12 border-2' : 'w-28 h-28'}`}>
+        <div className={`flex flex-col items-center mt-14 mb-8 px-6 transition-all duration-300 ${isCollapsed ? 'md:px-2 md:mt-8' : ''}`}>
+          <div className={`rounded-full overflow-hidden border-3 border-white/30 mb-3 bg-white/10 shadow-xl transition-all duration-300 ${isCollapsed ? 'w-12 h-12 border-2' : 'w-28 h-28'}`}>
             <img 
               src="https://cdn.download.ams.birds.cornell.edu/api/v2/asset/612763581/900" 
               alt="Ye Yint Lin" 
@@ -68,13 +68,15 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
           </div>
           
           <div className={`flex flex-col items-center transition-all duration-300 ${isCollapsed ? 'md:opacity-0 md:h-0 md:overflow-hidden md:mt-0' : 'opacity-100 mt-2'}`}>
-            <h2 className="text-xl font-bold text-center tracking-wide whitespace-nowrap">Ye Yint Lin</h2>
-            <p className="text-xs font-semibold uppercase tracking-wider text-[var(--primary)] text-center whitespace-nowrap mt-1">Full-Stack & DevOps</p>
+            <h2 className="text-xl font-bold text-center text-white tracking-wide whitespace-nowrap">Ye Yint Lin</h2>
+            <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-300 bg-white/10 dark:bg-emerald-500/15 px-3 py-0.5 rounded-full text-center whitespace-nowrap mt-1.5 border border-white/15 dark:border-emerald-500/20">
+              Full-Stack & DevOps
+            </span>
           </div>
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-2">
+        <nav className="flex-1 overflow-y-auto px-4 py-2 space-y-1.5">
           {navLinks.map((link) => {
             const Icon = link.icon;
             return (
@@ -82,9 +84,9 @@ export default function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className={`relative group flex items-center gap-4 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:text-[var(--primary)] hover:bg-[var(--primary)]/10 dark:hover:text-white dark:hover:bg-white/10 transition-all ${isCollapsed ? 'md:justify-center md:px-0' : ''}`}
+                className={`relative group flex items-center gap-4 px-4 py-3 rounded-xl text-white/85 hover:text-white hover:bg-white/15 dark:hover:bg-white/10 transition-all font-medium ${isCollapsed ? 'md:justify-center md:px-0' : ''}`}
               >
-                <Icon size={20} className="shrink-0 group-hover:scale-110 transition-transform duration-200" />
+                <Icon size={20} className="shrink-0 text-white/90 group-hover:scale-110 group-hover:text-white transition-all duration-200" />
                 <span className={`font-medium tracking-wide transition-all duration-300 whitespace-nowrap ${isCollapsed ? 'md:opacity-0 md:w-0 md:overflow-hidden' : 'opacity-100'}`}>
                   {link.name}
                 </span>

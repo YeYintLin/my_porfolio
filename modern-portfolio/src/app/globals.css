@@ -138,30 +138,30 @@
   box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
 }
 
-/* Refined Frosted Glass Sidebar */
+/* High-Contrast Signature Sidebar */
 .sidebar-custom {
-  background: rgba(244, 244, 240, 0.9) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
-  border-right: 1px solid rgba(82, 110, 58, 0.15) !important;
-  color: #192019 !important;
+  background: linear-gradient(180deg, #384A28 0%, #2B3A1E 100%) !important;
+  border-right: 1px solid rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.12) !important;
+  color: #FFFFFF !important;
 }
 
 .dark .sidebar-custom {
-  background: rgba(10, 15, 26, 0.88) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
+  background: linear-gradient(180deg, #0D1424 0%, #080D18 100%) !important;
   border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
-  color: #F1F5F9 !important;
+  box-shadow: 4px 0 30px rgba(0, 0, 0, 0.45) !important;
+  color: #FFFFFF !important;
 }
 
 .sidebar-toggle-btn {
-  background-color: #526E3A !important;
+  background: #384A28 !important;
+  color: #FFFFFF !important;
 }
 
 .dark .sidebar-toggle-btn {
-  background-color: #0E1626 !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: #0D1424 !important;
+  color: #FFFFFF !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
 }
 
 /* Ambient Floating Glow Animations */
