@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getExpectedSessionToken } from "@/lib/auth";
+import { getExpectedSessionToken, sha256 } from "@/lib/auth";
 import { checkRateLimit } from "@/lib/rateLimit";
 
 const SESSION_COOKIE_NAME = "admin_session";
@@ -32,7 +32,16 @@ export async function POST(request: NextRequest) {
     const { password } = await request.json();
     const correctPassword = getAdminPassword();
 
-    if (password === correctPassword) {
+    // Constant-time hash comparison to prevent timing attacks
+    const inputHash = await sha256(password || "");
+    const correctHash = await sha256(correctPassword);
+
+    let diff = 0;
+    for (let i = 0; i < inputHash.length; i++) {
+      diff |= inputHash.charCodeAt(i) ^ correctHash.charCodeAt(i);
+    }
+
+    if (diff === 0) {
       const response = NextResponse.json({ success: true, message: "Logged in successfully" });
       const expectedToken = await getExpectedSessionToken();
       

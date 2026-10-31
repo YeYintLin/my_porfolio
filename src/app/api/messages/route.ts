@@ -125,7 +125,7 @@ export async function POST(request: NextRequest) {
       });
       emailDelivered = emailResult.sent;
     } catch (emailErr) {
-      console.warn("[api/messages] Email dispatch warning:", emailErr);
+      console.warn("[api/messages] Email dispatch warning:", emailErr instanceof Error ? emailErr.message : "Delivery failed");
     }
 
     return NextResponse.json({
@@ -134,7 +134,7 @@ export async function POST(request: NextRequest) {
       emailDelivered,
     });
   } catch (error: unknown) {
-    console.error("[api/messages] Error handling contact submission:", error);
+    console.error("[api/messages] Contact submission error:", error instanceof Error ? error.name : "InternalError");
     return NextResponse.json(
       { message: "Failed to send message. Please try emailing directly." },
       { status: 500 }
