@@ -10,12 +10,12 @@
   },
   {
     "id": "2",
-    "title": "Next.js E-Commerce Platform",
-    "description": "High-performance digital storefront with real-time cart state management, responsive product catalog, checkout workflow, and administrative inventory controls.",
+    "title": "React E-Commerce Shopping Cart",
+    "description": "High-performance digital storefront with real-time cart state management, responsive product catalog, checkout workflow, and MongoDB persistence.",
     "image": "/projects/ecommerce_mockup.png",
-    "tags": ["Next.js", "React 19", "Tailwind CSS", "Node.js", "REST API"],
-    "liveUrl": "https://github.com/YeYintLin/Shopping_Cart_Project",
-    "githubUrl": "https://github.com/YeYintLin/Shopping_Cart_Project"
+    "tags": ["React", "Next.js", "Tailwind CSS", "MongoDB", "REST API"],
+    "liveUrl": "https://github.com/YeYintLin/react_project",
+    "githubUrl": "https://github.com/YeYintLin/react_project"
   },
   {
     "id": "3",

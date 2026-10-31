@@ -94,6 +94,49 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
     verifiedInRepo: true,
   },
   {
+    id: "shopping-cart",
+    slug: "react-ecommerce-shopping-cart",
+    title: "React E-Commerce Shopping Cart",
+    oneLiner: {
+      problem: "Traditional shopping carts suffer from stale cart state, sluggish updates, and poor mobile checkout UX.",
+      solution: "Engineered a reactive React & Next.js shopping cart with real-time state synchronization, MongoDB persistence, and responsive UI.",
+    },
+    role: "Full-Stack Developer",
+    teamContext: "Solo Engineering",
+    image: "/projects/ecommerce_mockup.png",
+    tags: ["React", "Next.js", "Tailwind CSS", "MongoDB", "Node.js", "REST API"],
+    githubUrl: "https://github.com/YeYintLin/react_project",
+    liveUrl: undefined,
+    description:
+      "A modular e-commerce shopping cart web application built with React and Next.js backend services. Features dynamic product filtering, real-time quantity adjustments, persistent cart sessions backed by MongoDB, and an optimized, frictionless checkout flow.",
+    architectureDetails: [
+      "Modular React client with stateful cart context and optimistic UI updates",
+      "Next.js API route handlers managing inventory queries and cart session payloads",
+      "MongoDB database integration for persistent item catalogs and order records",
+      "Clean RESTful communication between frontend components and backend services",
+    ],
+    architectureSvg: `<svg viewBox="0 0 680 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+      <rect x="20" y="55" width="140" height="70" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="90" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">React SPA</text>
+      <text x="90" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Cart State & UI</text>
+
+      <path d="M160 90 H240" stroke="#38BDF8" stroke-width="1.5"/>
+      <polygon points="240,86 248,90 240,94" fill="#38BDF8"/>
+
+      <rect x="250" y="55" width="160" height="70" rx="8" fill="#121A2B" stroke="#F59E0B" stroke-width="1.5"/>
+      <text x="330" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">Next.js Backend</text>
+      <text x="330" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">REST Cart & Orders API</text>
+
+      <path d="M410 90 H490" stroke="#38BDF8" stroke-width="1.5"/>
+      <polygon points="490,86 498,90 490,94" fill="#38BDF8"/>
+
+      <rect x="500" y="55" width="160" height="70" rx="8" fill="#121A2B" stroke="#38BDF8" stroke-width="1.5"/>
+      <text x="580" y="88" fill="#E6EAF2" font-size="11" font-family="var(--font-mono), monospace" text-anchor="middle" font-weight="bold">MongoDB</text>
+      <text x="580" y="104" fill="#94A3B8" font-size="9" font-family="var(--font-mono), monospace" text-anchor="middle">Products & Cart Items</text>
+    </svg>`,
+    verifiedInRepo: true,
+  },
+  {
     id: "fitness",
     slug: "infinity-fitness-platform",
     title: "Infinity Fitness Platform",

@@ -31,13 +31,13 @@ export default function Projects() {
           </p>
         </motion.div>
 
-        {/* Compact Grid: exactly 3 featured projects */}
+        {/* Featured Projects Grid (Balanced 2x2) */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.45, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
         >
           {FEATURED_PROJECTS.map((project) => (
             <ProjectCard
