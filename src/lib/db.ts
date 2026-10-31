@@ -166,7 +166,7 @@ const defaultProfile: ProfileData = {
   phone: "+95 9 798 123456",
   whatsapp: "",
   location: "Yangon, Myanmar",
-  linkedin: "https://linkedin.com",
+  linkedin: "https://www.linkedin.com/in/ye-yint-lin-altair-822a10298/",
   github: "https://github.com/YeYintLin",
 };
 

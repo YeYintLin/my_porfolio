@@ -72,7 +72,7 @@ export default function AdminDashboard() {
     phone: "",
     whatsapp: "",
     location: "Yangon, Myanmar",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/ye-yint-lin-altair-822a10298/",
     github: "https://github.com/YeYintLin",
   });
 
